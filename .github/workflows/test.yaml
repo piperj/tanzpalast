@@ -1,0 +1,50 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Validate JSON data files
+        run: |
+          uv run python -c "
+          import json, sys, pathlib
+          errors = []
+          for f in pathlib.Path('data').glob('*.json'):
+              try:
+                  data = json.loads(f.read_text())
+                  print(f'OK: {f} ({len(data)} entries)')
+              except json.JSONDecodeError as e:
+                  errors.append(f'FAIL: {f}: {e}')
+          if errors:
+              print('\n'.join(errors))
+              sys.exit(1)
+          "
+
+      - name: Check required fields
+        run: |
+          uv run python -c "
+          import json, sys, pathlib
+          required = {'id', 'title', 'dance', 'style', 'url', 'source'}
+          data = json.loads(pathlib.Path('data/tanzpalast-data.json').read_text())
+          errors = []
+          for entry in data:
+              missing = required - entry.keys()
+              if missing:
+                  errors.append(f'Entry {entry.get(\"id\", \"?\")} missing fields: {missing}')
+          if errors:
+              for e in errors:
+                  print(e)
+              sys.exit(1)
+          print(f'All {len(data)} entries valid.')
+          "
