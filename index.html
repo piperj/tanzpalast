@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tanzpalast</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --header-h: 52px;
+      --accent: #1a1a2e;
+      --accent2: #e94560;
+      --bg: #f5f5f7;
+      --card-bg: #fff;
+      --text: #1a1a1a;
+      --muted: #666;
+      --border: #e0e0e0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-h);
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+    }
+
+    [data-hamburger] {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      padding: 8px;
+      margin: -8px;
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .header-title {
+      flex: 1;
+      font-size: 17px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .header-icon {
+      font-size: 20px;
+    }
+
+    /* ── Nav panel ── */
+    [data-nav-panel] {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+    }
+
+    [data-nav-panel].open {
+      display: block;
+    }
+
+    .nav-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .nav-drawer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 260px;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding-top: var(--header-h);
+    }
+
+    .nav-drawer h2 {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.5);
+      padding: 20px 20px 8px;
+    }
+
+    .nav-collection {
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      height: 52px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      border: none;
+      background: none;
+      color: #fff;
+      width: 100%;
+      text-align: left;
+      transition: background 0.15s;
+    }
+
+    .nav-collection:hover,
+    .nav-collection.active {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .nav-collection.active {
+      color: var(--accent2);
+    }
+
+    /* ── Main ── */
+    main {
+      padding: 12px 12px 32px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── Loading / Error ── */
+    [data-loading], [data-error] {
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--muted);
+    }
+
+    [data-error] {
+      color: var(--accent2);
+    }
+
+    [data-loading] .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent2);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Dance card ── */
+    [data-dance] {
+      background: var(--card-bg);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    [data-dance][hidden] {
+      display: none;
+    }
+
+    .card-header {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    .dance-name {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding: 12px 16px 4px;
+    }
+
+    /* ── Video row ── */
+    .video-row {
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      min-height: 52px;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .video-row:active {
+      background: rgba(0,0,0,0.04);
+    }
+
+    [data-featured] {
+      min-height: 56px;
+      padding-bottom: 8px;
+    }
+
+    .video-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--accent2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .video-icon.doc {
+      background: #5856d6;
+      font-size: 16px;
+    }
+
+    .video-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .video-title {
+      font-size: 15px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .video-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .expand-arrow {
+      font-size: 13px;
+      color: var(--muted);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    [data-dance].expanded .expand-arrow {
+      transform: rotate(90deg);
+    }
+
+    /* ── Sub-videos ── */
+    [data-sub-videos] {
+      display: none;
+      border-top: 1px solid var(--border);
+    }
+
+    [data-dance].expanded [data-sub-videos] {
+      display: block;
+    }
+
+    [data-sub-videos] .video-row {
+      padding-left: 24px;
+      min-height: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    [data-sub-videos] .video-row:last-child {
+      border-bottom: none;
+    }
+
+    [data-sub-videos] .video-icon {
+      width: 30px;
+      height: 30px;
+      font-size: 12px;
+    }
+
+    [data-sub-videos] .video-title {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <button data-hamburger aria-label="Menu">≡</button>
+  <span class="header-title">Tanzpalast · <span id="active-label">All</span></span>
+  <span class="header-icon">🏛</span>
+</header>
+
+<div data-nav-panel role="dialog" aria-modal="true" aria-label="Collections">
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <nav class="nav-drawer">
+    <h2>Collections</h2>
+    <button class="nav-collection active" data-tag="" data-name="All">All</button>
+    <button class="nav-collection" data-tag="standard" data-name="Standard">Standard</button>
+    <button class="nav-collection" data-tag="smooth"   data-name="Smooth">Smooth</button>
+    <button class="nav-collection" data-tag="latin"    data-name="Latin">Latin</button>
+    <button class="nav-collection" data-tag="rhythm"   data-name="Rhythm">Rhythm</button>
+    <button class="nav-collection" data-tag="club"     data-name="Club">Club</button>
+  </nav>
+</div>
+
+<main id="main">
+  <div data-loading>
+    <div class="spinner"></div>
+    <p>Loading…</p>
+  </div>
+</main>
+
+<script>
+  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+               || location.protocol === 'file:' || /^\d+\.\d+\.\d+\.\d+$/.test(location.hostname);
+  const DATA_URL = isLocal ? 'data/tanzpalast-data.json' : 'GOOGLE_DRIVE_URL';
+
+  let allDances = [];
+  let danceMap  = new Map();
+  let activeTag = '';
+
+  // ── Hamburger / nav panel ──────────────────────────────────────────────────
+
+  const hamburger    = document.querySelector('[data-hamburger]');
+  const navPanel     = document.querySelector('[data-nav-panel]');
+  const overlay      = document.getElementById('nav-overlay');
+  const activeLabel  = document.getElementById('active-label');
+  const navButtons   = document.querySelectorAll('.nav-collection');
+
+  function openPanel()  { navPanel.classList.add('open'); }
+  function closePanel() { navPanel.classList.remove('open'); }
+
+  hamburger.addEventListener('click', openPanel);
+  overlay.addEventListener('click', closePanel);
+
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTag = btn.dataset.tag;
+      activeLabel.textContent = btn.dataset.name;
+      navButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter();
+      closePanel();
+    });
+  });
+
+  // ── Filter ────────────────────────────────────────────────────────────────
+
+  function cardMatchesTag(dance, tag) {
+    if (!tag) return true;
+    const inFeatured = dance.featured?.tags?.includes(tag);
+    const inVideos   = dance.videos?.some(v => v.tags?.includes(tag));
+    return inFeatured || inVideos;
+  }
+
+  function applyFilter() {
+    document.querySelectorAll('[data-dance]').forEach(card => {
+      card.hidden = !cardMatchesTag(danceMap.get(card.dataset.dance), activeTag);
+    });
+  }
+
+  // ── Render ────────────────────────────────────────────────────────────────
+
+  function iconFor(type) {
+    if (type === 'pdf' || type === 'image') {
+      return `<span class="video-icon doc" data-icon="${type}">📄</span>`;
+    }
+    return `<span class="video-icon" data-icon="video">▶</span>`;
+  }
+
+  function videoRow(v, isFeatured) {
+    const desc = v.description ? `<div class="video-desc">${esc(v.description)}</div>` : '';
+    const attrs = isFeatured ? ' data-featured' : '';
+    return `
+      <a class="video-row" href="${esc(v.url)}" target="_blank" rel="noopener"${attrs}>
+        ${iconFor(v.type || 'video')}
+        <div class="video-info">
+          <div class="video-title">${esc(v.title)}</div>
+          ${desc}
+        </div>
+      </a>`;
+  }
+
+  function renderDances(dances) {
+    return dances.map(d => {
+      const subRows = (d.videos || []).map(v => videoRow(v, false)).join('');
+      const subSection = subRows
+        ? `<div data-sub-videos>${subRows}</div>`
+        : '';
+      const arrow = subRows ? `<span class="expand-arrow">›</span>` : '';
+
+      return `
+        <article data-dance="${esc(d.dance)}">
+          <div class="card-header">
+            <div class="dance-name">${esc(d.dance)} ${arrow}</div>
+            ${d.featured ? videoRow(d.featured, true) : ''}
+          </div>
+          ${subSection}
+        </article>`;
+    }).join('');
+  }
+
+  function esc(str) {
+    return String(str ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // ── Card expand/collapse (delegated to main) ─────────────────────────────
+
+  document.getElementById('main').addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    const header = e.target.closest('.card-header');
+    if (header) header.closest('[data-dance]').classList.toggle('expanded');
+  });
+
+  // ── Fetch + boot ──────────────────────────────────────────────────────────
+
+  async function load() {
+    const main = document.getElementById('main');
+    try {
+      const res = await fetch(DATA_URL);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      allDances = await res.json();
+      danceMap  = new Map(allDances.map(d => [d.dance, d]));
+
+      main.innerHTML = renderDances(allDances);
+    } catch (err) {
+      main.innerHTML = `
+        <div data-error>
+          <p>⚠️ Could not load catalog.</p>
+          <p style="margin-top:8px;font-size:13px">${esc(err.message)}</p>
+        </div>`;
+    }
+  }
+
+  load();
+</script>
+</body>
+</html>

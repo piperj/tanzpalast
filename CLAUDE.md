@@ -2,8 +2,6 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-> **CRITICAL — Shell commands: NEVER use `cd` before any command. `$PWD` is already set to the project root. Run all commands as-is.**
-
 ## Project
 
 Tanzpalast is a static, single-page dance video catalog. It fetches a JSON data file from Google Drive at runtime and renders a filterable catalog of dance videos grouped by collection and dance. No build step, no framework, no npm.
@@ -34,11 +32,12 @@ Never hardcode the Google Drive URL without this guard — cloners would hit a U
 
 ## Current State (2026-04-05)
 
-- Step 0 complete: `tanzpalast.yaml` on nested schema; `src/build.py` written and working; `data/tanzpalast-data.json` regenerated
+- Steps 0–6 complete: `index.html` exists and implements all features (data fetch, card layout, hamburger filter, mixed media icons, loading/error states)
+- `index.html` is untracked — not yet committed; manual iPhone check and Playwright test run needed before commit
 - `pyproject.toml` exists; `uv run python src/build.py` is the build command
 - `tests/test_build.py` exists — 32 unit tests, 98% coverage of `src/build.py`
-- `tests/test_ui.py` exists — Playwright tests written, auto-skipped until `index.html` is created
-- `index.html` does not exist yet — Step 1 is next
+- `tests/test_ui.py` exists — Playwright tests now active (index.html present); run `uv run python -m pytest tests/ -v`
+- Local dev server: `python3 -m http.server 8080 --bind 0.0.0.0 --directory .`
 
 ## Build Sequence
 
@@ -101,10 +100,6 @@ Also do a manual check in Safari/Chrome mobile simulation before each commit.
 ## CI
 
 `.github/workflows/test.yaml` validates all JSON files in `data/` and checks required fields. Update this workflow when the JSON schema changes (nested structure changes the required-field check).
-
-## Shell commands
-
-`$PWD` is already set to the project root — never use `cd` before running commands.
 
 ## Key Decisions
 
