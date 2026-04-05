@@ -21,6 +21,10 @@ The JSON file lives on Google Drive, not in this repo. The canonical schema and 
 
 `.github/workflows/test.yaml` validates all JSON files in `data/` and checks required fields using `uv run python`.
 
+## Shell commands
+
+`$PWD` is already set to the project root — never use `cd` before running commands.
+
 ## Key decisions
 
 - All page logic lives in `index.html` for v1 — acceptable until complexity grows
