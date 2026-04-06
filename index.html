@@ -218,7 +218,7 @@
       width: 36px;
       height: 36px;
       background: var(--accent2);
-      border-radius: 50%;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -253,14 +253,39 @@
       text-overflow: ellipsis;
     }
 
-    .expand-arrow {
-      font-size: 13px;
-      color: var(--muted);
-      transition: transform 0.2s;
+    .video-icon-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
+      min-width: 44px;
+      min-height: 44px;
+      margin: -4px -4px -4px -4px;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    [data-dance].expanded .expand-arrow {
+    .more-badge {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #0a84ff;
+      background: rgba(10, 132, 255, 0.1);
+      padding: 5px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .badge-arrow {
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    [data-dance].expanded .badge-arrow {
       transform: rotate(90deg);
     }
 
@@ -378,11 +403,28 @@
     return `<span class="video-icon" data-icon="video">▶</span>`;
   }
 
-  function videoRow(v, isFeatured) {
+  function featuredRow(v, extraCount) {
     const desc = v.description ? `<div class="video-desc">${esc(v.description)}</div>` : '';
-    const attrs = isFeatured ? ' data-featured' : '';
+    const badge = extraCount > 0
+      ? `<span class="more-badge">${extraCount} more <span class="badge-arrow">›</span></span>`
+      : '';
     return `
-      <a class="video-row" href="${esc(v.url)}" target="_blank" rel="noopener"${attrs}>
+      <div class="video-row" data-featured>
+        <a class="video-icon-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">
+          ${iconFor(v.type || 'video')}
+        </a>
+        <div class="video-info">
+          <div class="video-title">${esc(v.title)}</div>
+          ${desc}
+        </div>
+        ${badge}
+      </div>`;
+  }
+
+  function subRow(v) {
+    const desc = v.description ? `<div class="video-desc">${esc(v.description)}</div>` : '';
+    return `
+      <a class="video-row" href="${esc(v.url)}" target="_blank" rel="noopener">
         ${iconFor(v.type || 'video')}
         <div class="video-info">
           <div class="video-title">${esc(v.title)}</div>
@@ -397,15 +439,14 @@
       const filtered = tag ? all.filter(v => v.tags?.includes(tag)) : all;
       if (!filtered.length) return [];
       const [featured, ...rest] = filtered;
-      const subRows = rest.map(v => videoRow(v, false)).join('');
+      const subRows = rest.map(v => subRow(v)).join('');
       const subSection = subRows ? `<div data-sub-videos>${subRows}</div>` : '';
-      const arrow = subRows ? `<span class="expand-arrow">›</span>` : '';
 
       return `
         <article data-dance="${esc(d.dance)}">
           <div class="card-header">
-            <div class="dance-name">${esc(d.dance)} ${arrow}</div>
-            ${videoRow(featured, true)}
+            <div class="dance-name">${esc(d.dance)}</div>
+            ${featuredRow(featured, rest.length)}
           </div>
           ${subSection}
         </article>`;
