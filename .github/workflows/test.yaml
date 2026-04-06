@@ -35,16 +35,24 @@ jobs:
         run: |
           uv run python -c "
           import json, sys, pathlib
-          required = {'id', 'title', 'dance', 'style', 'url', 'source'}
           data = json.loads(pathlib.Path('data/tanzpalast-data.json').read_text())
+          VIDEO_FIELDS = {'id', 'title', 'url', 'type', 'tags'}
           errors = []
           for entry in data:
-              missing = required - entry.keys()
-              if missing:
-                  errors.append(f'Entry {entry.get(\"id\", \"?\")} missing fields: {missing}')
+              if 'dance' not in entry:
+                  errors.append(f'Entry missing dance field: {entry}')
+                  continue
+              def check(v, label):
+                  missing = VIDEO_FIELDS - v.keys()
+                  if missing:
+                      errors.append(f'{entry[\"dance\"]}: {label} missing fields: {missing}')
+              for v in (entry.get('videos') or []):
+                  check(v, 'video')
+              if entry.get('featured'):
+                  check(entry['featured'], 'featured')
           if errors:
               for e in errors:
                   print(e)
               sys.exit(1)
-          print(f'All {len(data)} entries valid.')
+          print(f'All {len(data)} dance entries valid.')
           "

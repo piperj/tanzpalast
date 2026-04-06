@@ -42,12 +42,9 @@ def build():
             sys.exit(1)
 
         featured_raw = entry.get("featured")
-        if not featured_raw:
-            print(f"ERROR: dance '{dance_name}' missing 'featured'", file=sys.stderr)
-            sys.exit(1)
-
-        featured = _video_dict(featured_raw, next_id)
-        next_id += 1
+        featured = _video_dict(featured_raw, next_id) if featured_raw else None
+        if featured_raw:
+            next_id += 1
 
         videos = []
         for v in entry.get("videos") or []:

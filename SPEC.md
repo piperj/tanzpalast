@@ -33,7 +33,7 @@ GitHub Pages
 
 ### Filtering
 
-The hamburger menu lists the 5 hardcoded collections (Standard, Smooth, Latin, Rhythm, Club). Tapping a collection filters the catalog to dances where at least one video carries a matching tag (e.g. `standard`, `latin`). Tags drive the filter — there is no `collection:` field in the data.
+The hamburger menu lists the 6 hardcoded collections (Standard, Smooth, Latin, Rhythm, Club, Showcase). Tapping a collection filters the catalog to dances where at least one video carries a matching tag (e.g. `standard`, `latin`). Tags drive the filter — there is no `collection:` field in the data.
 
 ### Data environment detection
 
@@ -145,6 +145,7 @@ The YAML is the source of truth, authored like a diary. IDs are assigned by the 
 | **Latin**    | `latin`    | Cha Cha, Samba, Rumba, Paso Doble, Jive |
 | **Rhythm**   | `rhythm`   | Cha Cha, Bolero, East Coast Swing, Mambo, Rumba |
 | **Club**     | `club`     | Salsa, Bachata, Kizomba, Swing, Zouk, Hustle |
+| **Showcase** | `showcase` | Foxtrot, Tango, Hustle |
 
 A dance card appears under a collection when its `featured` video or any sub-video carries that collection's tag.
 

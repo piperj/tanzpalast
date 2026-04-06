@@ -23,6 +23,7 @@
 #   Latin:    Cha Cha, Samba, Rumba, Paso Doble, Jive
 #   Rhythm:   Cha Cha, Bolero, East Coast Swing, Mambo, Rumba
 #   Club:     Salsa, Bachata, Kizomba, Swing, Zouk, Hustle
+#   Showcase: Foxtrot, Tango, Hustle
 
 - dance: Waltz
   featured:
@@ -39,14 +40,20 @@
     title: International Level 2
     url: https://youtu.be/b1qywfPXevs
     tags: [standard]
-  videos: []
+  videos:
+    - title: Showcase Tango
+      url: https://drive.google.com/file/d/17iIoCs6DD1dMvJ_Ycf0YI0v4OxUj365q/view?usp=sharing
+      tags: [showcase]
 
 - dance: Foxtrot
   featured:
     title: International Level 2
     url: https://youtu.be/PdnfDADpFjM
     tags: [standard]
-  videos: []
+  videos:
+    - title: Showcase Foxtrot
+      url: https://drive.google.com/file/d/1LleJkfXYVGN05vhGFWkAxx_qkqwxhsCz/view?usp=sharing
+      tags: [showcase]
 
 - dance: Quickstep
   featured:
@@ -92,3 +99,16 @@
     url: https://youtu.be/WzudJdiB5yE
     tags: [latin]
   videos: []
+
+- dance: Hustle
+  featured: ~
+  videos:
+    - title: Showcase Hustle 1
+      url: https://drive.google.com/file/d/1NuB_ALcZ8UaX28V1gwyi59fu2H9P9sVf/view?usp=sharing
+      tags: [showcase]
+    - title: Showcase Hustle 2
+      url: https://drive.google.com/file/d/1eoxSLCl2-445iBuVxRExwJSZhMjU31BK/view?usp=sharing
+      tags: [showcase]
+    - title: Showcase Hustle 3
+      url: https://drive.google.com/file/d/1-NPvYnWPrjqAbgg8EULMrWdz5kyGV4O1/view?usp=sharing
+      tags: [showcase]

@@ -33,6 +33,9 @@ Never hardcode the Google Drive URL without this guard — cloners would hit a U
 ## Current State (2026-04-05)
 
 - Steps 0–6 complete: `index.html` exists and implements all features (data fetch, card layout, hamburger filter, mixed media icons, loading/error states)
+- Showcase collection added (6th): Foxtrot + Tango get showcase sub-videos; Hustle is a new card with `featured: null` and 3 showcase sub-videos
+- `build.py` allows null `featured`; `index.html` already handled it; CI schema check updated for nested structure
+- `data/tanzpalast-data.json` has 10 dances (regenerated)
 - `index.html` is untracked — not yet committed; manual iPhone check and Playwright test run needed before commit
 - `pyproject.toml` exists; `uv run python src/build.py` is the build command
 - `tests/test_build.py` exists — 32 unit tests, 98% coverage of `src/build.py`
@@ -57,7 +60,7 @@ Work in strict order. Each step = one commit. Run Playwright tests + manual iPho
 
 See `SPEC.md` for the full ASCII layout. Key points:
 - Sticky header: `≡  Tanzpalast · {ActiveCollection}  🏛`
-- Hamburger opens a slide-out panel listing the 5 collections; tap filters + closes panel
+- Hamburger opens a slide-out panel listing the 6 collections; tap filters + closes panel
 - Cards grouped by dance within the active collection
 - Card header = dance name + featured video (always visible) + large play button
 - Sub-videos expand on card tap (collapsed by default)
@@ -107,7 +110,7 @@ Also do a manual check in Safari/Chrome mobile simulation before each commit.
 - Environment detection chooses local file vs. Google Drive URL — never hardcode Drive URL alone
 - YAML structure mirrors the card: `dance → featured + videos`; no collection nesting — collection membership is expressed via tags
 - JSON output mirrors the YAML structure directly — no flattening
-- Collections are hardcoded in the UI (Standard, Smooth, Latin, Rhythm, Club); filtering matches cards by tag (see SPEC.md)
+- Collections are hardcoded in the UI (Standard, Smooth, Latin, Rhythm, Club, Showcase); filtering matches cards by tag (see SPEC.md)
 - `featured` is a top-level key on each dance object — the always-visible card header video
 - `type` field on videos: `video` (default), `pdf`, `image`
 - No search in v1 — filter by collection only
