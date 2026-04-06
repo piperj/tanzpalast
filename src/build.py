@@ -41,17 +41,12 @@ def build():
             print("ERROR: entry missing 'dance' field", file=sys.stderr)
             sys.exit(1)
 
-        featured_raw = entry.get("featured")
-        featured = _video_dict(featured_raw, next_id) if featured_raw else None
-        if featured_raw:
-            next_id += 1
-
         videos = []
         for v in entry.get("videos") or []:
             videos.append(_video_dict(v, next_id))
             next_id += 1
 
-        output.append({"dance": dance_name, "featured": featured, "videos": videos})
+        output.append({"dance": dance_name, "videos": videos})
 
     DATA_DIR.mkdir(exist_ok=True)
     with JSON_PATH.open("w") as f:

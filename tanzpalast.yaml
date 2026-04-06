@@ -1,9 +1,10 @@
 # Tanzpalast — video diary
 #
 # Each entry is a dance card:
-#   dance:    the dance name (Waltz, Cha Cha, Salsa, etc.)
-#   featured: the always-visible header video for this card
-#   videos:   collapsed sub-videos (expand on tap)
+#   dance:  the dance name (Waltz, Cha Cha, Salsa, etc.)
+#   videos: all videos for this dance, in display order
+#           — the first video that matches the active collection filter
+#             becomes the featured (header) video; the rest are sub-videos
 #
 # IDs are assigned automatically by the build script — do not add them here.
 #
@@ -26,89 +27,79 @@
 #   Showcase: Foxtrot, Tango, Hustle
 
 - dance: Waltz
-  featured:
-    title: International Level 2
-    url: https://youtu.be/wRfREep5Ke0
-    tags: [standard]
   videos:
+    - title: Standard level 2
+      url: https://youtu.be/wRfREep5Ke0?t=10
+      tags: [standard]
     - title: Chrystal Waltz
       url: https://share.icloud.com/photos/029UbP_Kzf2w2kFrVw8qYlfmg
       tags: [standard, chrystal, personal]
 
 - dance: Tango
-  featured:
-    title: International Level 2
-    url: https://youtu.be/b1qywfPXevs
-    tags: [standard]
   videos:
+    - title: Standard level 2
+      url: https://youtu.be/b1qywfPXevs?t=10
+      tags: [standard]
     - title: Showcase Tango
       url: https://drive.google.com/file/d/17iIoCs6DD1dMvJ_Ycf0YI0v4OxUj365q/view?usp=sharing
       tags: [showcase]
 
 - dance: Foxtrot
-  featured:
-    title: International Level 2
-    url: https://youtu.be/PdnfDADpFjM
-    tags: [standard]
   videos:
+    - title: Standard level 2
+      url: https://youtu.be/PdnfDADpFjM?t=10
+      tags: [standard]
     - title: Showcase Foxtrot
       url: https://drive.google.com/file/d/1LleJkfXYVGN05vhGFWkAxx_qkqwxhsCz/view?usp=sharing
       tags: [showcase]
 
 - dance: Quickstep
-  featured:
-    title: International Level 2
-    url: https://youtu.be/A1n0oY7K3iQ
-    tags: [standard]
   videos:
+    - title: Standard level 2
+      url: https://youtu.be/A1n0oY7K3iQ?t=10
+      tags: [standard]
     - title: Chrystal Quickstep
       url: https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA
       tags: [standard, chrystal, personal]
 
 - dance: Cha Cha
-  featured:
-    title: International Latin Level 2
-    url: https://youtu.be/bLVOCpYhQtk
-    tags: [latin]
-  videos: []
+  videos:
+    - title: Latin level 2
+      url: https://youtu.be/bLVOCpYhQtk?t=10
+      tags: [latin]
 
 - dance: Samba
-  featured:
-    title: International Latin Level 2
-    url: https://youtu.be/JctNCNaBnOY
-    tags: [latin]
-  videos: []
+  videos:
+    - title: Latin level 2
+      url: https://youtu.be/JctNCNaBnOY?t=10
+      tags: [latin]
 
 - dance: Rumba
-  featured:
-    title: International Latin Level 2
-    url: https://youtu.be/OdvINyoNVds
-    tags: [latin]
-  videos: []
+  videos:
+    - title: Latin level 2
+      url: https://youtu.be/OdvINyoNVds?t=10
+      tags: [latin]
 
 - dance: Paso Doble
-  featured:
-    title: International Latin Level 2
-    url: https://youtu.be/nDFihjVBSYs
-    tags: [latin]
-  videos: []
+  videos:
+    - title: Fallaway, Promende, Attack
+      url: https://youtu.be/nDFihjVBSYs
+      tags: [latin]
 
 - dance: Jive
-  featured:
-    title: International Latin Level 2
-    url: https://youtu.be/WzudJdiB5yE
-    tags: [latin]
-  videos: []
+  videos:
+    - title: Latin level 2
+      url: https://youtu.be/WzudJdiB5yE?t=10
+      tags: [latin]
 
 - dance: Hustle
-  featured: ~
   videos:
     - title: Showcase Hustle 1
       url: https://drive.google.com/file/d/1NuB_ALcZ8UaX28V1gwyi59fu2H9P9sVf/view?usp=sharing
-      tags: [showcase]
+      tags: [club,showcase]
     - title: Showcase Hustle 2
       url: https://drive.google.com/file/d/1eoxSLCl2-445iBuVxRExwJSZhMjU31BK/view?usp=sharing
-      tags: [showcase]
+      tags: [club,showcase]
     - title: Showcase Hustle 3
       url: https://drive.google.com/file/d/1-NPvYnWPrjqAbgg8EULMrWdz5kyGV4O1/view?usp=sharing
-      tags: [showcase]
+      tags: [club,showcase]

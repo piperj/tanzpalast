@@ -101,11 +101,10 @@ class TestVideoDict:
 class TestBuildHappyPath:
     MINIMAL_YAML = """\
         - dance: Waltz
-          featured:
-            title: International Level 2
-            url: https://youtu.be/waltz
-            tags: [standard]
           videos:
+            - title: International Level 2
+              url: https://youtu.be/waltz
+              tags: [standard]
             - title: Natural Turn
               url: https://youtu.be/waltz-nt
               tags: [standard, footwork]
@@ -119,38 +118,43 @@ class TestBuildHappyPath:
         result = run_build(tmp_path, self.MINIMAL_YAML)
         assert result[0]["dance"] == "Waltz"
 
-    def test_featured_present(self, tmp_path):
+    def test_no_featured_key_in_output(self, tmp_path):
         result = run_build(tmp_path, self.MINIMAL_YAML)
-        assert "featured" in result[0]
+        assert "featured" not in result[0]
 
-    def test_featured_id_is_1(self, tmp_path):
+    def test_first_video_id_is_1(self, tmp_path):
         result = run_build(tmp_path, self.MINIMAL_YAML)
-        assert result[0]["featured"]["id"] == 1
+        assert result[0]["videos"][0]["id"] == 1
 
-    def test_sub_video_id_is_2(self, tmp_path):
+    def test_second_video_id_is_2(self, tmp_path):
         result = run_build(tmp_path, self.MINIMAL_YAML)
-        assert result[0]["videos"][0]["id"] == 2
+        assert result[0]["videos"][1]["id"] == 2
 
-    def test_featured_fields(self, tmp_path):
-        result = run_build(tmp_path, self.MINIMAL_YAML)
-        f = result[0]["featured"]
-        assert f["title"] == "International Level 2"
-        assert f["url"] == "https://youtu.be/waltz"
-        assert f["type"] == "video"
-        assert f["tags"] == ["standard"]
-
-    def test_sub_video_fields(self, tmp_path):
+    def test_first_video_fields(self, tmp_path):
         result = run_build(tmp_path, self.MINIMAL_YAML)
         v = result[0]["videos"][0]
+        assert v["title"] == "International Level 2"
+        assert v["url"] == "https://youtu.be/waltz"
+        assert v["type"] == "video"
+        assert v["tags"] == ["standard"]
+
+    def test_second_video_fields(self, tmp_path):
+        result = run_build(tmp_path, self.MINIMAL_YAML)
+        v = result[0]["videos"][1]
         assert v["title"] == "Natural Turn"
         assert v["tags"] == ["standard", "footwork"]
 
     def test_empty_videos_list(self, tmp_path):
         yaml = """\
             - dance: Tango
-              featured:
-                title: Basic Tango
-                url: https://youtu.be/tango
+              videos: []
+        """
+        result = run_build(tmp_path, yaml)
+        assert result[0]["videos"] == []
+
+    def test_omitted_videos_key(self, tmp_path):
+        yaml = """\
+            - dance: Tango
         """
         result = run_build(tmp_path, yaml)
         assert result[0]["videos"] == []
@@ -187,36 +191,28 @@ class TestBuildHappyPath:
 class TestIdSequencing:
     MULTI_YAML = """\
         - dance: Waltz
-          featured:
-            title: Waltz Featured
-            url: https://youtu.be/wf
           videos:
-            - title: Waltz Sub 1
-              url: https://youtu.be/ws1
-            - title: Waltz Sub 2
-              url: https://youtu.be/ws2
+            - title: Waltz Video 1
+              url: https://youtu.be/wv1
+            - title: Waltz Video 2
+              url: https://youtu.be/wv2
+            - title: Waltz Video 3
+              url: https://youtu.be/wv3
         - dance: Tango
-          featured:
-            title: Tango Featured
-            url: https://youtu.be/tf
           videos:
-            - title: Tango Sub 1
-              url: https://youtu.be/ts1
+            - title: Tango Video 1
+              url: https://youtu.be/tv1
     """
 
     def test_ids_are_globally_unique(self, tmp_path):
         result = run_build(tmp_path, self.MULTI_YAML)
-        all_ids = [result[0]["featured"]["id"]]
-        all_ids += [v["id"] for v in result[0]["videos"]]
-        all_ids += [result[1]["featured"]["id"]]
+        all_ids = [v["id"] for v in result[0]["videos"]]
         all_ids += [v["id"] for v in result[1]["videos"]]
         assert len(all_ids) == len(set(all_ids))
 
     def test_ids_are_sequential_from_1(self, tmp_path):
         result = run_build(tmp_path, self.MULTI_YAML)
-        all_ids = [result[0]["featured"]["id"]]
-        all_ids += [v["id"] for v in result[0]["videos"]]
-        all_ids += [result[1]["featured"]["id"]]
+        all_ids = [v["id"] for v in result[0]["videos"]]
         all_ids += [v["id"] for v in result[1]["videos"]]
         assert sorted(all_ids) == list(range(1, len(all_ids) + 1))
 
@@ -237,9 +233,9 @@ class TestIdSequencing:
 class TestBuildErrors:
     def test_missing_dance_field_exits(self, tmp_path):
         yaml = """\
-            - featured:
-                title: No Dance Name
-                url: https://youtu.be/x
+            - videos:
+                - title: No Dance Name
+                  url: https://youtu.be/x
         """
         with pytest.raises(SystemExit):
             run_build(tmp_path, yaml)
@@ -247,16 +243,6 @@ class TestBuildErrors:
     def test_empty_dance_name_exits(self, tmp_path):
         yaml = """\
             - dance: ""
-              featured:
-                title: T
-                url: https://youtu.be/x
-        """
-        with pytest.raises(SystemExit):
-            run_build(tmp_path, yaml)
-
-    def test_missing_featured_exits(self, tmp_path):
-        yaml = """\
-            - dance: Waltz
               videos:
                 - title: T
                   url: https://youtu.be/x
@@ -290,14 +276,14 @@ class TestRealData:
         assert "Wrote" in out.getvalue()
 
     def test_real_output_has_required_fields(self):
-        """Every dance entry in real output must have dance, featured, and videos."""
+        """Every dance entry in real output must have dance and videos."""
         import importlib
         importlib.reload(build)
         data = json.loads(build.JSON_PATH.read_text())
         for entry in data:
             assert "dance" in entry
-            assert "featured" in entry
             assert "videos" in entry
+            assert "featured" not in entry
 
     def test_real_output_all_ids_unique(self):
         """IDs across real output must all be unique integers."""
@@ -306,17 +292,15 @@ class TestRealData:
         data = json.loads(build.JSON_PATH.read_text())
         ids = []
         for entry in data:
-            ids.append(entry["featured"]["id"])
             ids.extend(v["id"] for v in entry["videos"])
         assert len(ids) == len(set(ids))
 
     def test_real_output_all_videos_have_type(self):
-        """Every video entry (featured + sub) must have a valid type field."""
+        """Every video entry must have a valid type field."""
         import importlib
         importlib.reload(build)
         data = json.loads(build.JSON_PATH.read_text())
         valid_types = {"video", "pdf", "image"}
         for entry in data:
-            assert entry["featured"]["type"] in valid_types
             for v in entry["videos"]:
                 assert v["type"] in valid_types

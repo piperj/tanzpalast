@@ -76,16 +76,15 @@ This means cloners get a clean repo with no data — they supply their own Googl
 
 ### YAML source (`tanzpalast.yaml`) — mirrors the card layout
 
-Each entry is a dance card: a `featured` video (always visible in the card header) and a `videos` list (collapsed sub-videos). Tags on each video determine which collection filter(s) it appears under.
+Each entry is a dance card: a `videos` list in display order. The first video that matches the active collection filter becomes the featured (header) video; the rest are sub-videos. Tags on each video determine which collection filter(s) it appears under.
 
 ```yaml
 - dance: Waltz
-  featured:
-    title: International Level 2
-    url: https://youtu.be/...
-    tags: [standard]
-    description: ""
   videos:
+    - title: International Level 2
+      url: https://youtu.be/...
+      tags: [standard]
+      description: ""
     - title: Natural Turn exercise
       url: https://youtu.be/...
       tags: [standard, footwork]
@@ -103,15 +102,15 @@ The YAML is the source of truth, authored like a diary. IDs are assigned by the 
 [
   {
     "dance": "Waltz",
-    "featured": {
-      "id": 1,
-      "title": "International Level 2",
-      "url": "https://youtu.be/...",
-      "type": "video",
-      "tags": ["standard"],
-      "description": ""
-    },
     "videos": [
+      {
+        "id": 1,
+        "title": "International Level 2",
+        "url": "https://youtu.be/...",
+        "type": "video",
+        "tags": ["standard"],
+        "description": ""
+      },
       {
         "id": 2,
         "title": "Natural Turn exercise",
@@ -147,16 +146,16 @@ The YAML is the source of truth, authored like a diary. IDs are assigned by the 
 | **Club**     | `club`     | Salsa, Bachata, Kizomba, Swing, Zouk, Hustle |
 | **Showcase** | `showcase` | Foxtrot, Tango, Hustle |
 
-A dance card appears under a collection when its `featured` video or any sub-video carries that collection's tag.
+A dance card appears under a collection when any of its videos carries that collection's tag.
 
 ## Features
 
 ### v1 (current)
 - Fetch and render catalog from Google Drive JSON (or local file in dev)
 - Filter by collection via hamburger nav (hardcoded 5 collections); active collection shown in header
-- Filtering uses tags — a card appears when its featured or any sub-video carries the collection tag
+- Filtering uses tags — a card appears when any of its videos carries the collection tag
 - Cards grouped by dance; collapsed by default; tap to expand sub-videos
-- Featured video always visible in card header; opens link on tap
+- First video matching the active filter is featured in the card header; the rest are sub-videos
 - Mixed media support (video, pdf, image) with appropriate icons
 - Loading state while JSON fetches; error state on failure
 - iPhone-first layout (390px baseline, 44px tap targets)

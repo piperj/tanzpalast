@@ -48,8 +48,6 @@ jobs:
                       errors.append(f'{entry[\"dance\"]}: {label} missing fields: {missing}')
               for v in (entry.get('videos') or []):
                   check(v, 'video')
-              if entry.get('featured'):
-                  check(entry['featured'], 'featured')
           if errors:
               for e in errors:
                   print(e)

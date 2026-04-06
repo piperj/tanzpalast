@@ -330,7 +330,6 @@
   const DATA_URL = isLocal ? 'data/tanzpalast-data.json' : 'GOOGLE_DRIVE_URL';
 
   let allDances = [];
-  let danceMap  = new Map();
   let activeTag = '';
 
   // ── Hamburger / nav panel ──────────────────────────────────────────────────
@@ -360,16 +359,13 @@
 
   // ── Filter ────────────────────────────────────────────────────────────────
 
-  function cardMatchesTag(dance, tag) {
-    if (!tag) return true;
-    const inFeatured = dance.featured?.tags?.includes(tag);
-    const inVideos   = dance.videos?.some(v => v.tags?.includes(tag));
-    return inFeatured || inVideos;
-  }
-
   function applyFilter() {
-    document.querySelectorAll('[data-dance]').forEach(card => {
-      card.hidden = !cardMatchesTag(danceMap.get(card.dataset.dance), activeTag);
+    const expanded = new Set(
+      [...document.querySelectorAll('[data-dance].expanded')].map(el => el.dataset.dance)
+    );
+    document.getElementById('main').innerHTML = renderDances(allDances, activeTag);
+    document.querySelectorAll('[data-dance]').forEach(el => {
+      if (expanded.has(el.dataset.dance)) el.classList.add('expanded');
     });
   }
 
@@ -395,19 +391,21 @@
       </a>`;
   }
 
-  function renderDances(dances) {
-    return dances.map(d => {
-      const subRows = (d.videos || []).map(v => videoRow(v, false)).join('');
-      const subSection = subRows
-        ? `<div data-sub-videos>${subRows}</div>`
-        : '';
+  function renderDances(dances, tag) {
+    return dances.flatMap(d => {
+      const all = d.videos || [];
+      const filtered = tag ? all.filter(v => v.tags?.includes(tag)) : all;
+      if (!filtered.length) return [];
+      const [featured, ...rest] = filtered;
+      const subRows = rest.map(v => videoRow(v, false)).join('');
+      const subSection = subRows ? `<div data-sub-videos>${subRows}</div>` : '';
       const arrow = subRows ? `<span class="expand-arrow">›</span>` : '';
 
       return `
         <article data-dance="${esc(d.dance)}">
           <div class="card-header">
             <div class="dance-name">${esc(d.dance)} ${arrow}</div>
-            ${d.featured ? videoRow(d.featured, true) : ''}
+            ${videoRow(featured, true)}
           </div>
           ${subSection}
         </article>`;
@@ -438,9 +436,7 @@
       const res = await fetch(DATA_URL);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       allDances = await res.json();
-      danceMap  = new Map(allDances.map(d => [d.dance, d]));
-
-      main.innerHTML = renderDances(allDances);
+      main.innerHTML = renderDances(allDances, activeTag);
     } catch (err) {
       main.innerHTML = `
         <div data-error>
