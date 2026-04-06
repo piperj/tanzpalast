@@ -26,8 +26,69 @@
 
 - dance: Waltz
   featured:
-    title: Natural Turn — Waltz
-    url: https://www.icloud.com/photos/REPLACE_ME
-    tags: [standard, footwork, rise-and-fall]
-    description: "Replace this entry with your real videos"
+    title: International Level 2
+    url: https://youtu.be/wRfREep5Ke0
+    tags: [standard]
+  videos:
+    - title: Chrystal Waltz
+      url: https://share.icloud.com/photos/029UbP_Kzf2w2kFrVw8qYlfmg
+      tags: [standard, chrystal, personal]
+
+- dance: Tango
+  featured:
+    title: International Level 2
+    url: https://youtu.be/b1qywfPXevs
+    tags: [standard]
+  videos: []
+
+- dance: Foxtrot
+  featured:
+    title: International Level 2
+    url: https://youtu.be/PdnfDADpFjM
+    tags: [standard]
+  videos: []
+
+- dance: Quickstep
+  featured:
+    title: International Level 2
+    url: https://youtu.be/A1n0oY7K3iQ
+    tags: [standard]
+  videos:
+    - title: Chrystal Quickstep
+      url: https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA
+      tags: [standard, chrystal, personal]
+
+- dance: Cha Cha
+  featured:
+    title: International Latin Level 2
+    url: https://youtu.be/bLVOCpYhQtk
+    tags: [latin]
+  videos: []
+
+- dance: Samba
+  featured:
+    title: International Latin Level 2
+    url: https://youtu.be/JctNCNaBnOY
+    tags: [latin]
+  videos: []
+
+- dance: Rumba
+  featured:
+    title: International Latin Level 2
+    url: https://youtu.be/OdvINyoNVds
+    tags: [latin]
+  videos: []
+
+- dance: Paso Doble
+  featured:
+    title: International Latin Level 2
+    url: https://youtu.be/nDFihjVBSYs
+    tags: [latin]
+  videos: []
+
+- dance: Jive
+  featured:
+    title: International Latin Level 2
+    url: https://youtu.be/WzudJdiB5yE
+    tags: [latin]
   videos: []

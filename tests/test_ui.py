@@ -29,10 +29,6 @@ if not INDEX.exists():
 # ---------------------------------------------------------------------------
 
 def _start_server(directory: Path, port: int) -> threading.Thread:
-    handler = http.server.SimpleHTTPRequestHandler
-    httpd = http.server.HTTPServer(("localhost", port), handler)
-    httpd.allow_reuse_address = True
-
     class _Handler(http.server.SimpleHTTPRequestHandler):
         def __init__(self, *args, **kwargs):
             super().__init__(*args, directory=str(directory), **kwargs)
@@ -55,12 +51,20 @@ def base_url():
 
 
 # ---------------------------------------------------------------------------
-# iPhone 15 viewport fixture
+# iPhone 15 viewport + touch fixture
 # ---------------------------------------------------------------------------
+
+@pytest.fixture(scope="session")
+def browser_context_args(browser_context_args):
+    return {
+        **browser_context_args,
+        "has_touch": True,
+        "viewport": {"width": 390, "height": 844},
+    }
+
 
 @pytest.fixture
 def iphone_page(page: Page):
-    page.set_viewport_size({"width": 390, "height": 844})
     return page
 
 
@@ -114,7 +118,7 @@ class TestCardStructure:
         iphone_page.goto(base_url)
         iphone_page.wait_for_load_state("networkidle")
         card = iphone_page.locator("[data-dance]").first
-        card.tap()
+        card.locator(".dance-name").tap()
         sub_list = card.locator("[data-sub-videos]")
         expect(sub_list).to_be_visible()
 
@@ -122,8 +126,8 @@ class TestCardStructure:
         iphone_page.goto(base_url)
         iphone_page.wait_for_load_state("networkidle")
         card = iphone_page.locator("[data-dance]").first
-        card.tap()
-        card.tap()
+        card.locator(".dance-name").tap()
+        card.locator(".dance-name").tap()
         sub_list = card.locator("[data-sub-videos]")
         expect(sub_list).to_be_hidden()
 
