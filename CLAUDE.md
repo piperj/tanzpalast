@@ -30,16 +30,16 @@ const DATA_URL = isLocal ? 'data/tanzpalast-data.json' : 'GOOGLE_DRIVE_URL';
 
 Never hardcode the Google Drive URL without this guard — cloners would hit a URL they don't own.
 
-## Current State (2026-04-05)
+## Current State (2026-04-06)
 
-- Steps 0–6 complete: `index.html` exists and implements all features (data fetch, card layout, hamburger filter, mixed media icons, loading/error states)
-- Showcase collection added (6th): Foxtrot + Tango get showcase sub-videos; Hustle is a new card with `featured: null` and 3 showcase sub-videos
-- `build.py` allows null `featured`; `index.html` already handled it; CI schema check updated for nested structure
-- `data/tanzpalast-data.json` has 10 dances (regenerated)
-- `index.html` is untracked — not yet committed; manual iPhone check and Playwright test run needed before commit
+- Steps 0–6 complete and committed; `index.html` on `main`, live on GitHub Pages
+- Card interaction redesigned: only the play icon opens video; tapping card body expands sub-videos
+- "N more ›" badge (light blue pill) replaces the faint chevron — visible expand indicator
+- Play button is now a rounded square (8px radius), not a circle
+- `data/tanzpalast-data.json` has 10 dances; Showcase collection active (6th)
 - `pyproject.toml` exists; `uv run python src/build.py` is the build command
-- `tests/test_build.py` exists — 32 unit tests, 98% coverage of `src/build.py`
-- `tests/test_ui.py` exists — Playwright tests now active (index.html present); run `uv run python -m pytest tests/ -v`
+- `tests/test_build.py` — 32 unit tests, 98% coverage of `src/build.py`
+- `tests/test_ui.py` — Playwright tests active; run `uv run python -m pytest tests/ -v`
 - Local dev server: `python3 -m http.server 8080 --bind 0.0.0.0 --directory .`
 
 ## Build Sequence
