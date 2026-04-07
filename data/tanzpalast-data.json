@@ -1,0 +1,219 @@
+[
+  {
+    "dance": "Waltz",
+    "videos": [
+      {
+        "id": 1,
+        "title": "Standard level 2",
+        "url": "https://youtu.be/wRfREep5Ke0?t=10",
+        "type": "video",
+        "tags": [
+          "standard"
+        ],
+        "description": ""
+      },
+      {
+        "id": 2,
+        "title": "Chrystal Waltz",
+        "url": "https://share.icloud.com/photos/029UbP_Kzf2w2kFrVw8qYlfmg",
+        "type": "video",
+        "tags": [
+          "standard",
+          "chrystal",
+          "personal"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "dance": "Tango",
+    "videos": [
+      {
+        "id": 3,
+        "title": "Standard level 2",
+        "url": "https://youtu.be/b1qywfPXevs?t=10",
+        "type": "video",
+        "tags": [
+          "standard"
+        ],
+        "description": ""
+      },
+      {
+        "id": 4,
+        "title": "Showcase Tango",
+        "url": "https://drive.google.com/file/d/17iIoCs6DD1dMvJ_Ycf0YI0v4OxUj365q/view?usp=sharing",
+        "type": "video",
+        "tags": [
+          "showcase"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "dance": "Foxtrot",
+    "videos": [
+      {
+        "id": 5,
+        "title": "Standard level 2",
+        "url": "https://youtu.be/PdnfDADpFjM?t=10",
+        "type": "video",
+        "tags": [
+          "standard"
+        ],
+        "description": ""
+      },
+      {
+        "id": 6,
+        "title": "Showcase Foxtrot",
+        "url": "https://drive.google.com/file/d/1LleJkfXYVGN05vhGFWkAxx_qkqwxhsCz/view?usp=sharing",
+        "type": "video",
+        "tags": [
+          "showcase"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "dance": "Quickstep",
+    "videos": [
+      {
+        "id": 7,
+        "title": "Standard level 2",
+        "url": "https://youtu.be/A1n0oY7K3iQ?t=10",
+        "type": "video",
+        "tags": [
+          "standard"
+        ],
+        "description": ""
+      },
+      {
+        "id": 8,
+        "title": "Chrystal Quickstep",
+        "url": "https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA",
+        "type": "video",
+        "tags": [
+          "standard",
+          "chrystal",
+          "personal"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "dance": "Cha Cha",
+    "videos": [
+      {
+        "id": 9,
+        "title": "Latin level 2",
+        "url": "https://youtu.be/bLVOCpYhQtk?t=10",
+        "type": "video",
+        "tags": [
+          "latin"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "dance": "Samba",
+    "videos": [
+      {
+        "id": 10,
+        "title": "Latin level 2",
+        "url": "https://youtu.be/JctNCNaBnOY?t=10",
+        "type": "video",
+        "tags": [
+          "latin"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "dance": "Rumba",
+    "videos": [
+      {
+        "id": 11,
+        "title": "Latin level 2",
+        "url": "https://youtu.be/OdvINyoNVds?t=10",
+        "type": "video",
+        "tags": [
+          "latin"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "dance": "Paso Doble",
+    "videos": [
+      {
+        "id": 12,
+        "title": "Fallaway, Promende, Attack",
+        "url": "https://youtu.be/nDFihjVBSYs",
+        "type": "video",
+        "tags": [
+          "latin"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "dance": "Jive",
+    "videos": [
+      {
+        "id": 13,
+        "title": "Latin level 2",
+        "url": "https://youtu.be/WzudJdiB5yE?t=10",
+        "type": "video",
+        "tags": [
+          "latin"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "dance": "Hustle",
+    "videos": [
+      {
+        "id": 14,
+        "title": "Showcase Hustle 1",
+        "url": "https://drive.google.com/file/d/1NuB_ALcZ8UaX28V1gwyi59fu2H9P9sVf/view?usp=sharing",
+        "type": "video",
+        "tags": [
+          "club",
+          "showcase"
+        ],
+        "description": ""
+      },
+      {
+        "id": 15,
+        "title": "Showcase Hustle 2",
+        "url": "https://drive.google.com/file/d/1eoxSLCl2-445iBuVxRExwJSZhMjU31BK/view?usp=sharing",
+        "type": "video",
+        "tags": [
+          "club",
+          "showcase"
+        ],
+        "description": ""
+      },
+      {
+        "id": 16,
+        "title": "Showcase Hustle 3",
+        "url": "https://drive.google.com/file/d/1-NPvYnWPrjqAbgg8EULMrWdz5kyGV4O1/view?usp=sharing",
+        "type": "video",
+        "tags": [
+          "club",
+          "showcase"
+        ],
+        "description": ""
+      }
+    ]
+  }
+]

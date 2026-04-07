@@ -1,0 +1,30 @@
+name: Build JSON
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - tanzpalast.yaml
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Build JSON
+        run: uv run python src/build.py
+
+      - name: Commit updated JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/tanzpalast-data.json
+          git diff --cached --quiet || git commit -m "chore: rebuild tanzpalast-data.json"
+          git push
