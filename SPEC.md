@@ -16,32 +16,27 @@ A lightweight, browser-based catalog for dance reference and instructional video
 GitHub (repo)
   ├── index.html             ← page structure + JS fetch + render logic (single file for v1)
   ├── tanzpalast.yaml        ← human-friendly nested diary (source of truth)
+  ├── data/
+  │   └── tanzpalast-data.json  ← generated JSON; committed to repo
   ├── src/
   │   └── build.py           ← compiles YAML → tanzpalast-data.json
-  └── tests/
-      └── test_ui.py         ← Playwright browser tests (iPhone 15 viewport)
-
-data/ (gitignored — generated output, local dev only)
-  └── tanzpalast-data.json   ← used by index.html when running locally
-
-Google Drive
-  └── tanzpalast-data.json   ← published copy, fetched by the live site
+  ├── tests/
+  │   └── test_ui.py         ← Playwright browser tests (iPhone 15 viewport)
+  └── .github/workflows/
+      ├── test.yaml          ← validates JSON schema on every push
+      └── build.yml          ← rebuilds JSON when tanzpalast.yaml changes; commits back
 
 GitHub Pages
-  └── serves index.html to the public
+  └── serves index.html + data/tanzpalast-data.json to the public
 ```
 
 ### Filtering
 
 The hamburger menu lists the 6 hardcoded collections (Standard, Smooth, Latin, Rhythm, Club, Showcase). Tapping a collection filters the catalog to dances where at least one video carries a matching tag (e.g. `standard`, `latin`). Tags drive the filter — there is no `collection:` field in the data.
 
-### Data environment detection
+### Data URL
 
-`index.html` detects its environment and picks the right data source:
-- **Local** (`localhost` or `file://`): fetches from `data/tanzpalast-data.json`
-- **Production** (GitHub Pages): fetches from the hardcoded `DATA_URL` (Google Drive)
-
-This means cloners get a clean repo with no data — they supply their own Google Drive file.
+`index.html` always fetches `data/tanzpalast-data.json` via a relative URL — no environment detection needed. GitHub Pages and the local dev server both serve files at the same relative path. Cloners get the JSON from the repo directly.
 
 ## UI Layout (iPhone-first)
 
@@ -151,7 +146,7 @@ A dance card appears under a collection when any of its videos carries that coll
 ## Features
 
 ### v1 (current)
-- Fetch and render catalog from Google Drive JSON (or local file in dev)
+- Fetch and render catalog from repo JSON (`data/tanzpalast-data.json`)
 - Filter by collection via hamburger nav (hardcoded 5 collections); active collection shown in header
 - Filtering uses tags — a card appears when any of its videos carries the collection tag
 - Cards grouped by dance; collapsed by default; tap to expand sub-videos
@@ -168,9 +163,9 @@ A dance card appears under a collection when any of its videos carries that coll
 
 ## Hosting
 
-- **Repo**: GitHub (public) — data file is gitignored; cloners supply their own
+- **Repo**: GitHub (public) — `tanzpalast-data.json` is committed and served from the repo
 - **Hosting**: GitHub Pages (`main` branch, root)
-- **Data**: Google Drive shared file, direct-download link (`uc?export=download&id=FILE_ID`)
+- **Data**: `data/tanzpalast-data.json` in the repo; rebuilt automatically by GitHub Actions when `tanzpalast.yaml` changes
 
 ## Constraints
 
