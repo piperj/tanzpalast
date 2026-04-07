@@ -215,5 +215,43 @@
         "description": ""
       }
     ]
+  },
+  {
+    "dance": "Swing",
+    "videos": [
+      {
+        "id": 17,
+        "title": "Showcase Gents",
+        "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipPviPjeqbUJ9o38cezQkTMQJXM_Ow6OcRfkjBqb?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
+        "type": "video",
+        "tags": [
+          "club",
+          "showcase"
+        ],
+        "description": ""
+      },
+      {
+        "id": 18,
+        "title": "Showcase Gents ending",
+        "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipNsqdnM25IP_sp5sqjU8w3ohr8CdR_s_rcqgqbi?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
+        "type": "video",
+        "tags": [
+          "club",
+          "showcase"
+        ],
+        "description": ""
+      },
+      {
+        "id": 19,
+        "title": "Showcase Gents jump",
+        "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipOL66h2k0Iz8ZND5g8DDF2vyT3IsigR8HDQ59Cq?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
+        "type": "video",
+        "tags": [
+          "club",
+          "showcase"
+        ],
+        "description": ""
+      }
+    ]
   }
 ]
