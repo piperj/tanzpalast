@@ -223,6 +223,16 @@
           "showcase"
         ],
         "description": ""
+      },
+      {
+        "id": 18,
+        "title": "Brigitta Hustle Slinga",
+        "url": "https://drive.google.com/file/d/1IVMpP6tzz3ErtHdb-r6KA1hUrtILee6O/view?usp=share_link",
+        "type": "video",
+        "tags": [
+          "club"
+        ],
+        "description": ""
       }
     ]
   },
@@ -230,7 +240,7 @@
     "dance": "Swing",
     "videos": [
       {
-        "id": 18,
+        "id": 19,
         "title": "Showcase Gents",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipPviPjeqbUJ9o38cezQkTMQJXM_Ow6OcRfkjBqb?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
@@ -241,7 +251,7 @@
         "description": ""
       },
       {
-        "id": 19,
+        "id": 20,
         "title": "Showcase Gents ending",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipNsqdnM25IP_sp5sqjU8w3ohr8CdR_s_rcqgqbi?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
@@ -252,7 +262,7 @@
         "description": ""
       },
       {
-        "id": 20,
+        "id": 21,
         "title": "Showcase Gents jump",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipOL66h2k0Iz8ZND5g8DDF2vyT3IsigR8HDQ59Cq?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
