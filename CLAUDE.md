@@ -22,7 +22,7 @@ Tanzpalast is a static, single-page dance video catalog. It fetches a JSON data 
 
 The canonical schema and field definitions are in `SPEC.md`. The YAML source file is `tanzpalast.yaml`.
 
-## Current State (2026-04-06)
+## Current State (2026-04-19)
 
 - Live at **https://piperj.github.io/tanzpalast/** — GitHub Pages serving from `main` root
 - Repo: https://github.com/piperj/tanzpalast
@@ -35,6 +35,7 @@ The canonical schema and field definitions are in `SPEC.md`. The YAML source fil
 - `tests/test_build.py` — 32 unit tests, 98% coverage of `src/build.py`
 - `tests/test_ui.py` — Playwright tests active; run `uv run python -m pytest tests/ -v`
 - Local dev server: `python3 -m http.server 8080 --bind 0.0.0.0 --directory .`
+- Hamburger menu: 6 static collections + dynamic extra-tag section below a divider (committed `20ce828`, not yet pushed)
 
 ## Workflow
 
@@ -50,7 +51,7 @@ YAML edits can be made locally or directly on github.com. Either path triggers G
 
 See `SPEC.md` for the full ASCII layout. Key points:
 - Sticky header: `≡  Tanzpalast · {ActiveCollection}  🏛`
-- Hamburger opens a slide-out panel listing the 6 collections; tap filters + closes panel
+- Hamburger opens a slide-out panel listing the 6 collections; any extra tags from the data appear below a divider; tap filters + closes panel
 - Cards grouped by dance within the active collection
 - Card header = dance name + featured video (always visible) + large play button
 - Sub-videos expand on card tap (collapsed by default)
@@ -102,7 +103,7 @@ Also do a manual check in Safari/Chrome mobile simulation before each commit.
 - `DATA_URL` is always the relative path `'data/tanzpalast-data.json'` — no environment detection; GitHub Pages and local dev server serve files at the same relative path
 - YAML structure mirrors the card: `dance → featured + videos`; no collection nesting — collection membership is expressed via tags
 - JSON output mirrors the YAML structure directly — no flattening
-- Collections are hardcoded in the UI (Standard, Smooth, Latin, Rhythm, Club, Showcase); filtering matches cards by tag (see SPEC.md)
+- Six primary collections are hardcoded in the UI (Standard, Smooth, Latin, Rhythm, Club, Showcase); any additional tags found in the JSON are injected below a divider at runtime; filtering matches cards by tag (see SPEC.md)
 - `featured` is a top-level key on each dance object — the always-visible card header video
 - `type` field on videos: `video` (default), `pdf`, `image`
 - No search in v1 — filter by collection only
