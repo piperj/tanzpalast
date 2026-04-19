@@ -29,13 +29,14 @@ The canonical schema and field definitions are in `SPEC.md`. The YAML source fil
 - Steps 0–6 complete; GitHub hosting fully set up
 - Card interaction: only play icon opens video; tapping card body expands sub-videos
 - "N more ›" badge (light blue pill) as expand indicator; play button is rounded square
+- YouTube-featured cards show a 36×36 square thumbnail as play button (`mqdefault.jpg`); Drive/iCloud fall back to red icon
 - `data/tanzpalast-data.json` has 10 dances; tracked in git (video files excluded)
 - `DATA_URL` is the constant `'data/tanzpalast-data.json'` — no env detection
 - `pyproject.toml` exists; `uv run python src/build.py` is the build command
 - `tests/test_build.py` — 32 unit tests, 98% coverage of `src/build.py`
 - `tests/test_ui.py` — Playwright tests active; run `uv run python -m pytest tests/ -v`
 - Local dev server: `python3 -m http.server 8080 --bind 0.0.0.0 --directory .`
-- Hamburger menu: 6 static collections + dynamic extra-tag section below a divider (committed `20ce828`, not yet pushed)
+- Hamburger menu: 6 static collections + dynamic extra-tag section below a divider
 
 ## Workflow
 
