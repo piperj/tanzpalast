@@ -237,6 +237,41 @@
       font-size: 16px;
     }
 
+    /* ── Thumbnail play button ── */
+    .thumb-link {
+      flex-shrink: 0;
+      display: block;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .thumb-btn {
+      display: block;
+      width: 36px;
+      height: 36px;
+      position: relative;
+    }
+
+    .thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .play-tri {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.28);
+      font-size: 20px;
+      color: #fff;
+    }
+
     .video-info {
       flex: 1;
       min-width: 0;
@@ -418,6 +453,18 @@
     });
   }
 
+  // ── Thumbnails ────────────────────────────────────────────────────────────
+
+  function youtubeId(url) {
+    const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?.*v=|embed\/|v\/))([A-Za-z0-9_-]{11})/);
+    return m ? m[1] : null;
+  }
+
+  function thumbnailUrl(url) {
+    const ytId = youtubeId(url);
+    return ytId ? `https://img.youtube.com/vi/${ytId}/mqdefault.jpg` : null;
+  }
+
   // ── Render ────────────────────────────────────────────────────────────────
 
   function iconFor(type) {
@@ -427,16 +474,25 @@
     return `<span class="video-icon" data-icon="video">▶</span>`;
   }
 
-  function featuredRow(v, extraCount) {
+  function featuredRow(v, extraCount, thumbUrl) {
     const desc = v.description ? `<div class="video-desc">${esc(v.description)}</div>` : '';
     const badge = extraCount > 0
       ? `<span class="more-badge">${extraCount} more <span class="badge-arrow">›</span></span>`
       : '';
+    const type = v.type || 'video';
+    const playBtn = thumbUrl
+      ? `<a class="thumb-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">
+           <span class="thumb-btn" data-icon="video">
+             <img src="${esc(thumbUrl)}" alt="" loading="lazy">
+             <span class="play-tri">▶</span>
+           </span>
+         </a>`
+      : `<a class="video-icon-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">
+           ${iconFor(type)}
+         </a>`;
     return `
       <div class="video-row" data-featured>
-        <a class="video-icon-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">
-          ${iconFor(v.type || 'video')}
-        </a>
+        ${playBtn}
         <div class="video-info">
           <div class="video-title">${esc(v.title)}</div>
           ${desc}
@@ -463,14 +519,16 @@
       const filtered = tag ? all.filter(v => v.tags?.includes(tag)) : all;
       if (!filtered.length) return [];
       const [featured, ...rest] = filtered;
+      const thumbUrl = (featured.type || 'video') === 'video' ? thumbnailUrl(featured.url) : null;
+      const thumbAttr = '';
       const subRows = rest.map(v => subRow(v)).join('');
       const subSection = subRows ? `<div data-sub-videos>${subRows}</div>` : '';
 
       return `
-        <article data-dance="${esc(d.dance)}">
+        <article data-dance="${esc(d.dance)}"${thumbAttr}>
           <div class="card-header">
             <div class="dance-name">${esc(d.dance)}</div>
-            ${featuredRow(featured, rest.length)}
+            ${featuredRow(featured, rest.length, thumbUrl)}
           </div>
           ${subSection}
         </article>`;
