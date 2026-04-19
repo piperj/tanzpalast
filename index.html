@@ -134,6 +134,12 @@
       color: var(--accent2);
     }
 
+    .nav-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin: 8px 20px;
+    }
+
     /* ── Main ── */
     main {
       padding: 12px 12px 32px;
@@ -359,9 +365,9 @@
 
   const hamburger    = document.querySelector('[data-hamburger]');
   const navPanel     = document.querySelector('[data-nav-panel]');
+  const navDrawer    = document.querySelector('.nav-drawer');
   const overlay      = document.getElementById('nav-overlay');
   const activeLabel  = document.getElementById('active-label');
-  const navButtons   = document.querySelectorAll('.nav-collection');
 
   function openPanel()  { navPanel.classList.add('open'); }
   function closePanel() { navPanel.classList.remove('open'); }
@@ -369,16 +375,36 @@
   hamburger.addEventListener('click', openPanel);
   overlay.addEventListener('click', closePanel);
 
-  navButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      activeTag = btn.dataset.tag;
-      activeLabel.textContent = btn.dataset.name;
-      navButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      applyFilter();
-      closePanel();
-    });
+  navDrawer.addEventListener('click', e => {
+    const btn = e.target.closest('.nav-collection');
+    if (!btn) return;
+    activeTag = btn.dataset.tag;
+    activeLabel.textContent = btn.dataset.name;
+    document.querySelectorAll('.nav-collection').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilter();
+    closePanel();
   });
+
+  const STATIC_TAGS = new Set(['standard', 'smooth', 'latin', 'rhythm', 'club', 'showcase']);
+
+  function injectExtraTags(dances) {
+    const seen = new Set();
+    dances.forEach(d => (d.videos || []).forEach(v => (v.tags || []).forEach(t => seen.add(t))));
+    const extra = [...seen].filter(t => !STATIC_TAGS.has(t)).sort();
+    if (!extra.length) return;
+    const divider = document.createElement('hr');
+    divider.className = 'nav-divider';
+    navDrawer.appendChild(divider);
+    extra.forEach(tag => {
+      const btn = document.createElement('button');
+      btn.className = 'nav-collection';
+      btn.dataset.tag = tag;
+      btn.dataset.name = tag.charAt(0).toUpperCase() + tag.slice(1);
+      btn.textContent = btn.dataset.name;
+      navDrawer.appendChild(btn);
+    });
+  }
 
   // ── Filter ────────────────────────────────────────────────────────────────
 
@@ -475,6 +501,7 @@
       const res = await fetch(DATA_URL);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       allDances = await res.json();
+      injectExtraTags(allDances);
       main.innerHTML = renderDances(allDances, activeTag);
     } catch (err) {
       main.innerHTML = `
