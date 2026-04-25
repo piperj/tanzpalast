@@ -35,6 +35,16 @@
       },
       {
         "id": 4,
+        "title": "Waltz Smooth",
+        "url": "https://drive.google.com/file/d/1-eNnO3aKdnLLCsJM7Edm73dCrOXECaYT/view?usp=share_link",
+        "type": "video",
+        "tags": [
+          "smooth"
+        ],
+        "description": ""
+      },
+      {
+        "id": 5,
         "title": "Chrystal Waltz",
         "url": "https://share.icloud.com/photos/029UbP_Kzf2w2kFrVw8qYlfmg",
         "type": "video",
@@ -47,10 +57,25 @@
     ]
   },
   {
+    "dance": "Viennese Waltz",
+    "videos": [
+      {
+        "id": 6,
+        "title": "Viennese Waltz Smooth",
+        "url": "https://drive.google.com/file/d/1gZ7aRZfxx4ud4OfdnVBikQivt0KGCk11/view?usp=share_link",
+        "type": "video",
+        "tags": [
+          "smooth"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
     "dance": "Tango",
     "videos": [
       {
-        "id": 5,
+        "id": 7,
         "title": "International level 2",
         "url": "https://youtu.be/b1qywfPXevs?t=10",
         "type": "video",
@@ -60,7 +85,17 @@
         "description": ""
       },
       {
-        "id": 6,
+        "id": 8,
+        "title": "Tango Smooth",
+        "url": "https://drive.google.com/file/d/1kOc4VlRZ8rR5szSoMIOXgcPjLLqEfloa/view?usp=share_link",
+        "type": "video",
+        "tags": [
+          "smooth"
+        ],
+        "description": ""
+      },
+      {
+        "id": 9,
         "title": "Showcase Tango",
         "url": "https://drive.google.com/file/d/17iIoCs6DD1dMvJ_Ycf0YI0v4OxUj365q/view?usp=sharing",
         "type": "video",
@@ -76,7 +111,7 @@
     "dance": "Foxtrot",
     "videos": [
       {
-        "id": 7,
+        "id": 10,
         "title": "International level 2",
         "url": "https://youtu.be/PdnfDADpFjM?t=10",
         "type": "video",
@@ -86,7 +121,7 @@
         "description": ""
       },
       {
-        "id": 8,
+        "id": 11,
         "title": "Showcase Foxtrot",
         "url": "https://drive.google.com/file/d/1LleJkfXYVGN05vhGFWkAxx_qkqwxhsCz/view?usp=sharing",
         "type": "video",
@@ -98,9 +133,30 @@
         "description": ""
       },
       {
-        "id": 9,
+        "id": 12,
+        "title": "Feather Three Step",
+        "url": "https://drive.google.com/file/d/17eZ9pRaz1tSTBBE5HyJriI89wKIQ7Yqu/view?usp=sharing",
+        "type": "video",
+        "tags": [
+          "international",
+          "skill"
+        ],
+        "description": ""
+      },
+      {
+        "id": 13,
         "title": "Smooth Foxtrot",
         "url": "https://drive.google.com/file/d/1RcJN6ZOLhmepzMyg0HQw64thtQVQFccz/view?usp=share_link",
+        "type": "video",
+        "tags": [
+          "smooth"
+        ],
+        "description": ""
+      },
+      {
+        "id": 14,
+        "title": "Foxtrot Smooth",
+        "url": "https://drive.google.com/file/d/1nC9WTsGBkuo7w7ooYDuS5WUpQ-dcdb7f/view?usp=share_link",
         "type": "video",
         "tags": [
           "smooth"
@@ -113,7 +169,7 @@
     "dance": "Quickstep",
     "videos": [
       {
-        "id": 10,
+        "id": 15,
         "title": "International level 2",
         "url": "https://youtu.be/A1n0oY7K3iQ?t=10",
         "type": "video",
@@ -123,7 +179,7 @@
         "description": ""
       },
       {
-        "id": 11,
+        "id": 16,
         "title": "Slip Pivot",
         "url": "https://drive.google.com/file/d/1S2Z10iY3IGKa9QdDTqfUoJqTZAKPjPHN/view?usp=share_link",
         "type": "video",
@@ -134,7 +190,17 @@
         "description": ""
       },
       {
-        "id": 12,
+        "id": 17,
+        "title": "Quickstep Smooth",
+        "url": "https://drive.google.com/file/d/1SorMzoy62kYH83a6SWIkP62Z4pbELf9e/view?usp=share_link",
+        "type": "video",
+        "tags": [
+          "smooth"
+        ],
+        "description": ""
+      },
+      {
+        "id": 18,
         "title": "Chrystal Quickstep",
         "url": "https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA",
         "type": "video",
@@ -150,7 +216,7 @@
     "dance": "Cha Cha",
     "videos": [
       {
-        "id": 13,
+        "id": 19,
         "title": "Latin level 2",
         "url": "https://youtu.be/bLVOCpYhQtk?t=10",
         "type": "video",
@@ -160,7 +226,7 @@
         "description": ""
       },
       {
-        "id": 14,
+        "id": 20,
         "title": "Cha Cha Rhythm",
         "url": "https://drive.google.com/file/d/125vHnVHpdJ8NYAaNTsNQ1ZhCrwymFR3u/view?usp=share_link",
         "type": "video",
@@ -170,7 +236,17 @@
         "description": ""
       },
       {
-        "id": 15,
+        "id": 21,
+        "title": "Cha Cha Rhythm 2",
+        "url": "https://drive.google.com/file/d/1ovu8iP__MMCyKt6zotNghL8ugRuGyZpr/view?usp=share_link",
+        "type": "video",
+        "tags": [
+          "rhythm"
+        ],
+        "description": ""
+      },
+      {
+        "id": 22,
         "title": "Cha Cha Warm-up",
         "url": "https://drive.google.com/file/d/1an73UScGEUc8oGyEgvwUGUr9dznBo379/view?usp=share_link",
         "type": "video",
@@ -187,7 +263,7 @@
     "dance": "Samba",
     "videos": [
       {
-        "id": 16,
+        "id": 23,
         "title": "Latin level 2",
         "url": "https://youtu.be/JctNCNaBnOY?t=10",
         "type": "video",
@@ -202,7 +278,7 @@
     "dance": "Rumba",
     "videos": [
       {
-        "id": 17,
+        "id": 24,
         "title": "Latin level 2",
         "url": "https://youtu.be/OdvINyoNVds?t=10",
         "type": "video",
@@ -212,12 +288,24 @@
         "description": ""
       },
       {
-        "id": 18,
+        "id": 25,
         "title": "Rumba Rhythm",
         "url": "https://drive.google.com/file/d/1SnAkQ3Xm_JBY5apDh9fyBVQb9m7s84dn/view?usp=share_link",
         "type": "video",
         "tags": [
           "rhythm"
+        ],
+        "description": ""
+      },
+      {
+        "id": 26,
+        "title": "Rumba Warm-up",
+        "url": "https://drive.google.com/file/d/1TS7QyAcUkJo9LsTmI_jw44v5G0Yi89B3/view?usp=share_link",
+        "type": "video",
+        "tags": [
+          "latin",
+          "rhythm",
+          "skill"
         ],
         "description": ""
       }
@@ -227,7 +315,7 @@
     "dance": "Paso Doble",
     "videos": [
       {
-        "id": 19,
+        "id": 27,
         "title": "Latin level 2",
         "url": "https://drive.google.com/file/d/1udeNDYaaREE5eNnq1R34_SQv32q0i4D5/view?usp=share_link",
         "type": "video",
@@ -237,7 +325,7 @@
         "description": ""
       },
       {
-        "id": 20,
+        "id": 28,
         "title": "Fallaway, Promende, Attack",
         "url": "https://youtu.be/nDFihjVBSYs",
         "type": "video",
@@ -252,7 +340,7 @@
     "dance": "Jive",
     "videos": [
       {
-        "id": 21,
+        "id": 29,
         "title": "Latin level 2",
         "url": "https://youtu.be/WzudJdiB5yE?t=10",
         "type": "video",
@@ -262,7 +350,7 @@
         "description": ""
       },
       {
-        "id": 22,
+        "id": 30,
         "title": "Jive Warm-up",
         "url": "https://drive.google.com/file/d/1YNZEFkKvTbEGm--7gzVGBbDZrquoUYn-/view?usp=share_link",
         "type": "video",
@@ -278,7 +366,7 @@
     "dance": "Hustle",
     "videos": [
       {
-        "id": 23,
+        "id": 31,
         "title": "Showcase Hustle 1",
         "url": "https://drive.google.com/file/d/1NuB_ALcZ8UaX28V1gwyi59fu2H9P9sVf/view?usp=sharing",
         "type": "video",
@@ -290,7 +378,7 @@
         "description": ""
       },
       {
-        "id": 24,
+        "id": 32,
         "title": "Showcase Hustle 2",
         "url": "https://drive.google.com/file/d/1eoxSLCl2-445iBuVxRExwJSZhMjU31BK/view?usp=sharing",
         "type": "video",
@@ -302,7 +390,7 @@
         "description": ""
       },
       {
-        "id": 25,
+        "id": 33,
         "title": "Showcase Hustle 3",
         "url": "https://drive.google.com/file/d/1-NPvYnWPrjqAbgg8EULMrWdz5kyGV4O1/view?usp=sharing",
         "type": "video",
@@ -314,7 +402,7 @@
         "description": ""
       },
       {
-        "id": 26,
+        "id": 34,
         "title": "Brigitta Hustle Slinga",
         "url": "https://drive.google.com/file/d/1IVMpP6tzz3ErtHdb-r6KA1hUrtILee6O/view?usp=share_link",
         "type": "video",
@@ -330,12 +418,23 @@
     "dance": "Skills",
     "videos": [
       {
-        "id": 27,
+        "id": 35,
         "title": "Positions",
         "url": "https://drive.google.com/file/d/1s01jaI4pvzTR4P6_GfRiqkha1JiaJMcp/view?usp=share_link",
         "type": "video",
         "tags": [
           "latin",
+          "international",
+          "skill"
+        ],
+        "description": ""
+      },
+      {
+        "id": 36,
+        "title": "International Warm-up Exercises",
+        "url": "https://drive.google.com/file/d/1EHwm3cyfT1JjLCaBD17VreYR3XF4hGZe/view?usp=share_link",
+        "type": "video",
+        "tags": [
           "international",
           "skill"
         ],
@@ -347,7 +446,7 @@
     "dance": "Swing",
     "videos": [
       {
-        "id": 28,
+        "id": 37,
         "title": "Showcase Gents",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipPviPjeqbUJ9o38cezQkTMQJXM_Ow6OcRfkjBqb?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
@@ -358,29 +457,31 @@
         "description": ""
       },
       {
-        "id": 29,
+        "id": 38,
         "title": "Showcase Gents ending",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipNsqdnM25IP_sp5sqjU8w3ohr8CdR_s_rcqgqbi?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
         "tags": [
           "club",
-          "showcase"
+          "showcase",
+          "skill"
         ],
         "description": ""
       },
       {
-        "id": 30,
+        "id": 39,
         "title": "Showcase Gents jump",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipOL66h2k0Iz8ZND5g8DDF2vyT3IsigR8HDQ59Cq?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
         "tags": [
           "club",
-          "showcase"
+          "showcase",
+          "skill"
         ],
         "description": ""
       },
       {
-        "id": 31,
+        "id": 40,
         "title": "Rhythm Swing",
         "url": "https://drive.google.com/file/d/1Fv4NIGiDpHV_kWS-1RKD8KfPuhBe718G/view?usp=share_link",
         "type": "video",
@@ -390,7 +491,7 @@
         "description": ""
       },
       {
-        "id": 32,
+        "id": 41,
         "title": "Swing Rhythm",
         "url": "https://drive.google.com/file/d/1iVVfX7PPJLCXfH4ojyJcDBglT9VEqYQ4/view?usp=share_link",
         "type": "video",
@@ -400,7 +501,7 @@
         "description": ""
       },
       {
-        "id": 33,
+        "id": 42,
         "title": "Rhythm Warm-up",
         "url": "https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view?usp=share_link",
         "type": "video",
@@ -411,7 +512,7 @@
         "description": ""
       },
       {
-        "id": 34,
+        "id": 43,
         "title": "Swing Rhythm Warm-up",
         "url": "https://drive.google.com/file/d/1pfCHAQddJl5ewoXiRJ5E_LRHCpKN9zPl/view?usp=share_link",
         "type": "video",
