@@ -36,7 +36,7 @@
       tags: [international]
     - title: Natural Spin Turn
       url: https://drive.google.com/file/d/18brfeN1f1daZW0WCQWXOGNqBEtOiJSJ8/view?usp=share_link
-      tags: [international, detail]
+      tags: [international, skill ]
     - title: Chrystal Waltz
       url: https://share.icloud.com/photos/029UbP_Kzf2w2kFrVw8qYlfmg
       tags: [international, chrystal]
@@ -69,7 +69,7 @@
       tags: [international]
     - title: Slip Pivot
       url: https://drive.google.com/file/d/1S2Z10iY3IGKa9QdDTqfUoJqTZAKPjPHN/view?usp=share_link
-      tags: [international, detail]
+      tags: [international, skill ]
     - title: Chrystal Quickstep
       url: https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA
       tags: [international, chrystal]
@@ -106,6 +106,9 @@
     - title: Latin level 2
       url: https://youtu.be/WzudJdiB5yE?t=10
       tags: [latin]
+    - title: Jive Warm-up
+      url: https://drive.google.com/file/d/1YNZEFkKvTbEGm--7gzVGBbDZrquoUYn-/view?usp=share_link
+      tags: [latin, skill ]
 
 - dance: Hustle
   videos:
@@ -122,20 +125,11 @@
       url: https://drive.google.com/file/d/1IVMpP6tzz3ErtHdb-r6KA1hUrtILee6O/view?usp=share_link
       tags: [club, birgitta]
 
-- dance: Warm-up
+- dance: Skills
   videos:
-    - title: Jive Warm-up
-      url: https://drive.google.com/file/d/1YNZEFkKvTbEGm--7gzVGBbDZrquoUYn-/view?usp=share_link
-      tags: [latin, warm-up]
-    - title: Rhythm Warm-up
-      url: https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view?usp=share_link
-      tags: [rhythm, warm-up]
-
-- dance: Exercise
-  videos:
-    - title: Latin Exercise
+    - title: Positions
       url: https://drive.google.com/file/d/1s01jaI4pvzTR4P6_GfRiqkha1JiaJMcp/view?usp=share_link
-      tags: [latin, exercise]
+      tags: [latin, international, skill]
 
 - dance: Swing
   videos:
@@ -154,3 +148,7 @@
     - title: Swing Rhythm
       url: https://drive.google.com/file/d/1iVVfX7PPJLCXfH4ojyJcDBglT9VEqYQ4/view?usp=share_link
       tags: [rhythm]
+    - title: Rhythm Warm-up
+      url: https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view?usp=share_link
+      tags: [rhythm, skill ]
+
