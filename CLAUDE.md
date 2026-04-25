@@ -22,7 +22,7 @@ Tanzpalast is a static, single-page dance video catalog. It fetches a JSON data 
 
 The canonical schema and field definitions are in `SPEC.md`. The YAML source file is `tanzpalast.yaml`.
 
-## Current State (2026-04-19)
+## Current State (2026-04-24)
 
 - Live at **https://piperj.github.io/tanzpalast/** — GitHub Pages serving from `main` root
 - Repo: https://github.com/piperj/tanzpalast
@@ -37,6 +37,7 @@ The canonical schema and field definitions are in `SPEC.md`. The YAML source fil
 - `tests/test_ui.py` — Playwright tests active; run `uv run python -m pytest tests/ -v`
 - Local dev server: `python3 -m http.server 8080 --bind 0.0.0.0 --directory .`
 - Hamburger menu: 6 static collections + dynamic extra-tag section below a divider
+- Favicon: data URI SVG with dark navy rect + red "T" (`index.html` line 7); `favicon.svg` and `favicon.svg.png` are unused artefacts that can be deleted
 
 ## Workflow
 
