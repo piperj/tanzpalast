@@ -158,7 +158,7 @@ class TestIphoneLayout:
 # ---------------------------------------------------------------------------
 
 class TestCollectionFilter:
-    COLLECTIONS = ["Standard", "Smooth", "Latin", "Rhythm", "Club"]
+    COLLECTIONS = ["International", "Smooth", "Latin", "Rhythm", "Club"]
 
     def test_hamburger_button_visible(self, iphone_page: Page, base_url: str):
         iphone_page.goto(base_url)
@@ -196,9 +196,9 @@ class TestCollectionFilter:
         iphone_page.wait_for_load_state("networkidle")
         total_before = iphone_page.locator("[data-dance]").count()
         iphone_page.locator("[data-hamburger]").tap()
-        iphone_page.get_by_text("Standard", exact=True).tap()
+        iphone_page.get_by_text("International", exact=True).tap()
         total_after = iphone_page.locator("[data-dance]:visible").count()
-        # Standard is a subset — visible count should be ≤ total
+        # International is a subset — visible count should be ≤ total
         assert total_after <= total_before
 
 
