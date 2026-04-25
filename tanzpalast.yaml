@@ -79,6 +79,12 @@
     - title: Latin level 2
       url: https://youtu.be/bLVOCpYhQtk?t=10
       tags: [latin]
+    - title: Cha Cha Rhythm
+      url: https://drive.google.com/file/d/125vHnVHpdJ8NYAaNTsNQ1ZhCrwymFR3u/view?usp=share_link
+      tags: [rhythm]
+    - title: Cha Cha Warm-up
+      url: https://drive.google.com/file/d/1an73UScGEUc8oGyEgvwUGUr9dznBo379/view?usp=share_link
+      tags: [latin, rhythm, skill]
 
 - dance: Samba
   videos:
@@ -91,6 +97,9 @@
     - title: Latin level 2
       url: https://youtu.be/OdvINyoNVds?t=10
       tags: [latin]
+    - title: Rumba Rhythm
+      url: https://drive.google.com/file/d/1SnAkQ3Xm_JBY5apDh9fyBVQb9m7s84dn/view?usp=share_link
+      tags: [rhythm]
 
 - dance: Paso Doble
   videos:
@@ -150,5 +159,8 @@
       tags: [rhythm]
     - title: Rhythm Warm-up
       url: https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view?usp=share_link
-      tags: [rhythm, skill ]
+      tags: [rhythm, skill]
+    - title: Swing Rhythm Warm-up
+      url: https://drive.google.com/file/d/1pfCHAQddJl5ewoXiRJ5E_LRHCpKN9zPl/view?usp=share_link
+      tags: [rhythm, skill]
 
