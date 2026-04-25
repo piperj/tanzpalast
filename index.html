@@ -395,7 +395,8 @@
   const DATA_URL = 'data/tanzpalast-data.json';
 
   let allDances = [];
-  let activeTag = '';
+  let activeCollectionTag = '';
+  let activeSubTag = '';
 
   // ── Hamburger / nav panel ──────────────────────────────────────────────────
 
@@ -411,13 +412,40 @@
   hamburger.addEventListener('click', openPanel);
   overlay.addEventListener('click', closePanel);
 
+  function updateLabel() {
+    const collBtn = document.querySelector('.nav-collection:not([data-type="sub"]).active');
+    const subBtn  = document.querySelector('.nav-collection[data-type="sub"].active');
+    let label = collBtn?.dataset.name || 'All';
+    if (subBtn) label += ' · ' + subBtn.dataset.name;
+    activeLabel.textContent = label;
+  }
+
   navDrawer.addEventListener('click', e => {
     const btn = e.target.closest('.nav-collection');
     if (!btn) return;
-    activeTag = btn.dataset.tag;
-    activeLabel.textContent = btn.dataset.name;
-    document.querySelectorAll('.nav-collection').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+
+    if (btn.dataset.type === 'sub') {
+      // Toggle sub-tag independently of collection
+      if (activeSubTag === btn.dataset.tag) {
+        activeSubTag = '';
+        btn.classList.remove('active');
+      } else {
+        activeSubTag = btn.dataset.tag;
+        document.querySelectorAll('.nav-collection[data-type="sub"]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+    } else {
+      // Collection button — "All" also clears sub-tag
+      activeCollectionTag = btn.dataset.tag;
+      if (activeCollectionTag === '') {
+        activeSubTag = '';
+        document.querySelectorAll('.nav-collection[data-type="sub"]').forEach(b => b.classList.remove('active'));
+      }
+      document.querySelectorAll('.nav-collection:not([data-type="sub"])').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    updateLabel();
     applyFilter();
     closePanel();
   });
@@ -437,6 +465,7 @@
       btn.className = 'nav-collection';
       btn.dataset.tag = tag;
       btn.dataset.name = tag.charAt(0).toUpperCase() + tag.slice(1);
+      btn.dataset.type = 'sub';
       btn.textContent = btn.dataset.name;
       navDrawer.appendChild(btn);
     });
@@ -445,13 +474,10 @@
   // ── Filter ────────────────────────────────────────────────────────────────
 
   function applyFilter() {
-    const expanded = new Set(
-      [...document.querySelectorAll('[data-dance].expanded')].map(el => el.dataset.dance)
-    );
-    document.getElementById('main').innerHTML = renderDances(allDances, activeTag);
-    document.querySelectorAll('[data-dance]').forEach(el => {
-      if (expanded.has(el.dataset.dance)) el.classList.add('expanded');
-    });
+    document.getElementById('main').innerHTML = renderDances(allDances, activeCollectionTag, activeSubTag);
+    if (activeCollectionTag || activeSubTag) {
+      document.querySelectorAll('[data-dance]').forEach(el => el.classList.add('expanded'));
+    }
   }
 
   // ── Thumbnails ────────────────────────────────────────────────────────────
@@ -514,10 +540,12 @@
       </a>`;
   }
 
-  function renderDances(dances, tag) {
+  function renderDances(dances, collectionTag, subTag) {
     return dances.flatMap(d => {
       const all = d.videos || [];
-      const filtered = tag ? all.filter(v => v.tags?.includes(tag)) : all;
+      let filtered = all;
+      if (collectionTag) filtered = filtered.filter(v => v.tags?.includes(collectionTag));
+      if (subTag) filtered = filtered.filter(v => v.tags?.includes(subTag));
       if (!filtered.length) return [];
       const [featured, ...rest] = filtered;
       const thumbUrl = (featured.type || 'video') === 'video' ? thumbnailUrl(featured.url) : null;
@@ -561,7 +589,7 @@
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       allDances = await res.json();
       injectExtraTags(allDances);
-      main.innerHTML = renderDances(allDances, activeTag);
+      main.innerHTML = renderDances(allDances, activeCollectionTag, activeSubTag);
     } catch (err) {
       main.innerHTML = `
         <div data-error>
