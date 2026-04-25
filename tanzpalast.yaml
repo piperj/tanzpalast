@@ -10,10 +10,10 @@
 #
 # Tags drive collection filtering — include the collection tag on every video
 # that belongs to that collection:
-#   standard | smooth | latin | rhythm | club
+#   international | smooth | latin | rhythm | club
 #
 # Add any descriptive keywords alongside the collection tag:
-#   e.g. tags: [standard, footwork, rise-and-fall]
+#   e.g. tags: [international, footwork, rise-and-fall]
 #
 # type field (optional, defaults to "video"):
 #   video | pdf | image
@@ -28,39 +28,51 @@
 
 - dance: Waltz
   videos:
-    - title: Standard level 2
+    - title: International level 2
       url: https://youtu.be/wRfREep5Ke0?t=10
-      tags: [standard]
+      tags: [international]
+    - title: International level 2
+      url: https://drive.google.com/file/d/1hgcIDBJBtbs5TdwW8brF-QR9jdDnDPDN/view?usp=share_link
+      tags: [international]
+    - title: Natural Spin Turn
+      url: https://drive.google.com/file/d/18brfeN1f1daZW0WCQWXOGNqBEtOiJSJ8/view?usp=share_link
+      tags: [international, detail]
     - title: Chrystal Waltz
       url: https://share.icloud.com/photos/029UbP_Kzf2w2kFrVw8qYlfmg
-      tags: [standard, chrystal]
+      tags: [international, chrystal]
 
 - dance: Tango
   videos:
-    - title: Standard level 2
+    - title: International level 2
       url: https://youtu.be/b1qywfPXevs?t=10
-      tags: [standard]
+      tags: [international]
     - title: Showcase Tango
       url: https://drive.google.com/file/d/17iIoCs6DD1dMvJ_Ycf0YI0v4OxUj365q/view?usp=sharing
       tags: [showcase,helen]
 
 - dance: Foxtrot
   videos:
-    - title: Standard level 2
+    - title: International level 2
       url: https://youtu.be/PdnfDADpFjM?t=10
-      tags: [standard]
+      tags: [international]
     - title: Showcase Foxtrot
       url: https://drive.google.com/file/d/1LleJkfXYVGN05vhGFWkAxx_qkqwxhsCz/view?usp=sharing
-      tags: [standard,showcase,helen]
+      tags: [international,showcase,helen]
+    - title: Smooth Foxtrot
+      url: https://drive.google.com/file/d/1RcJN6ZOLhmepzMyg0HQw64thtQVQFccz/view?usp=share_link
+      tags: [smooth]
 
 - dance: Quickstep
   videos:
-    - title: Standard level 2
+    - title: International level 2
       url: https://youtu.be/A1n0oY7K3iQ?t=10
-      tags: [standard]
+      tags: [international]
+    - title: Slip Pivot
+      url: https://drive.google.com/file/d/1S2Z10iY3IGKa9QdDTqfUoJqTZAKPjPHN/view?usp=share_link
+      tags: [international, detail]
     - title: Chrystal Quickstep
       url: https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA
-      tags: [standard, chrystal]
+      tags: [international, chrystal]
 
 - dance: Cha Cha
   videos:
@@ -110,6 +122,21 @@
       url: https://drive.google.com/file/d/1IVMpP6tzz3ErtHdb-r6KA1hUrtILee6O/view?usp=share_link
       tags: [club, birgitta]
 
+- dance: Warm-up
+  videos:
+    - title: Jive Warm-up
+      url: https://drive.google.com/file/d/1YNZEFkKvTbEGm--7gzVGBbDZrquoUYn-/view?usp=share_link
+      tags: [latin, warm-up]
+    - title: Rhythm Warm-up
+      url: https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view?usp=share_link
+      tags: [rhythm, warm-up]
+
+- dance: Exercise
+  videos:
+    - title: Latin Exercise
+      url: https://drive.google.com/file/d/1s01jaI4pvzTR4P6_GfRiqkha1JiaJMcp/view?usp=share_link
+      tags: [latin, exercise]
+
 - dance: Swing
   videos:
     - title: Showcase Gents
@@ -121,3 +148,9 @@
     - title: Showcase Gents jump
       url: https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipOL66h2k0Iz8ZND5g8DDF2vyT3IsigR8HDQ59Cq?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR
       tags: [club,showcase]
+    - title: Rhythm Swing
+      url: https://drive.google.com/file/d/1Fv4NIGiDpHV_kWS-1RKD8KfPuhBe718G/view?usp=share_link
+      tags: [rhythm]
+    - title: Swing Rhythm
+      url: https://drive.google.com/file/d/1iVVfX7PPJLCXfH4ojyJcDBglT9VEqYQ4/view?usp=share_link
+      tags: [rhythm]
