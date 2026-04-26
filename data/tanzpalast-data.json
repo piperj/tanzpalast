@@ -403,8 +403,19 @@
       },
       {
         "id": 34,
-        "title": "Hustle · Birgitta Slinga",
-        "url": "https://drive.google.com/file/d/1IVMpP6tzz3ErtHdb-r6KA1hUrtILee6O/view?usp=share_link",
+        "title": "Hustle · Birgitta · Choreography",
+        "url": "https://drive.google.com/file/d/1ddIpV3dYvxC63EKv9AIEkGvbzt7YmtF7/view?usp=share_link",
+        "type": "video",
+        "tags": [
+          "club",
+          "birgitta"
+        ],
+        "description": ""
+      },
+      {
+        "id": 35,
+        "title": "Hustle · Birgitta · Michael Jackson",
+        "url": "https://drive.google.com/file/d/16FfQyV_IvOIq0cFGUaYLvCI1EwSdC4Hm/view?usp=share_link",
         "type": "video",
         "tags": [
           "club",
@@ -418,7 +429,7 @@
     "dance": "Skills",
     "videos": [
       {
-        "id": 35,
+        "id": 36,
         "title": "Skills · Positions",
         "url": "https://drive.google.com/file/d/1s01jaI4pvzTR4P6_GfRiqkha1JiaJMcp/view?usp=share_link",
         "type": "video",
@@ -430,7 +441,7 @@
         "description": ""
       },
       {
-        "id": 36,
+        "id": 37,
         "title": "Skills · International · Warm-up",
         "url": "https://drive.google.com/file/d/1EHwm3cyfT1JjLCaBD17VreYR3XF4hGZe/view?usp=share_link",
         "type": "video",
@@ -446,7 +457,7 @@
     "dance": "Swing",
     "videos": [
       {
-        "id": 37,
+        "id": 38,
         "title": "Swing · Showcase · Gents",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipPviPjeqbUJ9o38cezQkTMQJXM_Ow6OcRfkjBqb?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
@@ -457,7 +468,7 @@
         "description": ""
       },
       {
-        "id": 38,
+        "id": 39,
         "title": "Swing · Showcase · Gents Ending",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipNsqdnM25IP_sp5sqjU8w3ohr8CdR_s_rcqgqbi?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
@@ -469,7 +480,7 @@
         "description": ""
       },
       {
-        "id": 39,
+        "id": 40,
         "title": "Swing · Showcase · Gents Jump",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipOL66h2k0Iz8ZND5g8DDF2vyT3IsigR8HDQ59Cq?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
@@ -481,7 +492,7 @@
         "description": ""
       },
       {
-        "id": 40,
+        "id": 41,
         "title": "Swing · Rhythm · A",
         "url": "https://drive.google.com/file/d/1Fv4NIGiDpHV_kWS-1RKD8KfPuhBe718G/view?usp=share_link",
         "type": "video",
@@ -491,7 +502,7 @@
         "description": ""
       },
       {
-        "id": 41,
+        "id": 42,
         "title": "Swing · Rhythm · B",
         "url": "https://drive.google.com/file/d/1iVVfX7PPJLCXfH4ojyJcDBglT9VEqYQ4/view?usp=share_link",
         "type": "video",
@@ -501,7 +512,7 @@
         "description": ""
       },
       {
-        "id": 42,
+        "id": 43,
         "title": "Swing · Rhythm · Warm-up · A",
         "url": "https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view?usp=share_link",
         "type": "video",
@@ -512,7 +523,7 @@
         "description": ""
       },
       {
-        "id": 43,
+        "id": 44,
         "title": "Swing · Rhythm · Warm-up · B",
         "url": "https://drive.google.com/file/d/1pfCHAQddJl5ewoXiRJ5E_LRHCpKN9zPl/view?usp=share_link",
         "type": "video",
