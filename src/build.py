@@ -2,6 +2,7 @@
 """Compile tanzpalast.yaml → data/tanzpalast-data.json."""
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -13,8 +14,13 @@ DATA_DIR = ROOT / "data"
 JSON_PATH = DATA_DIR / "tanzpalast-data.json"
 
 
+def _mov_slug(filename: str) -> str:
+    stem = Path(filename).stem
+    return re.sub(r'[^a-z0-9]+', '-', stem.lower()).strip('-')
+
+
 def _video_dict(raw, video_id):
-    return {
+    d = {
         "id": video_id,
         "title": raw["title"],
         "url": raw["url"],
@@ -22,6 +28,9 @@ def _video_dict(raw, video_id):
         "tags": raw.get("tags") or [],
         "description": raw.get("description") or "",
     }
+    if raw.get("thumbnail"):
+        d["thumbnail"] = f"thumbnails/{_mov_slug(raw['thumbnail'])}.jpg"
+    return d
 
 
 def build():

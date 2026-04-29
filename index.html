@@ -551,8 +551,9 @@
     return m ? m[1] : null;
   }
 
-  function thumbnailUrl(url) {
-    const ytId = youtubeId(url);
+  function thumbnailUrl(v) {
+    if (v.thumbnail) return v.thumbnail;
+    const ytId = youtubeId(v.url);
     return ytId ? `https://img.youtube.com/vi/${ytId}/mqdefault.jpg` : null;
   }
 
@@ -583,7 +584,7 @@
   function subRow(v) {
     const desc = v.description ? `<div class="video-desc">${esc(v.description)}</div>` : '';
     const type = v.type || 'video';
-    const thumbUrl = type === 'video' ? thumbnailUrl(v.url) : null;
+    const thumbUrl = type === 'video' ? thumbnailUrl(v) : null;
     const icon = thumbUrl
       ? `<a class="thumb-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">
            <span class="sub-thumb" data-icon="video">
@@ -610,7 +611,7 @@
       if (subTag) filtered = filtered.filter(v => v.tags?.includes(subTag));
       if (!filtered.length) return [];
       const [featured, ...rest] = filtered;
-      const thumbUrl = (featured.type || 'video') === 'video' ? thumbnailUrl(featured.url) : null;
+      const thumbUrl = (featured.type || 'video') === 'video' ? thumbnailUrl(featured) : null;
       const badge = rest.length > 0
         ? `<span class="more-badge">${rest.length} more <span class="badge-arrow">›</span></span>`
         : '';

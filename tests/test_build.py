@@ -93,6 +93,22 @@ class TestVideoDict:
         raw = {"title": "T", "url": "https://youtu.be/x", "description": None}
         assert build._video_dict(raw, 1)["description"] == ""
 
+    def test_thumbnail_absent_omits_key(self):
+        raw = {"title": "T", "url": "https://youtu.be/x"}
+        assert "thumbnail" not in build._video_dict(raw, 1)
+
+    def test_thumbnail_present_maps_to_path(self):
+        raw = {"title": "T", "url": "https://drive.google.com/x", "thumbnail": "Waltz smooth.mov"}
+        assert build._video_dict(raw, 1)["thumbnail"] == "thumbnails/waltz-smooth.jpg"
+
+    def test_thumbnail_mixed_case_and_spaces(self):
+        raw = {"title": "T", "url": "https://drive.google.com/x", "thumbnail": "Birgitta Hustle MJ.mov"}
+        assert build._video_dict(raw, 1)["thumbnail"] == "thumbnails/birgitta-hustle-mj.jpg"
+
+    def test_thumbnail_none_omits_key(self):
+        raw = {"title": "T", "url": "https://youtu.be/x", "thumbnail": None}
+        assert "thumbnail" not in build._video_dict(raw, 1)
+
 
 # ---------------------------------------------------------------------------
 # build() — happy path

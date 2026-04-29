@@ -33,12 +33,15 @@
       tags: [international]
     - title: Waltz · International · Level 2 · B
       url: https://drive.google.com/file/d/1hgcIDBJBtbs5TdwW8brF-QR9jdDnDPDN/view?usp=share_link
+      thumbnail: "Waltz international level 2.mov"
       tags: [international]
     - title: Waltz · Natural Spin Turn
       url: https://drive.google.com/file/d/18brfeN1f1daZW0WCQWXOGNqBEtOiJSJ8/view?usp=share_link
+      thumbnail: "Waltz natural spin turn.mov"
       tags: [international, skill]
     - title: Waltz · Smooth
       url: https://drive.google.com/file/d/1-eNnO3aKdnLLCsJM7Edm73dCrOXECaYT/view?usp=share_link
+      thumbnail: "Waltz smooth.mov"
       tags: [smooth]
     - title: Waltz · Chrystal
       url: https://share.icloud.com/photos/029UbP_Kzf2w2kFrVw8qYlfmg
@@ -51,15 +54,18 @@
       tags: [international]
     - title: Tango · Smooth
       url: https://drive.google.com/file/d/1kOc4VlRZ8rR5szSoMIOXgcPjLLqEfloa/view?usp=share_link
+      thumbnail: "Tango smooth.mov"
       tags: [smooth]
     - title: Tango · Showcase
       url: https://drive.google.com/file/d/17iIoCs6DD1dMvJ_Ycf0YI0v4OxUj365q/view?usp=sharing
+      thumbnail: "Showcase Tango.mov"
       tags: [showcase, helen]
 
 - dance: Viennese Waltz
   videos:
     - title: Viennese Waltz · Smooth
       url: https://drive.google.com/file/d/1gZ7aRZfxx4ud4OfdnVBikQivt0KGCk11/view?usp=share_link
+      thumbnail: "Vienneze Waltz smooth.mov"
       tags: [smooth]
 
 - dance: Foxtrot
@@ -69,15 +75,19 @@
       tags: [international]
     - title: Foxtrot · Showcase
       url: https://drive.google.com/file/d/1LleJkfXYVGN05vhGFWkAxx_qkqwxhsCz/view?usp=sharing
+      thumbnail: "Showcase Foxtrot.mov"
       tags: [international, showcase, helen]
     - title: Foxtrot · Feather Three Step
       url: https://drive.google.com/file/d/17eZ9pRaz1tSTBBE5HyJriI89wKIQ7Yqu/view?usp=sharing
+      thumbnail: "Foxtrot feather three step.mov"
       tags: [international, skill]
     - title: Foxtrot · Smooth · A
       url: https://drive.google.com/file/d/1RcJN6ZOLhmepzMyg0HQw64thtQVQFccz/view?usp=share_link
+      thumbnail: "Smooth foxtrot.mov"
       tags: [smooth]
     - title: Foxtrot · Smooth · B
       url: https://drive.google.com/file/d/1nC9WTsGBkuo7w7ooYDuS5WUpQ-dcdb7f/view?usp=share_link
+      thumbnail: "Foxtrot smooth.mov"
       tags: [smooth]
 
 - dance: Quickstep
@@ -87,9 +97,11 @@
       tags: [international]
     - title: Quickstep · Slip Pivot
       url: https://drive.google.com/file/d/1S2Z10iY3IGKa9QdDTqfUoJqTZAKPjPHN/view?usp=share_link
+      thumbnail: "Quickstep slip pivot.mov"
       tags: [international, skill]
     - title: Quickstep · Smooth
       url: https://drive.google.com/file/d/1SorMzoy62kYH83a6SWIkP62Z4pbELf9e/view?usp=share_link
+      thumbnail: "Quickstep smooth.mov"
       tags: [smooth]
     - title: Quickstep · Chrystal
       url: https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA
@@ -102,12 +114,15 @@
       tags: [latin]
     - title: Cha Cha · Rhythm · A
       url: https://drive.google.com/file/d/125vHnVHpdJ8NYAaNTsNQ1ZhCrwymFR3u/view?usp=share_link
+      thumbnail: "Cha cha rythm.mov"
       tags: [rhythm]
     - title: Cha Cha · Rhythm · B
       url: https://drive.google.com/file/d/1ovu8iP__MMCyKt6zotNghL8ugRuGyZpr/view?usp=share_link
+      thumbnail: "Cha cha rythm v2.mov"
       tags: [rhythm]
     - title: Cha Cha · Warm-up
       url: https://drive.google.com/file/d/1an73UScGEUc8oGyEgvwUGUr9dznBo379/view?usp=share_link
+      thumbnail: "Cha cha warm-up.mov"
       tags: [latin, rhythm, skill]
 
 - dance: Samba
@@ -123,15 +138,18 @@
       tags: [latin]
     - title: Rumba · Rhythm
       url: https://drive.google.com/file/d/1SnAkQ3Xm_JBY5apDh9fyBVQb9m7s84dn/view?usp=share_link
+      thumbnail: "Rumba rythm.mov"
       tags: [rhythm]
     - title: Rumba · Warm-up
       url: https://drive.google.com/file/d/1TS7QyAcUkJo9LsTmI_jw44v5G0Yi89B3/view?usp=share_link
+      thumbnail: "Rumba warm-up.mov"
       tags: [latin, rhythm, skill]
 
 - dance: Paso Doble
   videos:
     - title: Paso Doble · Latin · Level 2
       url: https://drive.google.com/file/d/1udeNDYaaREE5eNnq1R34_SQv32q0i4D5/view?usp=share_link
+      thumbnail: "Paso Doble level 2.mov"
       tags: [latin]
     - title: Paso Doble · Fallaway Promenade Attack
       url: https://youtu.be/nDFihjVBSYs
@@ -144,39 +162,48 @@
       tags: [latin]
     - title: Jive · Warm-up
       url: https://drive.google.com/file/d/1YNZEFkKvTbEGm--7gzVGBbDZrquoUYn-/view?usp=share_link
+      thumbnail: "Jive warm-up.mov"
       tags: [latin, skill]
 
 - dance: Hustle
   videos:
     - title: Hustle · Showcase · A
       url: https://drive.google.com/file/d/1NuB_ALcZ8UaX28V1gwyi59fu2H9P9sVf/view?usp=sharing
+      thumbnail: "Showcase Hustle 1.mov"
       tags: [club, showcase, helen]
     - title: Hustle · Showcase · B
       url: https://drive.google.com/file/d/1eoxSLCl2-445iBuVxRExwJSZhMjU31BK/view?usp=sharing
+      thumbnail: "Showcase Hustle 2.mov"
       tags: [club, showcase, helen]
     - title: Hustle · Showcase · C
       url: https://drive.google.com/file/d/1-NPvYnWPrjqAbgg8EULMrWdz5kyGV4O1/view?usp=sharing
+      thumbnail: "Showcase Hustle 3.mov"
       tags: [club, showcase, helen]
     - title: Hustle · Birgitta · Choreography
       url: https://drive.google.com/file/d/1ddIpV3dYvxC63EKv9AIEkGvbzt7YmtF7/view?usp=share_link
+      thumbnail: "Birgitta Hustle.mov"
       tags: [club, birgitta]
     - title: Hustle · Birgitta · Michael Jackson
       url: https://drive.google.com/file/d/16FfQyV_IvOIq0cFGUaYLvCI1EwSdC4Hm/view?usp=share_link
+      thumbnail: "Birgitta Hustle MJ.mov"
       tags: [club, birgitta]
 
 - dance: Skills
   videos:
     - title: Skills · Positions
       url: https://drive.google.com/file/d/1s01jaI4pvzTR4P6_GfRiqkha1JiaJMcp/view?usp=share_link
+      thumbnail: "Latin exercise.mov"
       tags: [latin, international, skill]
     - title: Skills · International · Warm-up
       url: https://drive.google.com/file/d/1EHwm3cyfT1JjLCaBD17VreYR3XF4hGZe/view?usp=share_link
+      thumbnail: "International warm-up.mov"
       tags: [international, skill]
 
 - dance: Swing
   videos:
     - title: Swing · Routine
       url: https://drive.google.com/file/d/1wN2HJdL-TKGgiPtRU4uC8wJwjri4SucS/view?usp=share_link
+      thumbnail: "Swing routine.mov"
       tags: [rhythm]
     - title: Swing · Showcase · Gents
       url: https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipPviPjeqbUJ9o38cezQkTMQJXM_Ow6OcRfkjBqb?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR
@@ -189,13 +216,17 @@
       tags: [club, showcase, skill]
     - title: Swing · Rhythm · A
       url: https://drive.google.com/file/d/1Fv4NIGiDpHV_kWS-1RKD8KfPuhBe718G/view?usp=share_link
+      thumbnail: "Swing.mov"
       tags: [rhythm]
     - title: Swing · Rhythm · B
       url: https://drive.google.com/file/d/1iVVfX7PPJLCXfH4ojyJcDBglT9VEqYQ4/view?usp=share_link
+      thumbnail: "Swing v2.mov"
       tags: [rhythm]
     - title: Swing · Rhythm · Warm-up · A
       url: https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view?usp=share_link
+      thumbnail: "Rhythm warm-up.mov"
       tags: [rhythm, skill]
     - title: Swing · Rhythm · Warm-up · B
       url: https://drive.google.com/file/d/1pfCHAQddJl5ewoXiRJ5E_LRHCpKN9zPl/view?usp=share_link
+      thumbnail: "Swing rythm warm-up.mov"
       tags: [rhythm, skill]

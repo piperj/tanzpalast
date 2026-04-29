@@ -20,7 +20,8 @@
         "tags": [
           "international"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/waltz-international-level-2.jpg"
       },
       {
         "id": 3,
@@ -31,7 +32,8 @@
           "international",
           "skill"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/waltz-natural-spin-turn.jpg"
       },
       {
         "id": 4,
@@ -41,7 +43,8 @@
         "tags": [
           "smooth"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/waltz-smooth.jpg"
       },
       {
         "id": 5,
@@ -77,7 +80,8 @@
         "tags": [
           "smooth"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/tango-smooth.jpg"
       },
       {
         "id": 8,
@@ -88,7 +92,8 @@
           "showcase",
           "helen"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/showcase-tango.jpg"
       }
     ]
   },
@@ -103,7 +108,8 @@
         "tags": [
           "smooth"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/vienneze-waltz-smooth.jpg"
       }
     ]
   },
@@ -130,7 +136,8 @@
           "showcase",
           "helen"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/showcase-foxtrot.jpg"
       },
       {
         "id": 12,
@@ -141,7 +148,8 @@
           "international",
           "skill"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/foxtrot-feather-three-step.jpg"
       },
       {
         "id": 13,
@@ -151,7 +159,8 @@
         "tags": [
           "smooth"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/smooth-foxtrot.jpg"
       },
       {
         "id": 14,
@@ -161,7 +170,8 @@
         "tags": [
           "smooth"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/foxtrot-smooth.jpg"
       }
     ]
   },
@@ -187,7 +197,8 @@
           "international",
           "skill"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/quickstep-slip-pivot.jpg"
       },
       {
         "id": 17,
@@ -197,7 +208,8 @@
         "tags": [
           "smooth"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/quickstep-smooth.jpg"
       },
       {
         "id": 18,
@@ -233,7 +245,8 @@
         "tags": [
           "rhythm"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/cha-cha-rythm.jpg"
       },
       {
         "id": 21,
@@ -243,7 +256,8 @@
         "tags": [
           "rhythm"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/cha-cha-rythm-v2.jpg"
       },
       {
         "id": 22,
@@ -255,7 +269,8 @@
           "rhythm",
           "skill"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/cha-cha-warm-up.jpg"
       }
     ]
   },
@@ -295,7 +310,8 @@
         "tags": [
           "rhythm"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/rumba-rythm.jpg"
       },
       {
         "id": 26,
@@ -307,7 +323,8 @@
           "rhythm",
           "skill"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/rumba-warm-up.jpg"
       }
     ]
   },
@@ -322,7 +339,8 @@
         "tags": [
           "latin"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/paso-doble-level-2.jpg"
       },
       {
         "id": 28,
@@ -358,7 +376,8 @@
           "latin",
           "skill"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/jive-warm-up.jpg"
       }
     ]
   },
@@ -375,7 +394,8 @@
           "showcase",
           "helen"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/showcase-hustle-1.jpg"
       },
       {
         "id": 32,
@@ -387,7 +407,8 @@
           "showcase",
           "helen"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/showcase-hustle-2.jpg"
       },
       {
         "id": 33,
@@ -399,7 +420,8 @@
           "showcase",
           "helen"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/showcase-hustle-3.jpg"
       },
       {
         "id": 34,
@@ -410,7 +432,8 @@
           "club",
           "birgitta"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/birgitta-hustle.jpg"
       },
       {
         "id": 35,
@@ -421,7 +444,8 @@
           "club",
           "birgitta"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/birgitta-hustle-mj.jpg"
       }
     ]
   },
@@ -438,7 +462,8 @@
           "international",
           "skill"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/latin-exercise.jpg"
       },
       {
         "id": 37,
@@ -449,7 +474,8 @@
           "international",
           "skill"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/international-warm-up.jpg"
       }
     ]
   },
@@ -464,7 +490,8 @@
         "tags": [
           "rhythm"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/swing-routine.jpg"
       },
       {
         "id": 39,
@@ -509,7 +536,8 @@
         "tags": [
           "rhythm"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/swing.jpg"
       },
       {
         "id": 43,
@@ -519,7 +547,8 @@
         "tags": [
           "rhythm"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/swing-v2.jpg"
       },
       {
         "id": 44,
@@ -530,7 +559,8 @@
           "rhythm",
           "skill"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/rhythm-warm-up.jpg"
       },
       {
         "id": 45,
@@ -541,7 +571,8 @@
           "rhythm",
           "skill"
         ],
-        "description": ""
+        "description": "",
+        "thumbnail": "thumbnails/swing-rythm-warm-up.jpg"
       }
     ]
   }
