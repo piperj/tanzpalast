@@ -458,6 +458,16 @@
     "videos": [
       {
         "id": 38,
+        "title": "Swing · Routine",
+        "url": "https://drive.google.com/file/d/1wN2HJdL-TKGgiPtRU4uC8wJwjri4SucS/view?usp=share_link",
+        "type": "video",
+        "tags": [
+          "rythm"
+        ],
+        "description": ""
+      },
+      {
+        "id": 39,
         "title": "Swing · Showcase · Gents",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipPviPjeqbUJ9o38cezQkTMQJXM_Ow6OcRfkjBqb?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
@@ -468,7 +478,7 @@
         "description": ""
       },
       {
-        "id": 39,
+        "id": 40,
         "title": "Swing · Showcase · Gents Ending",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipNsqdnM25IP_sp5sqjU8w3ohr8CdR_s_rcqgqbi?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
@@ -480,7 +490,7 @@
         "description": ""
       },
       {
-        "id": 40,
+        "id": 41,
         "title": "Swing · Showcase · Gents Jump",
         "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipOL66h2k0Iz8ZND5g8DDF2vyT3IsigR8HDQ59Cq?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
         "type": "video",
@@ -492,7 +502,7 @@
         "description": ""
       },
       {
-        "id": 41,
+        "id": 42,
         "title": "Swing · Rhythm · A",
         "url": "https://drive.google.com/file/d/1Fv4NIGiDpHV_kWS-1RKD8KfPuhBe718G/view?usp=share_link",
         "type": "video",
@@ -502,7 +512,7 @@
         "description": ""
       },
       {
-        "id": 42,
+        "id": 43,
         "title": "Swing · Rhythm · B",
         "url": "https://drive.google.com/file/d/1iVVfX7PPJLCXfH4ojyJcDBglT9VEqYQ4/view?usp=share_link",
         "type": "video",
@@ -512,7 +522,7 @@
         "description": ""
       },
       {
-        "id": 43,
+        "id": 44,
         "title": "Swing · Rhythm · Warm-up · A",
         "url": "https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view?usp=share_link",
         "type": "video",
@@ -523,7 +533,7 @@
         "description": ""
       },
       {
-        "id": 44,
+        "id": 45,
         "title": "Swing · Rhythm · Warm-up · B",
         "url": "https://drive.google.com/file/d/1pfCHAQddJl5ewoXiRJ5E_LRHCpKN9zPl/view?usp=share_link",
         "type": "video",
