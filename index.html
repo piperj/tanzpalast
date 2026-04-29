@@ -192,14 +192,14 @@
       align-items: center;
       padding: 12px 12px 12px 16px;
       gap: 12px;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
     }
 
     .card-body {
       flex: 1;
       min-width: 0;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
     }
 
     .card-top {
@@ -229,14 +229,9 @@
       padding: 0 16px;
       min-height: 52px;
       gap: 12px;
-      text-decoration: none;
-      color: var(--text);
-      -webkit-tap-highlight-color: transparent;
     }
 
-    .video-row:active {
-      background: rgba(0,0,0,0.04);
-    }
+
 
     .video-icon {
       flex-shrink: 0;
@@ -248,7 +243,8 @@
       align-items: center;
       justify-content: center;
       font-size: 14px;
-      color: #fff;
+      color: rgba(255,255,255,0.33);
+      box-shadow: inset 0 3px 7px rgba(255,255,255,0.55), inset 0 -4px 8px rgba(0,0,0,0.55);
     }
 
     .video-icon.doc {
@@ -288,7 +284,8 @@
       justify-content: center;
       background: rgba(0,0,0,0.28);
       font-size: 22px;
-      color: #fff;
+      color: rgba(255,255,255,0.33);
+      box-shadow: inset 0 3px 8px rgba(255,255,255,0.55), inset 0 -4px 10px rgba(0,0,0,0.6);
     }
 
     [data-featured] .video-icon {
@@ -588,19 +585,21 @@
     const type = v.type || 'video';
     const thumbUrl = type === 'video' ? thumbnailUrl(v.url) : null;
     const icon = thumbUrl
-      ? `<span class="sub-thumb" data-icon="video">
-           <img src="${esc(thumbUrl)}" alt="" loading="lazy">
-           <span class="play-tri">▶</span>
-         </span>`
-      : iconFor(type);
+      ? `<a class="thumb-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">
+           <span class="sub-thumb" data-icon="video">
+             <img src="${esc(thumbUrl)}" alt="" loading="lazy">
+             <span class="play-tri">▶</span>
+           </span>
+         </a>`
+      : `<a class="video-icon-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">${iconFor(type)}</a>`;
     return `
-      <a class="video-row" href="${esc(v.url)}" target="_blank" rel="noopener">
+      <div class="video-row">
         <div class="video-info">
           <div class="video-title">${esc(v.title)}</div>
           ${desc}
         </div>
         ${icon}
-      </a>`;
+      </div>`;
   }
 
   function renderDances(dances, collectionTag, subTag) {
@@ -649,8 +648,8 @@
 
   document.getElementById('main').addEventListener('click', e => {
     if (e.target.closest('a')) return;
-    const header = e.target.closest('.card-header');
-    if (header) header.closest('[data-dance]').classList.toggle('expanded');
+    const body = e.target.closest('.card-body');
+    if (body) body.closest('[data-dance]').classList.toggle('expanded');
   });
 
   // ── Fetch + boot ──────────────────────────────────────────────────────────
