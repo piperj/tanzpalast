@@ -14,7 +14,7 @@
     :root {
       --header-h: 52px;
       --accent: #1a1a2e;
-      --accent2: #e94560;
+      --accent2: #b05468;
       --bg: #f5f5f7;
       --card-bg: #fff;
       --text: #1a1a1a;
@@ -188,21 +188,41 @@
     }
 
     .card-header {
+      display: flex;
+      align-items: center;
+      padding: 12px 12px 12px 16px;
+      gap: 12px;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
     }
 
+    .card-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
     .dance-name {
+      flex: 1;
+      min-width: 0;
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--muted);
-      padding: 12px 16px 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    /* ── Video row ── */
+    /* ── Video row (sub-videos only) ── */
     .video-row {
       display: flex;
       align-items: center;
@@ -216,11 +236,6 @@
 
     .video-row:active {
       background: rgba(0,0,0,0.04);
-    }
-
-    [data-featured] {
-      min-height: 56px;
-      padding-bottom: 8px;
     }
 
     .video-icon {
@@ -241,7 +256,7 @@
       font-size: 16px;
     }
 
-    /* ── Thumbnail play button ── */
+    /* ── Featured play button (right side, large) ── */
     .thumb-link {
       flex-shrink: 0;
       display: block;
@@ -253,8 +268,8 @@
 
     .thumb-btn {
       display: block;
-      width: 36px;
-      height: 36px;
+      width: 64px;
+      height: 64px;
       position: relative;
     }
 
@@ -272,8 +287,27 @@
       align-items: center;
       justify-content: center;
       background: rgba(0,0,0,0.28);
-      font-size: 20px;
+      font-size: 22px;
       color: #fff;
+    }
+
+    [data-featured] .video-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      font-size: 22px;
+    }
+
+    [data-featured] .video-icon-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin: 0;
+      min-width: unset;
+      min-height: unset;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .video-info {
@@ -305,7 +339,7 @@
       flex-shrink: 0;
       min-width: 44px;
       min-height: 44px;
-      margin: -4px -4px -4px -4px;
+      margin: -4px;
       text-decoration: none;
       -webkit-tap-highlight-color: transparent;
     }
@@ -319,7 +353,7 @@
       font-weight: 600;
       color: #0a84ff;
       background: rgba(10, 132, 255, 0.1);
-      padding: 5px 9px;
+      padding: 4px 8px;
       border-radius: 20px;
       white-space: nowrap;
       cursor: pointer;
@@ -336,18 +370,25 @@
 
     /* ── Sub-videos ── */
     [data-sub-videos] {
-      display: none;
-      border-top: 1px solid var(--border);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease-in;
+      width: 92%;
     }
 
     [data-dance].expanded [data-sub-videos] {
-      display: block;
+      max-height: 400px;
+      transition: max-height 0.4s ease-out;
     }
 
     [data-sub-videos] .video-row {
-      padding-left: 24px;
+      padding: 8px 12px 8px 24px;
       min-height: 48px;
       border-bottom: 1px solid var(--border);
+    }
+
+    [data-sub-videos] .video-row:first-child {
+      border-top: 1px solid var(--border);
     }
 
     [data-sub-videos] .video-row:last-child {
@@ -355,9 +396,32 @@
     }
 
     [data-sub-videos] .video-icon {
-      width: 30px;
-      height: 30px;
-      font-size: 12px;
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .sub-thumb {
+      display: block;
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sub-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    [data-sub-videos] .play-tri {
+      font-size: 16px;
     }
 
     [data-sub-videos] .video-title {
@@ -504,42 +568,38 @@
     return `<span class="video-icon" data-icon="video">▶</span>`;
   }
 
-  function featuredRow(v, extraCount, thumbUrl) {
-    const desc = v.description ? `<div class="video-desc">${esc(v.description)}</div>` : '';
-    const badge = extraCount > 0
-      ? `<span class="more-badge">${extraCount} more <span class="badge-arrow">›</span></span>`
-      : '';
+  function featuredPlayBtn(v, thumbUrl) {
     const type = v.type || 'video';
-    const playBtn = thumbUrl
-      ? `<a class="thumb-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">
-           <span class="thumb-btn" data-icon="video">
-             <img src="${esc(thumbUrl)}" alt="" loading="lazy">
-             <span class="play-tri">▶</span>
-           </span>
-         </a>`
-      : `<a class="video-icon-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">
-           ${iconFor(type)}
-         </a>`;
-    return `
-      <div class="video-row" data-featured>
-        ${playBtn}
-        <div class="video-info">
-          <div class="video-title">${esc(v.title)}</div>
-          ${desc}
-        </div>
-        ${badge}
-      </div>`;
+    if (thumbUrl) {
+      return `<a class="thumb-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">
+                <span class="thumb-btn" data-icon="video">
+                  <img src="${esc(thumbUrl)}" alt="" loading="lazy">
+                  <span class="play-tri">▶</span>
+                </span>
+              </a>`;
+    }
+    return `<a class="video-icon-link" href="${esc(v.url)}" target="_blank" rel="noopener" aria-label="Play ${esc(v.title)}">
+              ${iconFor(type)}
+            </a>`;
   }
 
   function subRow(v) {
     const desc = v.description ? `<div class="video-desc">${esc(v.description)}</div>` : '';
+    const type = v.type || 'video';
+    const thumbUrl = type === 'video' ? thumbnailUrl(v.url) : null;
+    const icon = thumbUrl
+      ? `<span class="sub-thumb" data-icon="video">
+           <img src="${esc(thumbUrl)}" alt="" loading="lazy">
+           <span class="play-tri">▶</span>
+         </span>`
+      : iconFor(type);
     return `
       <a class="video-row" href="${esc(v.url)}" target="_blank" rel="noopener">
-        ${iconFor(v.type || 'video')}
         <div class="video-info">
           <div class="video-title">${esc(v.title)}</div>
           ${desc}
         </div>
+        ${icon}
       </a>`;
   }
 
@@ -552,15 +612,25 @@
       if (!filtered.length) return [];
       const [featured, ...rest] = filtered;
       const thumbUrl = (featured.type || 'video') === 'video' ? thumbnailUrl(featured.url) : null;
-      const thumbAttr = '';
+      const badge = rest.length > 0
+        ? `<span class="more-badge">${rest.length} more <span class="badge-arrow">›</span></span>`
+        : '';
+      const desc = featured.description ? `<div class="video-desc">${esc(featured.description)}</div>` : '';
       const subRows = rest.map(v => subRow(v)).join('');
       const subSection = subRows ? `<div data-sub-videos>${subRows}</div>` : '';
 
       return `
-        <article data-dance="${esc(d.dance)}"${thumbAttr}>
+        <article data-dance="${esc(d.dance)}">
           <div class="card-header">
-            <div class="dance-name">${esc(d.dance)}</div>
-            ${featuredRow(featured, rest.length, thumbUrl)}
+            <div class="card-body">
+              <div class="card-top">
+                <div class="dance-name">${esc(d.dance)}</div>
+                ${badge}
+              </div>
+              <div class="video-title">${esc(featured.title)}</div>
+              ${desc}
+            </div>
+            <div data-featured>${featuredPlayBtn(featured, thumbUrl)}</div>
           </div>
           ${subSection}
         </article>`;
