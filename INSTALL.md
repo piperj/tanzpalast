@@ -37,7 +37,7 @@ This opens a browser, you log in, and `token.json` is written. Both files are gi
 
 ### 3c. Set your Drive root folder ID
 
-Find the folder ID from the URL when you open your Dance Videos folder in Drive:
+Find the folder ID from the URL when you open your **dance videos folder** in Drive (not the project root — point directly at the folder containing your `.mov` files):
 `https://drive.google.com/drive/folders/THIS_IS_THE_ID`
 
 Export it in your shell profile:
