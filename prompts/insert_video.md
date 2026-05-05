@@ -28,10 +28,10 @@ Respond with ONLY valid JSON — no markdown fences, no explanation outside the 
 }
 ```
 
-The `yaml_block` must be a valid YAML list with exactly one entry. Use flow style for the tags list. Always include `new` as the first tag. Example:
+The `yaml_block` must be a valid YAML list with exactly one entry. Use flow style for the tags list. Always include `new` as the first tag. Field order must be: title, tags, filename. Example:
 
 ```
-"yaml_block": "- filename: waltz_natural_spin_turn.mov\n  title: Waltz · Natural Spin Turn\n  tags: [new, international, skill]\n"
+"yaml_block": "- title: Waltz · Natural Spin Turn\n  tags: [new, international, skill]\n  filename: waltz_natural_spin_turn.mov\n"
 ```
 
 The `new` tag makes the entry easy to spot and remove after you have reviewed it.

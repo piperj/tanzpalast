@@ -11,17 +11,15 @@ all: thumbnails build
 scan:
 	uv run python src/list_drive.py
 
-stubs: scan
+stubs:
+	@test -f $(INDEX) || { echo "ERROR: $(INDEX) not found — run 'make scan' first"; exit 1; }
 	@uv run python src/new_filenames.py | while IFS= read -r fn; do \
 	  echo ">> inferring placement for $$fn"; \
-	  jq -n \
-	    --arg fn "$$fn" \
-	    --argjson idx "$$(cat $(INDEX))" \
-	    --rawfile yaml $(YAML) \
-	    '{filename:$$fn, drive_path:$$idx[$$fn].drive_path, yaml:$$yaml}' \
+	  uv run python src/stub_input.py "$$fn" \
 	  | claude -p "$$(cat prompts/insert_video.md)" \
+	  | tee /tmp/claude_last.json \
 	  | uv run python src/apply_insert.py \
-	  || echo "  !! $$fn failed (see data/scan-failures.log)"; \
+	  || { echo "  !! $$fn failed — Claude output in /tmp/claude_last.json"; }; \
 	done
 
 # --- Build ---

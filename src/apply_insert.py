@@ -7,6 +7,7 @@ Output: modifies tanzpalast.yaml in-place; exits non-zero on failure.
 Failures are appended to data/scan-failures.log so you can review and retry.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -30,10 +31,13 @@ def _fail(msg, context=""):
 
 def apply_insert(plan_json, yaml_path=YAML_PATH):
     """Parse plan_json and apply insertion to yaml_path. Returns filename inserted."""
+    if not plan_json.strip():
+        _fail("Claude returned empty output — check 'claude -p' is working and authenticated")
     try:
         plan = json.loads(plan_json)
     except json.JSONDecodeError as e:
-        _fail(f"Claude returned invalid JSON: {e}")
+        preview = plan_json[:200].replace('\n', '\\n')
+        _fail(f"Claude returned invalid JSON: {e}\nReceived: {preview}")
 
     dance = plan.get("dance", "").strip()
     create_new = bool(plan.get("create_new_dance", False))
@@ -93,7 +97,10 @@ def apply_insert(plan_json, yaml_path=YAML_PATH):
     # Serialize and validate no original refs were lost
     buf = StringIO()
     ryaml.dump(data, buf)
-    new_text = buf.getvalue()
+    # ruamel preserves blank lines that originally separated dance blocks; after
+    # appending, that blank line lands inside the videos list. Remove any blank
+    # line followed by indented content (video entries start with spaces, not '-').
+    new_text = re.sub(r'\n\n( {2,})', r'\n\1', buf.getvalue())
 
     new_parsed = pyyaml.safe_load(new_text)
     new_refs = {
