@@ -4,6 +4,10 @@ version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
     "pyyaml",
+    "ruamel.yaml",
+    "google-api-python-client",
+    "google-auth-httplib2",
+    "google-auth-oauthlib",
     "playwright",
     "pytest",
     "pytest-playwright",

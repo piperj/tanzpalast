@@ -2,71 +2,95 @@
 
 ## Prerequisites
 
-- A GitHub account
-- A Google Drive account (for the data file)
-- Git installed locally
+- Python 3.11+, `uv`, `ffmpeg` (`brew install ffmpeg`)
+- A Google account with access to the Drive folder where your videos live
 
-## 1. Fork or clone this repo
-
-```bash
-git clone https://github.com/YOUR_USERNAME/tanzpalast.git
-cd tanzpalast
-```
-
-## 2. Set up the data file in Google Drive
-
-1. Copy `data/tanzpalast-data.json` to your Google Drive
-2. Right-click the file → **Share** → **Anyone with the link** → **Viewer**
-3. Copy the sharing URL — it looks like:
-   `https://drive.google.com/file/d/FILE_ID/view?usp=sharing`
-4. Extract the `FILE_ID` from that URL
-5. Your raw fetch URL will be:
-   `https://drive.google.com/uc?export=download&id=FILE_ID`
-
-## 3. Configure the data URL
-
-In `index.html`, find the line:
-
-```js
-const DATA_URL = 'REPLACE_WITH_YOUR_GOOGLE_DRIVE_URL';
-```
-
-Replace it with your URL from step 2.
-
-## 4. Local development
-
-No build step needed. Open `index.html` directly in your browser:
+## 1. Clone the repo
 
 ```bash
-open index.html
+git clone https://github.com/piperj/tanzpalast.git
 ```
 
-Or serve it locally to avoid CORS issues during development:
+## 2. Install dependencies
 
 ```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
+uv sync
 ```
 
-## 5. Deploy to GitHub Pages
+## 3. Google Drive API setup (one time)
 
-1. Push your changes to GitHub
-2. Go to repo **Settings → Pages**
-3. Set source to **Deploy from a branch**, branch `main`, folder `/` (root)
-4. Save — your site will be live at `https://YOUR_USERNAME.github.io/tanzpalast`
+### 3a. Create credentials
 
-## 6. Adding videos to the catalog
+1. Go to https://console.cloud.google.com
+2. Create a project (e.g. "Tanzpalast")
+3. Enable the **Google Drive API**
+4. Credentials → **Create credentials** → **OAuth 2.0 Client ID** → Desktop App
+5. Download `credentials.json` and place it in the repo root (it is gitignored)
 
-Edit `tanzpalast-data.json` in Google Drive directly (right-click → Open with → Google Docs, or download, edit, re-upload). The site picks up changes on next page load — no redeployment needed.
-
-See `SPEC.md` for the full field reference.
-
-## Updating the site itself
+### 3b. Authenticate
 
 ```bash
-git add .
-git commit -m "your message"
-git push
+uv run python src/auth_setup.py
 ```
 
-GitHub Pages redeploys automatically within ~1 minute.
+This opens a browser, you log in, and `token.json` is written. Both files are gitignored — never commit them.
+
+### 3c. Set your Drive root folder ID
+
+Find the folder ID from the URL when you open your Dance Videos folder in Drive:
+`https://drive.google.com/drive/folders/THIS_IS_THE_ID`
+
+Export it in your shell profile:
+
+```bash
+export TANZPALAST_DRIVE_ROOT=your_folder_id_here
+```
+
+Or prefix it to `make` commands:
+
+```bash
+TANZPALAST_DRIVE_ROOT=... make scan
+```
+
+## 4. First-time migration (existing repos only)
+
+If the repo already has Drive `url:` entries in `tanzpalast.yaml`, migrate them to the new `filename:` form:
+
+```bash
+make scan                          # build drive-index.json
+uv run python src/migrate_yaml.py  # rewrite Drive url: → filename:
+make build                         # verify JSON builds cleanly
+```
+
+Review the YAML diff before committing.
+
+## 5. Day-to-day workflow
+
+```
+Film on phone
+  → Photos auto-syncs to Mac
+  → drag .mov to right Drive folder AND keep a copy in data/
+  → make stubs          # scan Drive; Claude infers and inserts YAML entries
+  → review YAML diff    # fix titles, remove or reassign tags as needed
+  → make all            # thumbnails + JSON build
+  → make publish        # commit + push
+```
+
+## 6. Local development server
+
+```bash
+python3 -m http.server 8080 --bind 0.0.0.0 --directory .
+# open http://localhost:8080
+```
+
+## 7. Makefile targets
+
+| Target | What it does |
+|---|---|
+| `make all` | thumbnails + JSON build |
+| `make scan` | refresh `data/drive-index.json` from Drive |
+| `make stubs` | scan + ask Claude to insert new filenames into YAML |
+| `make build` | compile YAML → JSON |
+| `make thumbnails` | extract JPEG frames from any new `.mov` in `data/` |
+| `make publish` | `all` + git commit + push |
+| `make clean` | remove generated JSON and index |

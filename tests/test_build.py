@@ -22,13 +22,15 @@ def _make_yaml(tmp_path, content: str) -> Path:
     return p
 
 
-def run_build(tmp_path, yaml_content: str) -> list:
+def run_build(tmp_path, yaml_content: str, index: dict | None = None) -> list:
     """Write a temp YAML, monkey-patch build paths, run build(), return parsed JSON."""
     yaml_path = _make_yaml(tmp_path, yaml_content)
     data_dir = tmp_path / "data"
     json_path = data_dir / "tanzpalast-data.json"
+    if index is not None:
+        data_dir.mkdir(exist_ok=True)
+        (data_dir / "drive-index.json").write_text(json.dumps(index) + "\n")
 
-    # Patch module-level paths
     original_yaml = build.YAML_PATH
     original_data = build.DATA_DIR
     original_json = build.JSON_PATH
@@ -52,62 +54,62 @@ def run_build(tmp_path, yaml_content: str) -> list:
 class TestVideoDict:
     def test_required_fields(self):
         raw = {"title": "Waltz Basics", "url": "https://youtu.be/abc"}
-        result = build._video_dict(raw, 7)
+        result = build._video_dict(raw, 7, {})
         assert result["id"] == 7
         assert result["title"] == "Waltz Basics"
         assert result["url"] == "https://youtu.be/abc"
 
     def test_default_type_is_video(self):
         raw = {"title": "T", "url": "https://youtu.be/x"}
-        assert build._video_dict(raw, 1)["type"] == "video"
+        assert build._video_dict(raw, 1, {})["type"] == "video"
 
     def test_explicit_type_pdf(self):
         raw = {"title": "T", "url": "https://example.com/sheet.pdf", "type": "pdf"}
-        assert build._video_dict(raw, 1)["type"] == "pdf"
+        assert build._video_dict(raw, 1, {})["type"] == "pdf"
 
     def test_explicit_type_image(self):
         raw = {"title": "T", "url": "https://example.com/img.png", "type": "image"}
-        assert build._video_dict(raw, 1)["type"] == "image"
+        assert build._video_dict(raw, 1, {})["type"] == "image"
 
     def test_default_tags_empty_list(self):
         raw = {"title": "T", "url": "https://youtu.be/x"}
-        assert build._video_dict(raw, 1)["tags"] == []
+        assert build._video_dict(raw, 1, {})["tags"] == []
 
     def test_tags_preserved(self):
         raw = {"title": "T", "url": "https://youtu.be/x", "tags": ["standard", "footwork"]}
-        assert build._video_dict(raw, 1)["tags"] == ["standard", "footwork"]
+        assert build._video_dict(raw, 1, {})["tags"] == ["standard", "footwork"]
 
     def test_tags_none_becomes_empty_list(self):
         raw = {"title": "T", "url": "https://youtu.be/x", "tags": None}
-        assert build._video_dict(raw, 1)["tags"] == []
+        assert build._video_dict(raw, 1, {})["tags"] == []
 
     def test_default_description_empty_string(self):
         raw = {"title": "T", "url": "https://youtu.be/x"}
-        assert build._video_dict(raw, 1)["description"] == ""
+        assert build._video_dict(raw, 1, {})["description"] == ""
 
     def test_description_preserved(self):
         raw = {"title": "T", "url": "https://youtu.be/x", "description": "Teacher: Anna"}
-        assert build._video_dict(raw, 1)["description"] == "Teacher: Anna"
+        assert build._video_dict(raw, 1, {})["description"] == "Teacher: Anna"
 
     def test_description_none_becomes_empty_string(self):
         raw = {"title": "T", "url": "https://youtu.be/x", "description": None}
-        assert build._video_dict(raw, 1)["description"] == ""
+        assert build._video_dict(raw, 1, {})["description"] == ""
 
     def test_thumbnail_absent_omits_key(self):
         raw = {"title": "T", "url": "https://youtu.be/x"}
-        assert "thumbnail" not in build._video_dict(raw, 1)
+        assert "thumbnail" not in build._video_dict(raw, 1, {})
 
     def test_thumbnail_present_maps_to_path(self):
         raw = {"title": "T", "url": "https://drive.google.com/x", "thumbnail": "Waltz smooth.mov"}
-        assert build._video_dict(raw, 1)["thumbnail"] == "thumbnails/waltz-smooth.jpg"
+        assert build._video_dict(raw, 1, {})["thumbnail"] == "thumbnails/waltz-smooth.jpg"
 
     def test_thumbnail_mixed_case_and_spaces(self):
         raw = {"title": "T", "url": "https://drive.google.com/x", "thumbnail": "Birgitta Hustle MJ.mov"}
-        assert build._video_dict(raw, 1)["thumbnail"] == "thumbnails/birgitta-hustle-mj.jpg"
+        assert build._video_dict(raw, 1, {})["thumbnail"] == "thumbnails/birgitta-hustle-mj.jpg"
 
     def test_thumbnail_none_omits_key(self):
         raw = {"title": "T", "url": "https://youtu.be/x", "thumbnail": None}
-        assert "thumbnail" not in build._video_dict(raw, 1)
+        assert "thumbnail" not in build._video_dict(raw, 1, {})
 
 
 # ---------------------------------------------------------------------------
@@ -275,6 +277,60 @@ class TestBuildErrors:
 # ---------------------------------------------------------------------------
 # build() — real data smoke test
 # ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# filename: form (Drive videos resolved via drive-index.json)
+# ---------------------------------------------------------------------------
+
+class TestFilenameForm:
+    DRIVE_INDEX = {
+        "waltz_smooth.mov": {"id": "FAKEID1", "drive_path": "Waltz/waltz_smooth.mov", "modified": ""},
+    }
+
+    FILENAME_YAML = """\
+        - dance: Waltz
+          videos:
+            - filename: waltz_smooth.mov
+              title: Waltz · Smooth
+              tags: [smooth]
+    """
+
+    def test_url_resolved_from_index(self, tmp_path):
+        result = run_build(tmp_path, self.FILENAME_YAML, index=self.DRIVE_INDEX)
+        v = result[0]["videos"][0]
+        assert v["url"] == "https://drive.google.com/file/d/FAKEID1/view"
+
+    def test_thumbnail_derived_from_filename(self, tmp_path):
+        result = run_build(tmp_path, self.FILENAME_YAML, index=self.DRIVE_INDEX)
+        v = result[0]["videos"][0]
+        assert v["thumbnail"] == "thumbnails/waltz-smooth.jpg"
+
+    def test_filename_not_in_index_exits(self, tmp_path):
+        yaml = """\
+            - dance: Waltz
+              videos:
+                - filename: missing.mov
+                  title: T
+                  tags: []
+        """
+        with pytest.raises(SystemExit):
+            run_build(tmp_path, yaml, index={})
+
+    def test_url_form_still_works(self, tmp_path):
+        yaml = """\
+            - dance: Waltz
+              videos:
+                - title: Waltz YouTube
+                  url: https://youtu.be/abc
+                  tags: [international]
+        """
+        result = run_build(tmp_path, yaml)
+        assert result[0]["videos"][0]["url"] == "https://youtu.be/abc"
+
+    def test_no_filename_key_in_output(self, tmp_path):
+        result = run_build(tmp_path, self.FILENAME_YAML, index=self.DRIVE_INDEX)
+        assert "filename" not in result[0]["videos"][0]
+
 
 class TestRealData:
     """Smoke-test against the actual tanzpalast.yaml in the repo."""

@@ -19,7 +19,31 @@ def _mov_slug(filename: str) -> str:
     return re.sub(r'[^a-z0-9]+', '-', stem.lower()).strip('-')
 
 
-def _video_dict(raw, video_id):
+def _load_index():
+    path = DATA_DIR / "drive-index.json"
+    if not path.exists():
+        return {}
+    with path.open() as f:
+        return json.load(f)
+
+
+def _video_dict(raw, video_id, index):
+    filename = raw.get("filename")
+    if filename:
+        entry = index.get(filename)
+        if entry is None:
+            print(f"ERROR: '{filename}' not in drive-index.json — run 'make scan'", file=sys.stderr)
+            sys.exit(1)
+        return {
+            "id": video_id,
+            "title": raw["title"],
+            "url": f"https://drive.google.com/file/d/{entry['id']}/view",
+            "type": raw.get("type", "video"),
+            "tags": raw.get("tags") or [],
+            "description": raw.get("description") or "",
+            "thumbnail": f"thumbnails/{_mov_slug(filename)}.jpg",
+        }
+
     d = {
         "id": video_id,
         "title": raw["title"],
@@ -41,6 +65,7 @@ def build():
         print("ERROR: tanzpalast.yaml must be a YAML list", file=sys.stderr)
         sys.exit(1)
 
+    index = _load_index()
     next_id = 1
     output = []
 
@@ -52,7 +77,7 @@ def build():
 
         videos = []
         for v in entry.get("videos") or []:
-            videos.append(_video_dict(v, next_id))
+            videos.append(_video_dict(v, next_id, index))
             next_id += 1
 
         output.append({"dance": dance_name, "videos": videos})

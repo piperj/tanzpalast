@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
-"""Extract thumbnail frames from local .mov source files listed in tanzpalast.yaml.
+"""Extract thumbnail frames from local .mov source files.
+
+Reads tanzpalast.yaml for `filename:` (Drive) and legacy `thumbnail:` fields,
+looks for the source .mov in data/, writes JPEG to thumbnails/.
 
 Usage:
-    uv run python src/make_thumbnails.py          # extract at 12 s (default)
+    uv run python src/make_thumbnails.py          # process all (skip existing)
     uv run python src/make_thumbnails.py --at 14  # choose timestamp
     uv run python src/make_thumbnails.py --force  # overwrite existing
+    uv run python src/make_thumbnails.py --file data/waltz_smooth.mov
 """
 
 import argparse
@@ -27,60 +31,79 @@ def _mov_slug(filename: str) -> str:
     return re.sub(r'[^a-z0-9]+', '-', stem.lower()).strip('-')
 
 
+def _extract(src: Path, dest: Path, at: float) -> bool:
+    result = subprocess.run(
+        ["ffmpeg", "-y", "-ss", str(at), "-i", str(src),
+         "-frames:v", "1", "-q:v", "2", str(dest)],
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        print(result.stderr.decode()[-300:], file=sys.stderr)
+    return result.returncode == 0
+
+
+def collect_sources():
+    """Return {mov_filename: slug} from tanzpalast.yaml."""
+    with YAML_PATH.open() as f:
+        dances = yaml.safe_load(f)
+    sources = {}
+    for entry in dances or []:
+        for v in entry.get("videos") or []:
+            mov = v.get("filename") or v.get("thumbnail")
+            if mov and mov.lower().endswith(".mov") and mov not in sources:
+                sources[mov] = _mov_slug(mov)
+    return sources
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Generate thumbnails from .mov source files")
+    parser = argparse.ArgumentParser(description="Generate thumbnails from .mov files")
     parser.add_argument("--at", type=float, default=12.0, metavar="SECONDS",
                         help="timestamp to extract (default: 12)")
-    parser.add_argument("--force", action="store_true",
-                        help="overwrite existing thumbnails")
+    parser.add_argument("--force", action="store_true", help="overwrite existing thumbnails")
+    parser.add_argument("--file", metavar="PATH",
+                        help="process a single .mov file (skips YAML scan)")
     args = parser.parse_args()
 
     if not shutil.which("ffmpeg"):
-        print("ERROR: ffmpeg not found on PATH — install via: brew install ffmpeg", file=sys.stderr)
+        print("ERROR: ffmpeg not found — brew install ffmpeg", file=sys.stderr)
         sys.exit(1)
 
-    with YAML_PATH.open() as f:
-        dances = yaml.safe_load(f)
+    THUMB_DIR.mkdir(exist_ok=True)
 
-    # Collect unique thumbnail source filenames
-    sources = {}  # mov_filename -> slug
-    for entry in dances:
-        for v in entry.get("videos") or []:
-            mov = v.get("thumbnail")
-            if mov and mov not in sources:
-                sources[mov] = _mov_slug(mov)
+    if args.file:
+        src = Path(args.file)
+        dest = THUMB_DIR / f"{_mov_slug(src.name)}.jpg"
+        if dest.exists() and not args.force:
+            print(f"  skipped (exists): {dest.name}")
+            return
+        if not src.exists():
+            print(f"  ✗ missing: {src}", file=sys.stderr)
+            sys.exit(1)
+        ok = _extract(src, dest, args.at)
+        print(f"  {'✓' if ok else '✗'} {dest.name}")
+        sys.exit(0 if ok else 1)
 
+    sources = collect_sources()
     if not sources:
-        print("No thumbnail fields found in tanzpalast.yaml")
+        print("No .mov sources found in tanzpalast.yaml")
         return
 
-    THUMB_DIR.mkdir(exist_ok=True)
     ok = err = skipped = 0
-
     for mov, slug in sorted(sources.items()):
         src = DATA_DIR / mov
         dest = THUMB_DIR / f"{slug}.jpg"
-
         if dest.exists() and not args.force:
             skipped += 1
             continue
-
         if not src.exists():
             print(f"  ✗ missing source: {mov}")
             err += 1
             continue
-
-        result = subprocess.run(
-            ["ffmpeg", "-y", "-ss", str(args.at), "-i", str(src),
-             "-frames:v", "1", "-q:v", "2", str(dest)],
-            capture_output=True,
-        )
-        if result.returncode == 0:
+        if _extract(src, dest, args.at):
             print(f"  ✓ {dest.name}")
             ok += 1
         else:
-            print(f"  ✗ ffmpeg failed for {mov}")
-            print(result.stderr.decode()[-300:], file=sys.stderr)
+            print(f"  ✗ ffmpeg failed: {mov}")
             err += 1
 
     print(f"\n{ok} generated, {skipped} skipped, {err} errors")
