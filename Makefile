@@ -44,7 +44,9 @@ publish: all
 # --- Misc ---
 
 preview:
-	open -a Safari index.html
+	@python3 -m http.server 8080 --bind 127.0.0.1 --directory . & \
+	sleep 0.5 && open -a Safari http://localhost:8080; \
+	wait
 
 clean:
 	rm -f $(JSON) $(INDEX)
@@ -57,6 +59,6 @@ help:
 	@echo "  make build       Compile tanzpalast.yaml → data/tanzpalast-data.json"
 	@echo "  make thumbnails  Extract JPEG frames from local .mov files in data/"
 	@echo "  make all         thumbnails + build"
-	@echo "  make preview     Open index.html in Safari"
+	@echo "  make preview     Serve locally on :8080 and open Safari (Ctrl+C to stop)"
 	@echo "  make publish     all + git commit + push"
 	@echo "  make clean       Remove generated JSON, index, and thumbnails"
