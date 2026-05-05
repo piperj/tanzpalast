@@ -5,7 +5,7 @@ MOVS  := $(wildcard data/*.mov data/*.MOV)
 
 .PHONY: all scan stubs build thumbnails publish preview clean help
 
-all: thumbnails build
+all: stubs thumbnails build
 
 # --- Drive ---
 
@@ -55,12 +55,15 @@ clean:
 	rm -f thumbnails/*.jpg
 
 help:
-	@echo "Targets:"
-	@echo "  make scan        Refresh drive-index.json (auto if data/*.mov is newer)"
-	@echo "  make stubs       Insert new Drive videos into tanzpalast.yaml via Claude"
-	@echo "  make build       Compile tanzpalast.yaml → data/tanzpalast-data.json"
-	@echo "  make thumbnails  Extract JPEG frames from local .mov files in data/"
+	@echo "Workflow: drag .mov to data/ + Drive → stubs → edit YAML → publish"
+	@echo ""
+	@echo "  make stubs       Scan Drive + ask Claude to insert new videos into YAML"
 	@echo "  make all         thumbnails + build"
-	@echo "  make preview     Serve locally on :8080 and open Safari (Ctrl+C to stop)"
 	@echo "  make publish     all + git commit + push"
+	@echo ""
+	@echo "  make preview     Serve locally on :8080 and open Safari (Ctrl+C to stop)"
+	@echo ""
+	@echo "  make scan        Refresh drive-index.json (auto-triggered by make stubs)"
+	@echo "  make thumbnails  Extract JPEG frames from local .mov files in data/"
+	@echo "  make build       Compile tanzpalast.yaml → data/tanzpalast-data.json"
 	@echo "  make clean       Remove generated JSON, index, and thumbnails"
