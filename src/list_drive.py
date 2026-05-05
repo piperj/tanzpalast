@@ -29,7 +29,7 @@ def list_videos(service, folder_id, path=""):
     while True:
         response = service.files().list(
             q=f"'{folder_id}' in parents and trashed=false",
-            fields="nextPageToken, files(id, name, mimeType, modifiedTime)",
+            fields="nextPageToken, files(id, name, mimeType)",
             pageSize=1000,
             pageToken=page_token,
         ).execute()
@@ -42,7 +42,6 @@ def list_videos(service, folder_id, path=""):
                     "name": item["name"],
                     "id": item["id"],
                     "drive_path": item_path,
-                    "modified": item["modifiedTime"],
                 })
         page_token = response.get("nextPageToken")
         if not page_token:
@@ -62,7 +61,6 @@ def write_index(items, path=INDEX_PATH):
         index[name] = {
             "id": item["id"],
             "drive_path": item["drive_path"],
-            "modified": item["modified"],
         }
     path = Path(path)
     path.parent.mkdir(exist_ok=True)
