@@ -44,9 +44,9 @@ publish: all
 # --- Misc ---
 
 preview:
-	@python3 -m http.server 8080 --bind 127.0.0.1 --directory . & \
-	sleep 0.5 && open -a Safari http://localhost:8080; \
-	wait
+	@pkill -f "http.server" 2>/dev/null; sleep 0.5; true
+	open -a Safari http://localhost:8080
+	python3 -m http.server 8080 --bind 127.0.0.1 --directory "$(CURDIR)"
 
 clean:
 	rm -f $(JSON) $(INDEX)
