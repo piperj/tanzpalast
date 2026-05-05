@@ -1,6 +1,7 @@
 YAML  := tanzpalast.yaml
 JSON  := data/tanzpalast-data.json
 INDEX := data/drive-index.json
+MOVS  := $(wildcard data/*.mov data/*.MOV)
 
 .PHONY: all scan stubs build thumbnails publish preview clean help
 
@@ -8,11 +9,12 @@ all: thumbnails build
 
 # --- Drive ---
 
-scan:
+scan: $(INDEX)
+
+$(INDEX): $(MOVS)
 	uv run python src/list_drive.py
 
-stubs:
-	@test -f $(INDEX) || { echo "ERROR: $(INDEX) not found — run 'make scan' first"; exit 1; }
+stubs: $(INDEX)
 	@uv run python src/new_filenames.py | while IFS= read -r fn; do \
 	  echo ">> inferring placement for $$fn"; \
 	  uv run python src/stub_input.py "$$fn" \
@@ -26,12 +28,12 @@ stubs:
 
 build: $(JSON)
 
-$(JSON): $(YAML)
+$(JSON): $(YAML) $(INDEX)
 	uv run python src/build.py
 
 # --- Thumbnails ---
 
-thumbnails:
+thumbnails: $(MOVS)
 	uv run python src/make_thumbnails.py
 
 # --- Publish ---
@@ -54,8 +56,8 @@ clean:
 
 help:
 	@echo "Targets:"
-	@echo "  make scan        Refresh data/drive-index.json from Google Drive"
-	@echo "  make stubs       Ask Claude to insert new Drive videos into tanzpalast.yaml"
+	@echo "  make scan        Refresh drive-index.json (auto if data/*.mov is newer)"
+	@echo "  make stubs       Insert new Drive videos into tanzpalast.yaml via Claude"
 	@echo "  make build       Compile tanzpalast.yaml → data/tanzpalast-data.json"
 	@echo "  make thumbnails  Extract JPEG frames from local .mov files in data/"
 	@echo "  make all         thumbnails + build"
