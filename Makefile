@@ -1,20 +1,16 @@
 YAML  := tanzpalast.yaml
 JSON  := data/tanzpalast-data.json
 INDEX := data/drive-index.json
-MOVS  := $(wildcard data/*.mov data/*.MOV)
-
 .PHONY: all scan stubs build thumbnails publish preview clean help
 
 all: stubs thumbnails build
 
 # --- Drive ---
 
-scan: $(INDEX)
-
-$(INDEX): $(MOVS)
+scan:
 	uv run python src/list_drive.py
 
-stubs: $(INDEX)
+stubs: scan
 	@uv run python src/new_filenames.py | while IFS= read -r fn; do \
 	  echo ">> inferring placement for $$fn"; \
 	  uv run python src/stub_input.py "$$fn" \
@@ -28,12 +24,12 @@ stubs: $(INDEX)
 
 build: $(JSON)
 
-$(JSON): $(YAML) $(INDEX)
+$(JSON): $(YAML)
 	uv run python src/build.py
 
 # --- Thumbnails ---
 
-thumbnails: $(MOVS)
+thumbnails:
 	uv run python src/make_thumbnails.py
 
 # --- Publish ---
