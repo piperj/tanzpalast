@@ -2,7 +2,7 @@ YAML  := tanzpalast.yaml
 JSON  := data/tanzpalast-data.json
 INDEX := data/drive-index.json
 
-.PHONY: all scan stubs build thumbnails publish clean
+.PHONY: all scan stubs build thumbnails publish preview clean help
 
 all: thumbnails build
 
@@ -43,6 +43,20 @@ publish: all
 
 # --- Misc ---
 
+preview:
+	open -a Safari index.html
+
 clean:
 	rm -f $(JSON) $(INDEX)
 	rm -f thumbnails/*.jpg
+
+help:
+	@echo "Targets:"
+	@echo "  make scan        Refresh data/drive-index.json from Google Drive"
+	@echo "  make stubs       Ask Claude to insert new Drive videos into tanzpalast.yaml"
+	@echo "  make build       Compile tanzpalast.yaml → data/tanzpalast-data.json"
+	@echo "  make thumbnails  Extract JPEG frames from local .mov files in data/"
+	@echo "  make all         thumbnails + build"
+	@echo "  make preview     Open index.html in Safari"
+	@echo "  make publish     all + git commit + push"
+	@echo "  make clean       Remove generated JSON, index, and thumbnails"
