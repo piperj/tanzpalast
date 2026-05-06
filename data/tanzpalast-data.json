@@ -403,6 +403,115 @@
         ],
         "description": "",
         "thumbnail": "thumbnails/jive-warm-up.jpg"
+      },
+      {
+        "id": 33,
+        "title": "Jive · QaQ Turn",
+        "url": "https://drive.google.com/file/d/1bWyKD-JFUX52vCtxGq1qqmHtUdmjpPUp/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "latin"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/jive-qaq-turn.jpg"
+      }
+    ]
+  },
+  {
+    "dance": "Swing",
+    "videos": [
+      {
+        "id": 34,
+        "title": "Swing · Routine",
+        "url": "https://drive.google.com/file/d/1wN2HJdL-TKGgiPtRU4uC8wJwjri4SucS/view",
+        "type": "video",
+        "tags": [
+          "rhythm"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/swing-routine.jpg"
+      },
+      {
+        "id": 35,
+        "title": "Swing · Showcase · Gents",
+        "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipPviPjeqbUJ9o38cezQkTMQJXM_Ow6OcRfkjBqb?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
+        "type": "video",
+        "tags": [
+          "club",
+          "showcase"
+        ],
+        "description": ""
+      },
+      {
+        "id": 36,
+        "title": "Swing · Showcase · Gents Ending",
+        "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipNsqdnM25IP_sp5sqjU8w3ohr8CdR_s_rcqgqbi?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
+        "type": "video",
+        "tags": [
+          "club",
+          "showcase",
+          "skill"
+        ],
+        "description": ""
+      },
+      {
+        "id": 37,
+        "title": "Swing · Showcase · Gents Jump",
+        "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipOL66h2k0Iz8ZND5g8DDF2vyT3IsigR8HDQ59Cq?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
+        "type": "video",
+        "tags": [
+          "club",
+          "showcase",
+          "skill"
+        ],
+        "description": ""
+      },
+      {
+        "id": 38,
+        "title": "Swing · Rhythm · A",
+        "url": "https://drive.google.com/file/d/1Fv4NIGiDpHV_kWS-1RKD8KfPuhBe718G/view",
+        "type": "video",
+        "tags": [
+          "rhythm"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/swing.jpg"
+      },
+      {
+        "id": 39,
+        "title": "Swing · Rhythm · B",
+        "url": "https://drive.google.com/file/d/1iVVfX7PPJLCXfH4ojyJcDBglT9VEqYQ4/view",
+        "type": "video",
+        "tags": [
+          "rhythm"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/swing-v2.jpg"
+      },
+      {
+        "id": 40,
+        "title": "Swing · Rhythm · Warm-up · A",
+        "url": "https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view",
+        "type": "video",
+        "tags": [
+          "rhythm",
+          "skill"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/rhythm-warm-up.jpg"
+      },
+      {
+        "id": 41,
+        "title": "Swing · Rhythm · Warm-up · B",
+        "url": "https://drive.google.com/file/d/1pfCHAQddJl5ewoXiRJ5E_LRHCpKN9zPl/view",
+        "type": "video",
+        "tags": [
+          "rhythm",
+          "skill"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/swing-rythm-warm-up.jpg"
       }
     ]
   },
@@ -410,46 +519,20 @@
     "dance": "Hustle",
     "videos": [
       {
-        "id": 33,
-        "title": "Hustle · Showcase · A",
-        "url": "https://drive.google.com/file/d/1NuB_ALcZ8UaX28V1gwyi59fu2H9P9sVf/view",
+        "id": 42,
+        "title": "Hustle · Showcase · D",
+        "url": "https://drive.google.com/file/d/1MFRpo6ADu4WL_ci45TKfzJKlylsdXDpe/view",
         "type": "video",
         "tags": [
+          "new",
           "club",
-          "showcase",
-          "helen"
+          "showcase"
         ],
         "description": "",
-        "thumbnail": "thumbnails/showcase-hustle-1.jpg"
+        "thumbnail": "thumbnails/showcase-hustle.jpg"
       },
       {
-        "id": 34,
-        "title": "Hustle · Showcase · B",
-        "url": "https://drive.google.com/file/d/1eoxSLCl2-445iBuVxRExwJSZhMjU31BK/view",
-        "type": "video",
-        "tags": [
-          "club",
-          "showcase",
-          "helen"
-        ],
-        "description": "",
-        "thumbnail": "thumbnails/showcase-hustle-2.jpg"
-      },
-      {
-        "id": 35,
-        "title": "Hustle · Showcase · C",
-        "url": "https://drive.google.com/file/d/1-NPvYnWPrjqAbgg8EULMrWdz5kyGV4O1/view",
-        "type": "video",
-        "tags": [
-          "club",
-          "showcase",
-          "helen"
-        ],
-        "description": "",
-        "thumbnail": "thumbnails/showcase-hustle-3.jpg"
-      },
-      {
-        "id": 36,
+        "id": 43,
         "title": "Hustle · Birgitta · Choreography",
         "url": "https://drive.google.com/file/d/1ddIpV3dYvxC63EKv9AIEkGvbzt7YmtF7/view",
         "type": "video",
@@ -461,7 +544,7 @@
         "thumbnail": "thumbnails/birgitta-hustle.jpg"
       },
       {
-        "id": 37,
+        "id": 44,
         "title": "Hustle · Birgitta · Michael Jackson",
         "url": "https://drive.google.com/file/d/16FfQyV_IvOIq0cFGUaYLvCI1EwSdC4Hm/view",
         "type": "video",
@@ -471,6 +554,18 @@
         ],
         "description": "",
         "thumbnail": "thumbnails/birgitta-hustle-mj.jpg"
+      },
+      {
+        "id": 45,
+        "title": "Hustle · Cross-Body Lead",
+        "url": "https://drive.google.com/file/d/1LnFmGBn8dODPBAVEwWtxfEa2OfLv6SMA/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "club"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/hustle-cross-body-lead.jpg"
       }
     ]
   },
@@ -478,7 +573,7 @@
     "dance": "Skills",
     "videos": [
       {
-        "id": 38,
+        "id": 46,
         "title": "Skills · Positions",
         "url": "https://drive.google.com/file/d/1s01jaI4pvzTR4P6_GfRiqkha1JiaJMcp/view",
         "type": "video",
@@ -491,7 +586,7 @@
         "thumbnail": "thumbnails/latin-exercise.jpg"
       },
       {
-        "id": 39,
+        "id": 47,
         "title": "Skills · International · Warm-up",
         "url": "https://drive.google.com/file/d/1EHwm3cyfT1JjLCaBD17VreYR3XF4hGZe/view",
         "type": "video",
@@ -501,103 +596,6 @@
         ],
         "description": "",
         "thumbnail": "thumbnails/international-warm-up.jpg"
-      }
-    ]
-  },
-  {
-    "dance": "Swing",
-    "videos": [
-      {
-        "id": 40,
-        "title": "Swing · Routine",
-        "url": "https://drive.google.com/file/d/1wN2HJdL-TKGgiPtRU4uC8wJwjri4SucS/view",
-        "type": "video",
-        "tags": [
-          "rhythm"
-        ],
-        "description": "",
-        "thumbnail": "thumbnails/swing-routine.jpg"
-      },
-      {
-        "id": 41,
-        "title": "Swing · Showcase · Gents",
-        "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipPviPjeqbUJ9o38cezQkTMQJXM_Ow6OcRfkjBqb?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
-        "type": "video",
-        "tags": [
-          "club",
-          "showcase"
-        ],
-        "description": ""
-      },
-      {
-        "id": 42,
-        "title": "Swing · Showcase · Gents Ending",
-        "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipNsqdnM25IP_sp5sqjU8w3ohr8CdR_s_rcqgqbi?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
-        "type": "video",
-        "tags": [
-          "club",
-          "showcase",
-          "skill"
-        ],
-        "description": ""
-      },
-      {
-        "id": 43,
-        "title": "Swing · Showcase · Gents Jump",
-        "url": "https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipOL66h2k0Iz8ZND5g8DDF2vyT3IsigR8HDQ59Cq?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR",
-        "type": "video",
-        "tags": [
-          "club",
-          "showcase",
-          "skill"
-        ],
-        "description": ""
-      },
-      {
-        "id": 44,
-        "title": "Swing · Rhythm · A",
-        "url": "https://drive.google.com/file/d/1Fv4NIGiDpHV_kWS-1RKD8KfPuhBe718G/view",
-        "type": "video",
-        "tags": [
-          "rhythm"
-        ],
-        "description": "",
-        "thumbnail": "thumbnails/swing.jpg"
-      },
-      {
-        "id": 45,
-        "title": "Swing · Rhythm · B",
-        "url": "https://drive.google.com/file/d/1iVVfX7PPJLCXfH4ojyJcDBglT9VEqYQ4/view",
-        "type": "video",
-        "tags": [
-          "rhythm"
-        ],
-        "description": "",
-        "thumbnail": "thumbnails/swing-v2.jpg"
-      },
-      {
-        "id": 46,
-        "title": "Swing · Rhythm · Warm-up · A",
-        "url": "https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view",
-        "type": "video",
-        "tags": [
-          "rhythm",
-          "skill"
-        ],
-        "description": "",
-        "thumbnail": "thumbnails/rhythm-warm-up.jpg"
-      },
-      {
-        "id": 47,
-        "title": "Swing · Rhythm · Warm-up · B",
-        "url": "https://drive.google.com/file/d/1pfCHAQddJl5ewoXiRJ5E_LRHCpKN9zPl/view",
-        "type": "video",
-        "tags": [
-          "rhythm",
-          "skill"
-        ],
-        "description": "",
-        "thumbnail": "thumbnails/swing-rythm-warm-up.jpg"
       }
     ]
   }

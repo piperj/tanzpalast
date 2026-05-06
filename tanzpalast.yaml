@@ -85,7 +85,7 @@
   - title: Foxtrot · Feather Three Step · Sway & Head
     tags: [new, international, skill]
     filename: Foxtrot three-step feather with sway and head.MOV
-    
+
 - dance: Quickstep
   videos:
   - title: Quickstep · International · Level 2
@@ -151,34 +151,9 @@
   - title: Jive · Warm-up
     tags: [latin, skill]
     filename: Jive warm-up.mov
-
-- dance: Hustle
-  videos:
-  - title: Hustle · Showcase · A
-    tags: [club, showcase, helen]
-    filename: Showcase Hustle 1.mov
-  - title: Hustle · Showcase · B
-    tags: [club, showcase, helen]
-    filename: Showcase Hustle 2.mov
-  - title: Hustle · Showcase · C
-    tags: [club, showcase, helen]
-    filename: Showcase Hustle 3.mov
-  - title: Hustle · Birgitta · Choreography
-    tags: [club, birgitta]
-    filename: Birgitta Hustle.mov
-  - title: Hustle · Birgitta · Michael Jackson
-    tags: [club, birgitta]
-    filename: Birgitta Hustle MJ.mov
-
-- dance: Skills
-  videos:
-  - title: Skills · Positions
-    tags: [latin, international, skill]
-    filename: Latin exercise.mov
-  - title: Skills · International · Warm-up
-    tags: [international, skill]
-    filename: International warm-up.mov
-
+  - title: Jive · QaQ Turn
+    tags: [new, latin]
+    filename: Jive QaQ Turn.MOV
 - dance: Swing
   videos:
   - title: Swing · Routine
@@ -208,3 +183,27 @@
   - title: Swing · Rhythm · Warm-up · B
     tags: [rhythm, skill]
     filename: Swing rythm warm-up.mov
+
+- dance: Hustle
+  videos:
+  - title: Hustle · Showcase · D
+    tags: [new, club, showcase]
+    filename: Showcase Hustle.mov
+  - title: Hustle · Birgitta · Choreography
+    tags: [club, birgitta]
+    filename: Birgitta Hustle.mov
+  - title: Hustle · Birgitta · Michael Jackson
+    tags: [club, birgitta]
+    filename: Birgitta Hustle MJ.mov
+  - title: Hustle · Cross-Body Lead
+    tags: [new, club]
+    filename: Hustle cross-body lead.MOV
+- dance: Skills
+  videos:
+  - title: Skills · Positions
+    tags: [latin, international, skill]
+    filename: Latin exercise.mov
+  - title: Skills · International · Warm-up
+    tags: [international, skill]
+    filename: International warm-up.mov
+
