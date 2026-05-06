@@ -31,7 +31,22 @@ def _mov_slug(filename: str) -> str:
     return re.sub(r'[^a-z0-9]+', '-', stem.lower()).strip('-')
 
 
+def _duration(src: Path) -> float | None:
+    result = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", str(src)],
+        capture_output=True, text=True,
+    )
+    try:
+        return float(result.stdout.strip())
+    except ValueError:
+        return None
+
+
 def _extract(src: Path, dest: Path, at: float) -> bool:
+    duration = _duration(src)
+    if duration is not None and at >= duration:
+        at = max(0.0, duration * 0.5)
     result = subprocess.run(
         ["ffmpeg", "-y", "-ss", str(at), "-i", str(src),
          "-frames:v", "1", "-q:v", "2", str(dest)],
