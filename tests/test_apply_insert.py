@@ -121,6 +121,15 @@ class TestApplyInsert:
         assert log.exists()
         assert "invalid JSON" in log.read_text().lower() or len(log.read_text()) > 0
 
+    def test_strips_markdown_code_fences(self, tmp_path):
+        p = tmp_path / "tanzpalast.yaml"
+        p.write_text(WALTZ_YAML)
+        fenced = "```json\n" + _plan() + "\n```"
+        apply_insert.apply_insert(fenced, yaml_path=p)
+        data = yaml.safe_load(p.read_text())
+        filenames = [v.get("filename") for v in data[0]["videos"]]
+        assert "waltz_new.mov" in filenames
+
     def test_yaml_unchanged_on_failure(self, tmp_path):
         p = tmp_path / "tanzpalast.yaml"
         p.write_text(WALTZ_YAML)

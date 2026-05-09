@@ -33,8 +33,13 @@ def apply_insert(plan_json, yaml_path=YAML_PATH):
     """Parse plan_json and apply insertion to yaml_path. Returns filename inserted."""
     if not plan_json.strip():
         _fail("Claude returned empty output — check 'claude -p' is working and authenticated")
+    # Strip markdown code fences if Claude wrapped the JSON
+    stripped = plan_json.strip()
+    if stripped.startswith("```"):
+        stripped = re.sub(r"^```[a-z]*\n?", "", stripped)
+        stripped = re.sub(r"\n?```$", "", stripped.rstrip())
     try:
-        plan = json.loads(plan_json)
+        plan = json.loads(stripped)
     except json.JSONDecodeError as e:
         preview = plan_json[:200].replace('\n', '\\n')
         _fail(f"Claude returned invalid JSON: {e}\nReceived: {preview}")
