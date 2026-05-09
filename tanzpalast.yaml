@@ -68,13 +68,13 @@
     url: https://youtu.be/PdnfDADpFjM?t=10
     tags: [international]
   - title: Foxtrot · Showcase · Alejandra
-    tags: [international, showcase]
+    tags: [showcase]
     filename: Foxtrot showcase routine.mov
   - title: Foxtrot · Showcase · Helen
-    tags: [new, showcase]
+    tags: [showcase]
     filename: Showcase Foxtrot.mov
   - title: Foxtrot · Fallaway
-    tags: [international, skill, showcase]
+    tags: [international, skill, showcase, new]
     filename: Foxtrot fallaway.mov
   - title: Foxtrot · Feather Three Step
     tags: [international, skill]
