@@ -88,7 +88,7 @@
   - title: Foxtrot · Feather Three Step · Sway & Head
     tags: [new, international, skill]
     filename: Foxtrot three-step feather with sway and head.MOV
-    
+
 - dance: Quickstep
   videos:
   - title: Quickstep · International · Level 2
@@ -193,15 +193,18 @@
   - title: Hustle · Showcase
     tags: [new, club, showcase]
     filename: Showcase Hustle.mov
+  - title: Hustle · Cross-Body Lead
+    tags: [new, club, skill]
+    filename: Hustle cross-body lead.MOV
+  - title: Hustle · Showcase · End Walk-Around
+    tags: [new, club, showcase, skill]
+    filename: Showcase Hustle end walk-around.MOV
   - title: Hustle · Birgitta · Choreography
     tags: [club, birgitta]
     filename: Birgitta Hustle.mov
   - title: Hustle · Birgitta · Michael Jackson
     tags: [club, birgitta]
     filename: Birgitta Hustle MJ.mov
-  - title: Hustle · Cross-Body Lead
-    tags: [new, club]
-    filename: Hustle cross-body lead.MOV
 
 - dance: Skills
   videos:

@@ -544,6 +544,33 @@
       },
       {
         "id": 44,
+        "title": "Hustle · Cross-Body Lead",
+        "url": "https://drive.google.com/file/d/1LnFmGBn8dODPBAVEwWtxfEa2OfLv6SMA/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "club",
+          "skill"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/hustle-cross-body-lead.jpg"
+      },
+      {
+        "id": 45,
+        "title": "Hustle · Showcase · End Walk-Around",
+        "url": "https://drive.google.com/file/d/15_Ql8hqisyj70pK5xVAEncDsfYgq61G7/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "club",
+          "showcase",
+          "skill"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/showcase-hustle-end-walk-around.jpg"
+      },
+      {
+        "id": 46,
         "title": "Hustle · Birgitta · Choreography",
         "url": "https://drive.google.com/file/d/1ddIpV3dYvxC63EKv9AIEkGvbzt7YmtF7/view",
         "type": "video",
@@ -555,7 +582,7 @@
         "thumbnail": "thumbnails/birgitta-hustle.jpg"
       },
       {
-        "id": 45,
+        "id": 47,
         "title": "Hustle · Birgitta · Michael Jackson",
         "url": "https://drive.google.com/file/d/16FfQyV_IvOIq0cFGUaYLvCI1EwSdC4Hm/view",
         "type": "video",
@@ -565,18 +592,6 @@
         ],
         "description": "",
         "thumbnail": "thumbnails/birgitta-hustle-mj.jpg"
-      },
-      {
-        "id": 46,
-        "title": "Hustle · Cross-Body Lead",
-        "url": "https://drive.google.com/file/d/1LnFmGBn8dODPBAVEwWtxfEa2OfLv6SMA/view",
-        "type": "video",
-        "tags": [
-          "new",
-          "club"
-        ],
-        "description": "",
-        "thumbnail": "thumbnails/hustle-cross-body-lead.jpg"
       }
     ]
   },
@@ -584,7 +599,7 @@
     "dance": "Skills",
     "videos": [
       {
-        "id": 47,
+        "id": 48,
         "title": "Skills · Positions",
         "url": "https://drive.google.com/file/d/1s01jaI4pvzTR4P6_GfRiqkha1JiaJMcp/view",
         "type": "video",
@@ -597,7 +612,7 @@
         "thumbnail": "thumbnails/latin-exercise.jpg"
       },
       {
-        "id": 48,
+        "id": 49,
         "title": "Skills · International · Warm-up",
         "url": "https://drive.google.com/file/d/1EHwm3cyfT1JjLCaBD17VreYR3XF4hGZe/view",
         "type": "video",
