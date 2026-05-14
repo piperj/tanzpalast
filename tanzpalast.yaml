@@ -109,6 +109,9 @@
   - title: Cha Cha · Latin · Level 2
     url: https://youtu.be/bLVOCpYhQtk?t=10
     tags: [latin]
+  - title: Cha Cha · Rhythm · Level 2
+    url: https://youtu.be/9xfJJkzXjFo?t=10
+    tags: [rhythm]
   - title: Cha Cha · Rhythm · A
     tags: [rhythm]
     filename: Cha cha rythm.mov
@@ -127,9 +130,15 @@
 
 - dance: Rumba
   videos:
+  - title: Rumba · Latin · Level 3
+    url: https://youtu.be/PkPed-7HH6Q?t=10
+    tags: [latin]
   - title: Rumba · Latin · Level 2
     url: https://youtu.be/OdvINyoNVds?t=10
     tags: [latin]
+  - title: Rumba · Rhythm · Level 2
+    url: https://youtu.be/SeUPqZIQh2c?t=10
+    tags: [rhythm]
   - title: Rumba · Rhythm
     tags: [rhythm]
     filename: Rumba rythm.mov
@@ -160,6 +169,9 @@
 
 - dance: Swing
   videos:
+  - title : Swing · Rhythm · Level 2
+    tags: [rhythm]
+    url: https://youtu.be/UNOT72XGBc0?t=10
   - title: Swing · Routine
     tags: [rhythm]
     filename: Swing routine.mov
