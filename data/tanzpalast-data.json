@@ -156,8 +156,7 @@
         "tags": [
           "international",
           "skill",
-          "showcase",
-          "new"
+          "showcase"
         ],
         "description": "",
         "thumbnail": "thumbnails/foxtrot-fallaway.jpg"
@@ -202,7 +201,6 @@
         "url": "https://drive.google.com/file/d/1-GXsfM9Tb25gwExE3FCiQnXpVwCDMSqF/view",
         "type": "video",
         "tags": [
-          "new",
           "international",
           "skill"
         ],
@@ -451,7 +449,6 @@
         "url": "https://drive.google.com/file/d/1bWyKD-JFUX52vCtxGq1qqmHtUdmjpPUp/view",
         "type": "video",
         "tags": [
-          "new",
           "latin"
         ],
         "description": "",
@@ -575,7 +572,6 @@
         "url": "https://drive.google.com/file/d/1xDzXp8uwRJ-V399OcD9NDTltUcO-mwk_/view",
         "type": "video",
         "tags": [
-          "new",
           "club",
           "showcase"
         ],
@@ -588,7 +584,6 @@
         "url": "https://drive.google.com/file/d/1LnFmGBn8dODPBAVEwWtxfEa2OfLv6SMA/view",
         "type": "video",
         "tags": [
-          "new",
           "club",
           "skill"
         ],
@@ -601,7 +596,6 @@
         "url": "https://drive.google.com/file/d/15_Ql8hqisyj70pK5xVAEncDsfYgq61G7/view",
         "type": "video",
         "tags": [
-          "new",
           "club",
           "showcase",
           "skill"
@@ -662,6 +656,23 @@
         ],
         "description": "",
         "thumbnail": "thumbnails/international-warm-up.jpg"
+      }
+    ]
+  },
+  {
+    "dance": "Mambo",
+    "videos": [
+      {
+        "id": 54,
+        "title": "Mambo · Follower",
+        "url": "https://drive.google.com/file/d/1QVdu3QH6MaYjFt_lyNRLLYM7C3edOR8d/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "rhythm"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/mambo-follower.jpg"
       }
     ]
   }
