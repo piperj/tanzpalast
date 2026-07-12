@@ -135,7 +135,7 @@
   videos:
   - title: Rumba · Latin · Level 3
     url: https://youtu.be/PkPed-7HH6Q?t=10
-    tags: [latin]
+    tags: [new, latin]
   - title: Rumba · Latin · Level 2
     url: https://youtu.be/OdvINyoNVds?t=10
     tags: [latin]
@@ -160,6 +160,9 @@
 
 - dance: Jive
   videos:
+  - title: Jive · Latin · Level 3
+    url: https://youtu.be/HBeG9S32AuQ?t=10
+    tags: [new, latin]
   - title: Jive · Latin · Level 2
     url: https://youtu.be/WzudJdiB5yE?t=10
     tags: [latin]
