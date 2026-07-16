@@ -226,13 +226,15 @@
 
 - dance: Skills
   videos:
+  - title: Skills · Latin Arms
+    tags: [new, latin, skill]
+    filename: Latin arms.MOV
   - title: Skills · Positions
     tags: [latin, international, skill]
     filename: Latin exercise.mov
   - title: Skills · International · Warm-up
     tags: [international, skill]
     filename: International warm-up.mov
-
 - dance: Mambo
   videos:
   - title: Mambo · Follower

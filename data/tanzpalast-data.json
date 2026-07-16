@@ -658,6 +658,19 @@
     "videos": [
       {
         "id": 54,
+        "title": "Skills · Latin Arms",
+        "url": "https://drive.google.com/file/d/1FKCPC3hrt2dBwyGXrA8Bzi9GAbUhe18k/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "latin",
+          "skill"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/latin-arms.jpg"
+      },
+      {
+        "id": 55,
         "title": "Skills · Positions",
         "url": "https://drive.google.com/file/d/1s01jaI4pvzTR4P6_GfRiqkha1JiaJMcp/view",
         "type": "video",
@@ -670,7 +683,7 @@
         "thumbnail": "thumbnails/latin-exercise.jpg"
       },
       {
-        "id": 55,
+        "id": 56,
         "title": "Skills · International · Warm-up",
         "url": "https://drive.google.com/file/d/1EHwm3cyfT1JjLCaBD17VreYR3XF4hGZe/view",
         "type": "video",
@@ -687,7 +700,7 @@
     "dance": "Mambo",
     "videos": [
       {
-        "id": 56,
+        "id": 57,
         "title": "Mambo · Follower",
         "url": "https://drive.google.com/file/d/1QVdu3QH6MaYjFt_lyNRLLYM7C3edOR8d/view",
         "type": "video",
