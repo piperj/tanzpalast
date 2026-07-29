@@ -127,6 +127,9 @@
 
 - dance: Samba
   videos:
+  - title: Samba · Latin · Level 3
+    tags: [new, latin]
+    filename: Samba level 3.MOV
   - title: Samba · Latin · Level 2
     url: https://youtu.be/JctNCNaBnOY?t=10
     tags: [latin]
