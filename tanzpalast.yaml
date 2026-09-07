@@ -109,7 +109,10 @@
 
 - dance: Quickstep
   videos:
-  - title: Quickstep · International · Level 2 · A
+  - title: Quickstep · International · Level 2 · Helen
+    tags: [new, international]
+    filename: Quickstep level 2.mov
+  - title: Quickstep · International · Level 2 · Kris
     url: https://youtu.be/A1n0oY7K3iQ?t=10
     tags: [international]
   - title: Quickstep · Slip Pivot
@@ -121,9 +124,6 @@
   - title: Quickstep · Chrystal
     url: https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA
     tags: [international, chrystal]
-  - title: Quickstep · International · Level 2 · B
-    tags: [new, international]
-    filename: Quickstep level 2.mov
 
 - dance: Cha Cha
   videos:

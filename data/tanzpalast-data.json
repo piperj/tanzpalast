@@ -293,7 +293,19 @@
     "videos": [
       {
         "id": 24,
-        "title": "Quickstep · International · Level 2 · A",
+        "title": "Quickstep · International · Level 2 · Helen",
+        "url": "https://drive.google.com/file/d/19bXd6KCLiDDIJnCRJLsujAhwjFRSf8Ee/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "international"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/quickstep-level-2.jpg"
+      },
+      {
+        "id": 25,
+        "title": "Quickstep · International · Level 2 · Kris",
         "url": "https://youtu.be/A1n0oY7K3iQ?t=10",
         "type": "video",
         "tags": [
@@ -302,7 +314,7 @@
         "description": ""
       },
       {
-        "id": 25,
+        "id": 26,
         "title": "Quickstep · Slip Pivot",
         "url": "https://drive.google.com/file/d/1S2Z10iY3IGKa9QdDTqfUoJqTZAKPjPHN/view",
         "type": "video",
@@ -314,7 +326,7 @@
         "thumbnail": "thumbnails/quickstep-slip-pivot.jpg"
       },
       {
-        "id": 26,
+        "id": 27,
         "title": "Quickstep · Smooth",
         "url": "https://drive.google.com/file/d/1SorMzoy62kYH83a6SWIkP62Z4pbELf9e/view",
         "type": "video",
@@ -325,7 +337,7 @@
         "thumbnail": "thumbnails/quickstep-smooth.jpg"
       },
       {
-        "id": 27,
+        "id": 28,
         "title": "Quickstep · Chrystal",
         "url": "https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA",
         "type": "video",
@@ -334,18 +346,6 @@
           "chrystal"
         ],
         "description": ""
-      },
-      {
-        "id": 28,
-        "title": "Quickstep · International · Level 2 · B",
-        "url": "https://drive.google.com/file/d/19bXd6KCLiDDIJnCRJLsujAhwjFRSf8Ee/view",
-        "type": "video",
-        "tags": [
-          "new",
-          "international"
-        ],
-        "description": "",
-        "thumbnail": "thumbnails/quickstep-level-2.jpg"
       }
     ]
   },
