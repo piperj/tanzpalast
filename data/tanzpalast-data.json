@@ -263,7 +263,7 @@
       },
       {
         "id": 22,
-        "title": "Foxtrot · Showcase · June 2026",
+        "title": "Foxtrot · Showcase",
         "url": "https://drive.google.com/file/d/1P6tPYO1bNZ25osew8vSLzDyx7heSq9YR/view",
         "type": "video",
         "tags": [
@@ -657,7 +657,7 @@
       },
       {
         "id": 54,
-        "title": "Swing · Showcase · Guys Group · June 2026",
+        "title": "Swing · Showcase · Guys Group",
         "url": "https://drive.google.com/file/d/1NZQUyDxQ06n9do--yyokuFvM2GHnH25n/view",
         "type": "video",
         "tags": [
@@ -676,6 +676,18 @@
     "videos": [
       {
         "id": 55,
+        "title": "Hustle · Workshop Routine",
+        "url": "https://drive.google.com/file/d/1A2EQeA1J-Kkn9hzTxSZdVnOamHAztOG0/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "club"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/hustle-workshop-routine.jpg"
+      },
+      {
+        "id": 56,
         "title": "Hustle · Cross-Body Lead",
         "url": "https://drive.google.com/file/d/1LnFmGBn8dODPBAVEwWtxfEa2OfLv6SMA/view",
         "type": "video",
@@ -687,7 +699,7 @@
         "thumbnail": "thumbnails/hustle-cross-body-lead.jpg"
       },
       {
-        "id": 56,
+        "id": 57,
         "title": "Hustle · Birgitta · Choreography",
         "url": "https://drive.google.com/file/d/1ddIpV3dYvxC63EKv9AIEkGvbzt7YmtF7/view",
         "type": "video",
@@ -699,7 +711,7 @@
         "thumbnail": "thumbnails/birgitta-hustle.jpg"
       },
       {
-        "id": 57,
+        "id": 58,
         "title": "Hustle · Birgitta · Michael Jackson",
         "url": "https://drive.google.com/file/d/16FfQyV_IvOIq0cFGUaYLvCI1EwSdC4Hm/view",
         "type": "video",
@@ -711,8 +723,8 @@
         "thumbnail": "thumbnails/birgitta-hustle-mj.jpg"
       },
       {
-        "id": 58,
-        "title": "Hustle · Showcase · June 2026",
+        "id": 59,
+        "title": "Hustle · Showcase",
         "url": "https://drive.google.com/file/d/1heibwYQ7DR4LYOVWzZrM6wFS7saynfKy/view",
         "type": "video",
         "tags": [
@@ -729,7 +741,7 @@
     "dance": "Skills",
     "videos": [
       {
-        "id": 59,
+        "id": 60,
         "title": "Skills · Latin Arms",
         "url": "https://drive.google.com/file/d/1FKCPC3hrt2dBwyGXrA8Bzi9GAbUhe18k/view",
         "type": "video",
@@ -742,7 +754,7 @@
         "thumbnail": "thumbnails/latin-arms.jpg"
       },
       {
-        "id": 60,
+        "id": 61,
         "title": "Skills · Positions",
         "url": "https://drive.google.com/file/d/1s01jaI4pvzTR4P6_GfRiqkha1JiaJMcp/view",
         "type": "video",
@@ -755,7 +767,7 @@
         "thumbnail": "thumbnails/latin-exercise.jpg"
       },
       {
-        "id": 61,
+        "id": 62,
         "title": "Skills · International · Warm-up",
         "url": "https://drive.google.com/file/d/1EHwm3cyfT1JjLCaBD17VreYR3XF4hGZe/view",
         "type": "video",
@@ -767,7 +779,7 @@
         "thumbnail": "thumbnails/international-warm-up.jpg"
       },
       {
-        "id": 62,
+        "id": 63,
         "title": "Cane Dance · Guys Group · Dec 2026 · First Rehearsal",
         "url": "https://photos.app.goo.gl/RxC1CdUu41BtMXTS9",
         "type": "video",
@@ -779,7 +791,7 @@
         "description": ""
       },
       {
-        "id": 63,
+        "id": 64,
         "title": "Cane Dance · Guys Group · Dec 2026 · Latest Version",
         "url": "https://photos.app.goo.gl/S7xj6YrVTbbfaTWo9",
         "type": "video",
@@ -796,7 +808,7 @@
     "dance": "Mambo",
     "videos": [
       {
-        "id": 64,
+        "id": 65,
         "title": "Mambo · Follower",
         "url": "https://drive.google.com/file/d/1QVdu3QH6MaYjFt_lyNRLLYM7C3edOR8d/view",
         "type": "video",

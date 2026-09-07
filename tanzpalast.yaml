@@ -100,7 +100,7 @@
   - title: Foxtrot · Feather Three Step · Sway & Head
     tags: [international, skill]
     filename: Foxtrot three-step feather with sway and head.MOV
-  - title: Foxtrot · Showcase · June 2026
+  - title: Foxtrot · Showcase
     tags: [new, showcase]
     filename: Foxtrot showcase June 2026.MOV
   - title: Foxtrot · Smooth · Ladies Footwork
@@ -217,11 +217,15 @@
   - title: Swing · Rhythm · Warm-up · B
     tags: [rhythm, skill]
     filename: Swing rythm warm-up.mov
-  - title: Swing · Showcase · Guys Group · June 2026
+  - title: Swing · Showcase · Guys Group
     tags: [new, rhythm, showcase, group]
     filename: Swing Guys Group June 2026.MOV
+
 - dance: Hustle
   videos:
+  - title: Hustle · Workshop Routine
+    tags: [new, club]
+    filename: Hustle workshop routine.MOV
   - title: Hustle · Cross-Body Lead
     tags: [club, skill]
     filename: Hustle cross-body lead.MOV
@@ -231,10 +235,10 @@
   - title: Hustle · Birgitta · Michael Jackson
     tags: [club, birgitta]
     filename: Birgitta Hustle MJ.mov
-  - title: Hustle · Showcase · June 2026
+  - title: Hustle · Showcase
     tags: [new, club, showcase]
     filename: Huste showcase June 2026.mov
-
+    
 - dance: Skills
   videos:
   - title: Skills · Latin Arms
