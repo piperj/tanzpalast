@@ -49,6 +49,10 @@
   - title: Waltz · Natural Spin Turn to Turning Lock
     tags: [new, international, skill]
     filename: Waltz lv3 spin turn into turning lock.MOV
+  - title: Waltz · Smooth · Ladies Footwork
+    tags: [new, smooth, skill]
+    filename: Waltz smooth ladies footwork skill.mov
+
 - dance: Tango
   videos:
   - title: Tango · International · Level 2
@@ -60,12 +64,18 @@
   - title: Tango · Showcase
     tags: [showcase, helen]
     filename: Showcase Tango.mov
+  - title: Tango · Smooth · Ladies Footwork
+    tags: [new, smooth, skill]
+    filename: Tango smooth ladies footwork skill.mov
 
 - dance: Viennese Waltz
   videos:
   - title: Viennese Waltz · Smooth
     tags: [smooth]
     filename: Vienneze Waltz smooth.mov
+  - title: Viennese Waltz · Smooth · Ladies Footwork
+    tags: [new, smooth, skill]
+    filename: Viennese smooth ladies footwork skill.mov
 
 - dance: Foxtrot
   videos:
@@ -75,12 +85,6 @@
   - title: Foxtrot · International · Level 3
     tags: [new, international]
     filename: Foxtrot level 3.MOV
-  - title: Foxtrot · Showcase · Alejandra
-    tags: [showcase]
-    filename: Foxtrot showcase routine.mov
-  - title: Foxtrot · Showcase · Helen
-    tags: [showcase]
-    filename: Showcase Foxtrot.mov
   - title: Foxtrot · Fallaway
     tags: [international, skill, showcase]
     filename: Foxtrot fallaway.mov
@@ -96,10 +100,16 @@
   - title: Foxtrot · Feather Three Step · Sway & Head
     tags: [international, skill]
     filename: Foxtrot three-step feather with sway and head.MOV
+  - title: Foxtrot · Showcase · June 2026
+    tags: [new, showcase]
+    filename: Foxtrot showcase June 2026.MOV
+  - title: Foxtrot · Smooth · Ladies Footwork
+    tags: [new, smooth, skill]
+    filename: Foxtrot smooth ladies footwork skill.mov
 
 - dance: Quickstep
   videos:
-  - title: Quickstep · International · Level 2
+  - title: Quickstep · International · Level 2 · A
     url: https://youtu.be/A1n0oY7K3iQ?t=10
     tags: [international]
   - title: Quickstep · Slip Pivot
@@ -111,6 +121,9 @@
   - title: Quickstep · Chrystal
     url: https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA
     tags: [international, chrystal]
+  - title: Quickstep · International · Level 2 · B
+    tags: [new, international]
+    filename: Quickstep level 2.mov
 
 - dance: Cha Cha
   videos:
@@ -129,6 +142,9 @@
   - title: Cha Cha · Warm-up
     tags: [latin, rhythm, skill]
     filename: Cha cha warm-up.mov
+  - title: Cha Cha · Footwork
+    tags: [new, latin, rhythm, skill]
+    filename: Chacha rythm footwork skill.mov
 
 - dance: Samba
   videos:
@@ -189,18 +205,6 @@
   - title: Swing · Routine
     tags: [rhythm]
     filename: Swing routine.mov
-  - title: Swing · Showcase · Gents
-    url: 
-      https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipPviPjeqbUJ9o38cezQkTMQJXM_Ow6OcRfkjBqb?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR
-    tags: [club, showcase]
-  - title: Swing · Showcase · Gents Ending
-    url: 
-      https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipNsqdnM25IP_sp5sqjU8w3ohr8CdR_s_rcqgqbi?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR
-    tags: [club, showcase, skill]
-  - title: Swing · Showcase · Gents Jump
-    url: 
-      https://photos.google.com/share/AF1QipNPIOwFehGkfQTuQAp_pyFM0L5czM978NWijITL59wiLhzA7VHtaiBBMZyt9Pvq4g/photo/AF1QipOL66h2k0Iz8ZND5g8DDF2vyT3IsigR8HDQ59Cq?key=STdua0dPQkVadGRsWWRUODF1SjNocndiRUhjN3VR
-    tags: [club, showcase, skill]
   - title: Swing · Rhythm · A
     tags: [rhythm]
     filename: Swing.mov
@@ -213,24 +217,23 @@
   - title: Swing · Rhythm · Warm-up · B
     tags: [rhythm, skill]
     filename: Swing rythm warm-up.mov
-
+  - title: Swing · Showcase · Guys Group · June 2026
+    tags: [new, rhythm, showcase, group]
+    filename: Swing Guys Group June 2026.MOV
 - dance: Hustle
   videos:
-  - title: Hustle · Showcase
-    tags: [club, showcase]
-    filename: Hustle showcase routine.MOV
   - title: Hustle · Cross-Body Lead
     tags: [club, skill]
     filename: Hustle cross-body lead.MOV
-  - title: Hustle · Showcase · End Walk-Around
-    tags: [club, showcase, skill]
-    filename: Showcase Hustle end walk-around.MOV
   - title: Hustle · Birgitta · Choreography
     tags: [club, birgitta]
     filename: Birgitta Hustle.mov
   - title: Hustle · Birgitta · Michael Jackson
     tags: [club, birgitta]
     filename: Birgitta Hustle MJ.mov
+  - title: Hustle · Showcase · June 2026
+    tags: [new, club, showcase]
+    filename: Huste showcase June 2026.mov
 
 - dance: Skills
   videos:
@@ -243,6 +246,13 @@
   - title: Skills · International · Warm-up
     tags: [international, skill]
     filename: International warm-up.mov
+  - title: Cane Dance · Guys Group · Dec 2026 · First Rehearsal
+    url: https://photos.app.goo.gl/RxC1CdUu41BtMXTS9
+    tags: [new, showcase, group]
+  - title: Cane Dance · Guys Group · Dec 2026 · Latest Version
+    url: https://photos.app.goo.gl/S7xj6YrVTbbfaTWo9
+    tags: [new, showcase, group]
+
 - dance: Mambo
   videos:
   - title: Mambo · Follower
