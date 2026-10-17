@@ -19,6 +19,15 @@ original. A hang is bounded by --timeout (kills ffmpeg, original untouched).
 Worst case on any failure is a stray `.compact` leftover next to the source,
 which the next run's scan ignores and ffmpeg's `-y` overwrites on retry.
 
+Drive sync: swapping a file's bytes in place (same filename) still gets it a
+new Drive file ID, because the cloud-storage provider treats it as a
+delete+recreate rather than an in-place edit — and that upload isn't
+instant. After compacting, this script polls the Drive API (same mechanism
+as list_drive.py) until every file it touched actually shows up with its new
+ID, writing data/drive-index.json each pass, instead of leaving a single
+`make scan` to race the upload and fail. Bounded by --sync-timeout; skip
+entirely with --no-sync-wait.
+
 Usage:
     uv run python src/compact_video.py              # compact all candidates
     uv run python src/compact_video.py --dry-run     # list candidates only
@@ -28,9 +37,11 @@ Usage:
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -42,6 +53,8 @@ DEFAULT_CRF = 21
 DEFAULT_PRESET = "medium"
 DEFAULT_TIMEOUT = 1800  # seconds; a hung/stalled ffmpeg gets killed rather than hanging forever
 DURATION_TOLERANCE = 0.1  # fraction; reject an output whose duration drifts more than this from the source
+DEFAULT_SYNC_TIMEOUT = 300  # seconds to wait for Drive to finish uploading compacted files
+SYNC_POLL_INTERVAL = 10
 
 
 def _probe(src: Path) -> dict | None:
@@ -135,6 +148,40 @@ def _compact(src: Path, info: dict, max_edge: int, crf: int, preset: str,
     return True
 
 
+def wait_for_drive_sync(names: set[str], timeout: int = DEFAULT_SYNC_TIMEOUT,
+                        poll_interval: int = SYNC_POLL_INTERVAL) -> bool:
+    """Poll the Drive API until every filename in `names` appears in a fresh
+    listing (i.e. has finished uploading under its new file ID), writing
+    data/drive-index.json on each pass. Returns False on timeout — the caller
+    still ends up with whatever's freshest, `make build` will just name
+    exactly what's still missing.
+    """
+    import list_drive
+
+    root_id = os.environ.get("TANZPALAST_DRIVE_ROOT")
+    if not root_id:
+        print("  ! TANZPALAST_DRIVE_ROOT not set — skipping post-compact Drive sync wait",
+              file=sys.stderr)
+        return False
+
+    service = list_drive.get_drive_service()
+    deadline = time.monotonic() + timeout
+    waited = 0
+    while True:
+        items = list_drive.list_videos(service, root_id)
+        index = list_drive.write_index(items)
+        missing = names - index.keys()
+        if not missing:
+            return True
+        if time.monotonic() >= deadline:
+            print(f"  ! Drive still hasn't synced {len(missing)} file(s) after {timeout}s: "
+                  f"{', '.join(sorted(missing))}", file=sys.stderr)
+            return False
+        print(f"  waiting for Drive to finish syncing {len(missing)} file(s)... ({waited}s)")
+        time.sleep(poll_interval)
+        waited += poll_interval
+
+
 def collect_sources():
     return sorted(
         p for p in DATA_DIR.iterdir()
@@ -154,6 +201,10 @@ def main():
                         help=f"x264 preset (default: {DEFAULT_PRESET})")
     parser.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT,
                         help=f"kill ffmpeg if a single file takes longer than this, in seconds (default: {DEFAULT_TIMEOUT})")
+    parser.add_argument("--sync-timeout", type=int, default=DEFAULT_SYNC_TIMEOUT,
+                        help=f"max seconds to wait for Drive to sync compacted files (default: {DEFAULT_SYNC_TIMEOUT})")
+    parser.add_argument("--no-sync-wait", action="store_true",
+                        help="don't wait for Drive to sync compacted files afterward")
     parser.add_argument("--force", action="store_true",
                         help="re-process files even if they don't exceed the thresholds")
     parser.add_argument("--dry-run", action="store_true",
@@ -173,6 +224,7 @@ def main():
 
     done = skipped = err = 0
     before_total = after_total = 0
+    compacted_names = set()
 
     for src in sources:
         if not src.exists():
@@ -208,6 +260,7 @@ def main():
             pct = 100 * (1 - after / before)
             print(f"  ✓ {src.name}: {before/1e6:.0f}MB -> {after/1e6:.0f}MB ({pct:.0f}% smaller)")
             done += 1
+            compacted_names.add(src.name)
         else:
             print(f"  ✗ failed, original untouched: {src.name}")
             err += 1
@@ -220,6 +273,13 @@ def main():
         else:
             print(f"total: {before_total/1e6:.0f}MB -> {after_total/1e6:.0f}MB "
                   f"({100 * (1 - after_total / before_total):.0f}% smaller)")
+
+    if compacted_names and not args.no_sync_wait:
+        print(f"\nwaiting for Drive to sync {len(compacted_names)} compacted file(s)...")
+        if wait_for_drive_sync(compacted_names, args.sync_timeout):
+            print("✓ all compacted files confirmed on Drive with fresh IDs")
+        else:
+            sys.exit(1)
 
 
 if __name__ == "__main__":

@@ -37,12 +37,11 @@ thumbnails:
 
 # --- Compact ---
 
-# Re-scan right after compacting: swapping a file's content in place under the
-# same name still gets Drive a new file ID (delete+recreate, not an in-place
-# edit), so drive-index.json must be refreshed before build bakes URLs in.
+# compact_video.py polls Drive itself after encoding and only exits once
+# every compacted file's new ID is confirmed synced (see its --sync-timeout),
+# so drive-index.json is already fresh here — no extra `make scan` needed.
 compact:
 	uv run python src/compact_video.py
-	$(MAKE) scan
 
 # --- Publish ---
 
@@ -71,8 +70,8 @@ help:
 	@echo ""
 	@echo "  make preview     Serve locally on :8080 and open Safari (Ctrl+C to stop)"
 	@echo ""
-	@echo "  make scan        Refresh drive-index.json (auto-triggered by stubs/compact)"
+	@echo "  make scan        Refresh drive-index.json (auto-triggered by make stubs)"
 	@echo "  make thumbnails  Extract JPEG frames from local .mov files in data/"
-	@echo "  make compact     Re-encode oversized local .mov files in data/ in place, then rescan"
+	@echo "  make compact     Re-encode oversized local .mov files in data/ in place, waits for Drive sync"
 	@echo "  make build       Compile tanzpalast.yaml → data/tanzpalast-data.json"
 	@echo "  make clean       Remove generated JSON, index, and thumbnails"
