@@ -44,13 +44,13 @@
     url: https://share.icloud.com/photos/029UbP_Kzf2w2kFrVw8qYlfmg
     tags: [international, chrystal]
   - title: Waltz · International · Level 3 · A
-    tags: [new, international]
+    tags: [international]
     filename: Waltz international level 3 1st half.MOV
   - title: Waltz · Natural Spin Turn to Turning Lock
-    tags: [new, international, skill]
+    tags: [international, skill]
     filename: Waltz lv3 spin turn into turning lock.MOV
   - title: Waltz · Smooth · Ladies Footwork
-    tags: [new, smooth, skill]
+    tags: [smooth, skill]
     filename: Waltz smooth ladies footwork skill.mov
 
 - dance: Tango
@@ -65,7 +65,7 @@
     tags: [showcase, helen]
     filename: Showcase Tango.mov
   - title: Tango · Smooth · Ladies Footwork
-    tags: [new, smooth, skill]
+    tags: [smooth, skill]
     filename: Tango smooth ladies footwork skill.mov
 
 - dance: Viennese Waltz
@@ -74,7 +74,7 @@
     tags: [smooth]
     filename: Vienneze Waltz smooth.mov
   - title: Viennese Waltz · Smooth · Ladies Footwork
-    tags: [new, smooth, skill]
+    tags: [smooth, skill]
     filename: Viennese smooth ladies footwork skill.mov
   - title: Viennese Waltz · International · Fleckerls · Level 3
     tags: [new, international, skill]
@@ -86,7 +86,7 @@
     url: https://youtu.be/PdnfDADpFjM?t=10
     tags: [international]
   - title: Foxtrot · International · Level 3
-    tags: [new, international]
+    tags: [international]
     filename: Foxtrot level 3.MOV
   - title: Foxtrot · Fallaway
     tags: [international, skill, showcase]
@@ -104,10 +104,10 @@
     tags: [international, skill]
     filename: Foxtrot three-step feather with sway and head.MOV
   - title: Foxtrot · Showcase
-    tags: [new, showcase]
+    tags: [showcase]
     filename: Foxtrot showcase June 2026.MOV
   - title: Foxtrot · Smooth · Ladies Footwork
-    tags: [new, smooth, skill]
+    tags: [smooth, skill]
     filename: Foxtrot smooth ladies footwork skill.mov
 
 - dance: Quickstep
@@ -116,7 +116,7 @@
     tags: [new, international]
     filename: Quickstep level 3 part A.MOV
   - title: Quickstep · International · Level 2 · Helen
-    tags: [new, international]
+    tags: [international]
     filename: Quickstep level 2.mov
   - title: Quickstep · International · Level 2 · Kris
     url: https://youtu.be/A1n0oY7K3iQ?t=10
@@ -152,13 +152,13 @@
     tags: [latin, rhythm, skill]
     filename: Cha cha warm-up.mov
   - title: Cha Cha · Footwork
-    tags: [new, latin, rhythm, skill]
+    tags: [latin, rhythm, skill]
     filename: Chacha rythm footwork skill.mov
     
 - dance: Samba
   videos:
   - title: Samba · Latin · Level 3
-    tags: [new, latin]
+    tags: [latin]
     filename: Samba level 3.MOV
   - title: Samba · Latin · Level 2
     url: https://youtu.be/JctNCNaBnOY?t=10
@@ -168,7 +168,7 @@
   videos:
   - title: Rumba · Latin · Level 3
     url: https://youtu.be/PkPed-7HH6Q?t=10
-    tags: [new, latin]
+    tags: [latin]
   - title: Rumba · Latin · Level 2
     url: https://youtu.be/OdvINyoNVds?t=10
     tags: [latin]
@@ -201,7 +201,7 @@
   videos:
   - title: Jive · Latin · Level 3
     url: https://youtu.be/HBeG9S32AuQ?t=10
-    tags: [new, latin]
+    tags: [latin]
   - title: Jive · Latin · Level 2
     url: https://youtu.be/WzudJdiB5yE?t=10
     tags: [latin]
@@ -233,13 +233,13 @@
     tags: [rhythm, skill]
     filename: Swing rythm warm-up.mov
   - title: Swing · Showcase · Guys Group
-    tags: [new, rhythm, showcase, group]
+    tags: [rhythm, showcase, group]
     filename: Swing Guys Group June 2026.MOV
 
 - dance: Hustle
   videos:
   - title: Hustle · Workshop Routine
-    tags: [new, club]
+    tags: [club]
     filename: Hustle workshop routine.MOV
   - title: Hustle · Cross-Body Lead
     tags: [club, skill]
@@ -251,13 +251,13 @@
     tags: [club, birgitta]
     filename: Birgitta Hustle MJ.mov
   - title: Hustle · Showcase
-    tags: [new, club, showcase]
+    tags: [club, showcase]
     filename: Huste showcase June 2026.mov
 
 - dance: Skills
   videos:
   - title: Skills · Latin Arms
-    tags: [new, latin, skill]
+    tags: [latin, skill]
     filename: Latin arms.MOV
   - title: Skills · Positions
     tags: [latin, international, skill]
@@ -267,13 +267,13 @@
     filename: International warm-up.mov
   - title: Cane Dance · Guys Group · First half
     url: https://photos.app.goo.gl/RxC1CdUu41BtMXTS9
-    tags: [new, showcase, group]
+    tags: [showcase, group]
   - title: Cane Dance · Guys Group · Latest Version
     url: https://photos.app.goo.gl/S7xj6YrVTbbfaTWo9
-    tags: [new, showcase, group]
+    tags: [showcase, group]
 
 - dance: Mambo
   videos:
   - title: Mambo · Follower
-    tags: [new, rhythm]
+    tags: [rhythm]
     filename: Mambo follower.mov
