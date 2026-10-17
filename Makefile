@@ -1,9 +1,9 @@
 YAML  := tanzpalast.yaml
 JSON  := data/tanzpalast-data.json
 INDEX := data/drive-index.json
-.PHONY: all scan stubs build thumbnails publish preview clean help
+.PHONY: all scan stubs build thumbnails compact publish preview clean help
 
-all: stubs thumbnails build
+all: stubs thumbnails compact build
 
 # --- Drive ---
 
@@ -24,13 +24,25 @@ stubs: scan
 
 build: $(JSON)
 
-$(JSON): $(YAML)
+# $(INDEX) as a prerequisite (not just $(YAML)) matters because compact's
+# post-encode rescan changes Drive file IDs without touching the YAML —
+# without this, `make build` would silently keep baking in stale IDs.
+$(JSON): $(YAML) $(INDEX)
 	uv run python src/build.py
 
 # --- Thumbnails ---
 
 thumbnails:
 	uv run python src/make_thumbnails.py
+
+# --- Compact ---
+
+# Re-scan right after compacting: swapping a file's content in place under the
+# same name still gets Drive a new file ID (delete+recreate, not an in-place
+# edit), so drive-index.json must be refreshed before build bakes URLs in.
+compact:
+	uv run python src/compact_video.py
+	$(MAKE) scan
 
 # --- Publish ---
 
@@ -54,12 +66,13 @@ help:
 	@echo "Workflow: drag .mov to data/ + Drive → stubs → edit YAML → publish"
 	@echo ""
 	@echo "  make stubs       Scan Drive + ask Claude to insert new videos into YAML"
-	@echo "  make all         thumbnails + build"
+	@echo "  make all         thumbnails + compact + build"
 	@echo "  make publish     all + git commit + push"
 	@echo ""
 	@echo "  make preview     Serve locally on :8080 and open Safari (Ctrl+C to stop)"
 	@echo ""
-	@echo "  make scan        Refresh drive-index.json (auto-triggered by make stubs)"
+	@echo "  make scan        Refresh drive-index.json (auto-triggered by stubs/compact)"
 	@echo "  make thumbnails  Extract JPEG frames from local .mov files in data/"
+	@echo "  make compact     Re-encode oversized local .mov files in data/ in place, then rescan"
 	@echo "  make build       Compile tanzpalast.yaml → data/tanzpalast-data.json"
 	@echo "  make clean       Remove generated JSON, index, and thumbnails"
