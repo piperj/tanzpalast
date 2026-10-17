@@ -76,6 +76,9 @@
   - title: Viennese Waltz · Smooth · Ladies Footwork
     tags: [new, smooth, skill]
     filename: Viennese smooth ladies footwork skill.mov
+  - title: Viennese Waltz · International · Fleckerls · Level 3
+    tags: [new, international, skill]
+    filename: Viennese fleckerls lvl3.MOV
 
 - dance: Foxtrot
   videos:
@@ -109,6 +112,9 @@
 
 - dance: Quickstep
   videos:
+  - title: Quickstep · International · Level 3 · A
+    tags: [new, international]
+    filename: Quickstep level 3 part A.MOV
   - title: Quickstep · International · Level 2 · Helen
     tags: [new, international]
     filename: Quickstep level 2.mov
@@ -127,6 +133,9 @@
 
 - dance: Cha Cha
   videos:
+  - title: Cha Cha · Latin · Level 3
+    tags: [new, latin]
+    filename: Cha cha level 3.MOV
   - title: Cha Cha · Latin · Level 2
     url: https://youtu.be/bLVOCpYhQtk?t=10
     tags: [latin]
@@ -145,7 +154,7 @@
   - title: Cha Cha · Footwork
     tags: [new, latin, rhythm, skill]
     filename: Chacha rythm footwork skill.mov
-
+    
 - dance: Samba
   videos:
   - title: Samba · Latin · Level 3
@@ -172,6 +181,9 @@
   - title: Rumba · Warm-up
     tags: [latin, rhythm, skill]
     filename: Rumba warm-up.mov
+  - title: Rumba · Alemana
+    tags: [new, latin, skill]
+    filename: Rumba alemana lv3.MOV
 
 - dance: Paso Doble
   videos:
@@ -181,6 +193,9 @@
   - title: Paso Doble · Fallaway Promenade Attack
     url: https://youtu.be/nDFihjVBSYs
     tags: [latin]
+  - title: Paso Doble · Latin · Level 3 · A
+    tags: [new, latin]
+    filename: Paso doble level 3 first part.MOV
 
 - dance: Jive
   videos:
@@ -238,7 +253,7 @@
   - title: Hustle · Showcase
     tags: [new, club, showcase]
     filename: Huste showcase June 2026.mov
-    
+
 - dance: Skills
   videos:
   - title: Skills · Latin Arms
@@ -250,10 +265,10 @@
   - title: Skills · International · Warm-up
     tags: [international, skill]
     filename: International warm-up.mov
-  - title: Cane Dance · Guys Group · Dec 2026 · First Rehearsal
+  - title: Cane Dance · Guys Group · First half
     url: https://photos.app.goo.gl/RxC1CdUu41BtMXTS9
     tags: [new, showcase, group]
-  - title: Cane Dance · Guys Group · Dec 2026 · Latest Version
+  - title: Cane Dance · Guys Group · Latest Version
     url: https://photos.app.goo.gl/S7xj6YrVTbbfaTWo9
     tags: [new, showcase, group]
 

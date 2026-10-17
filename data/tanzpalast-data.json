@@ -174,6 +174,19 @@
         ],
         "description": "",
         "thumbnail": "thumbnails/viennese-smooth-ladies-footwork-skill.jpg"
+      },
+      {
+        "id": 15,
+        "title": "Viennese Waltz · International · Fleckerls · Level 3",
+        "url": "https://drive.google.com/file/d/1_puirtSJDkXx37o5TiUcGA2QcNyGvEwN/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "international",
+          "skill"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/viennese-fleckerls-lvl3.jpg"
       }
     ]
   },
@@ -181,7 +194,7 @@
     "dance": "Foxtrot",
     "videos": [
       {
-        "id": 15,
+        "id": 16,
         "title": "Foxtrot · International · Level 2",
         "url": "https://youtu.be/PdnfDADpFjM?t=10",
         "type": "video",
@@ -191,7 +204,7 @@
         "description": ""
       },
       {
-        "id": 16,
+        "id": 17,
         "title": "Foxtrot · International · Level 3",
         "url": "https://drive.google.com/file/d/1lXC-UrirQ3AbL0yD-Yz_jKXptAqgF6cV/view",
         "type": "video",
@@ -203,7 +216,7 @@
         "thumbnail": "thumbnails/foxtrot-level-3.jpg"
       },
       {
-        "id": 17,
+        "id": 18,
         "title": "Foxtrot · Fallaway",
         "url": "https://drive.google.com/file/d/1LQyg-nFOBdfS3u5uvEyi-Q4TUHkuhnj9/view",
         "type": "video",
@@ -216,7 +229,7 @@
         "thumbnail": "thumbnails/foxtrot-fallaway.jpg"
       },
       {
-        "id": 18,
+        "id": 19,
         "title": "Foxtrot · Feather Three Step",
         "url": "https://drive.google.com/file/d/17eZ9pRaz1tSTBBE5HyJriI89wKIQ7Yqu/view",
         "type": "video",
@@ -228,7 +241,7 @@
         "thumbnail": "thumbnails/foxtrot-feather-three-step.jpg"
       },
       {
-        "id": 19,
+        "id": 20,
         "title": "Foxtrot · Smooth · A",
         "url": "https://drive.google.com/file/d/1RcJN6ZOLhmepzMyg0HQw64thtQVQFccz/view",
         "type": "video",
@@ -239,7 +252,7 @@
         "thumbnail": "thumbnails/smooth-foxtrot.jpg"
       },
       {
-        "id": 20,
+        "id": 21,
         "title": "Foxtrot · Smooth · B",
         "url": "https://drive.google.com/file/d/1nC9WTsGBkuo7w7ooYDuS5WUpQ-dcdb7f/view",
         "type": "video",
@@ -250,7 +263,7 @@
         "thumbnail": "thumbnails/foxtrot-smooth.jpg"
       },
       {
-        "id": 21,
+        "id": 22,
         "title": "Foxtrot · Feather Three Step · Sway & Head",
         "url": "https://drive.google.com/file/d/1-GXsfM9Tb25gwExE3FCiQnXpVwCDMSqF/view",
         "type": "video",
@@ -262,7 +275,7 @@
         "thumbnail": "thumbnails/foxtrot-three-step-feather-with-sway-and-head.jpg"
       },
       {
-        "id": 22,
+        "id": 23,
         "title": "Foxtrot · Showcase",
         "url": "https://drive.google.com/file/d/1P6tPYO1bNZ25osew8vSLzDyx7heSq9YR/view",
         "type": "video",
@@ -274,7 +287,7 @@
         "thumbnail": "thumbnails/foxtrot-showcase-june-2026.jpg"
       },
       {
-        "id": 23,
+        "id": 24,
         "title": "Foxtrot · Smooth · Ladies Footwork",
         "url": "https://drive.google.com/file/d/1PJp230w6jOvj7TA0bHzDRev0c2UnD4KD/view",
         "type": "video",
@@ -292,7 +305,19 @@
     "dance": "Quickstep",
     "videos": [
       {
-        "id": 24,
+        "id": 25,
+        "title": "Quickstep · International · Level 3 · A",
+        "url": "https://drive.google.com/file/d/1ZSOgce7kSinqtBf0Y9V1g7gfIvdgdaow/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "international"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/quickstep-level-3-part-a.jpg"
+      },
+      {
+        "id": 26,
         "title": "Quickstep · International · Level 2 · Helen",
         "url": "https://drive.google.com/file/d/19bXd6KCLiDDIJnCRJLsujAhwjFRSf8Ee/view",
         "type": "video",
@@ -304,7 +329,7 @@
         "thumbnail": "thumbnails/quickstep-level-2.jpg"
       },
       {
-        "id": 25,
+        "id": 27,
         "title": "Quickstep · International · Level 2 · Kris",
         "url": "https://youtu.be/A1n0oY7K3iQ?t=10",
         "type": "video",
@@ -314,7 +339,7 @@
         "description": ""
       },
       {
-        "id": 26,
+        "id": 28,
         "title": "Quickstep · Slip Pivot",
         "url": "https://drive.google.com/file/d/1S2Z10iY3IGKa9QdDTqfUoJqTZAKPjPHN/view",
         "type": "video",
@@ -326,7 +351,7 @@
         "thumbnail": "thumbnails/quickstep-slip-pivot.jpg"
       },
       {
-        "id": 27,
+        "id": 29,
         "title": "Quickstep · Smooth",
         "url": "https://drive.google.com/file/d/1SorMzoy62kYH83a6SWIkP62Z4pbELf9e/view",
         "type": "video",
@@ -337,7 +362,7 @@
         "thumbnail": "thumbnails/quickstep-smooth.jpg"
       },
       {
-        "id": 28,
+        "id": 30,
         "title": "Quickstep · Chrystal",
         "url": "https://share.icloud.com/photos/0f4sxPk6Bq81eo7Bmm4kjpSAA",
         "type": "video",
@@ -353,7 +378,19 @@
     "dance": "Cha Cha",
     "videos": [
       {
-        "id": 29,
+        "id": 31,
+        "title": "Cha Cha · Latin · Level 3",
+        "url": "https://drive.google.com/file/d/1PvBRrIjVjsPk8sBKdk7FDkyq8bxJuk65/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "latin"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/cha-cha-level-3.jpg"
+      },
+      {
+        "id": 32,
         "title": "Cha Cha · Latin · Level 2",
         "url": "https://youtu.be/bLVOCpYhQtk?t=10",
         "type": "video",
@@ -363,7 +400,7 @@
         "description": ""
       },
       {
-        "id": 30,
+        "id": 33,
         "title": "Cha Cha · Rhythm · Level 2",
         "url": "https://youtu.be/9xfJJkzXjFo?t=10",
         "type": "video",
@@ -373,7 +410,7 @@
         "description": ""
       },
       {
-        "id": 31,
+        "id": 34,
         "title": "Cha Cha · Rhythm · A",
         "url": "https://drive.google.com/file/d/125vHnVHpdJ8NYAaNTsNQ1ZhCrwymFR3u/view",
         "type": "video",
@@ -384,7 +421,7 @@
         "thumbnail": "thumbnails/cha-cha-rythm.jpg"
       },
       {
-        "id": 32,
+        "id": 35,
         "title": "Cha Cha · Rhythm · B",
         "url": "https://drive.google.com/file/d/1ovu8iP__MMCyKt6zotNghL8ugRuGyZpr/view",
         "type": "video",
@@ -395,7 +432,7 @@
         "thumbnail": "thumbnails/cha-cha-rythm-v2.jpg"
       },
       {
-        "id": 33,
+        "id": 36,
         "title": "Cha Cha · Warm-up",
         "url": "https://drive.google.com/file/d/1an73UScGEUc8oGyEgvwUGUr9dznBo379/view",
         "type": "video",
@@ -408,7 +445,7 @@
         "thumbnail": "thumbnails/cha-cha-warm-up.jpg"
       },
       {
-        "id": 34,
+        "id": 37,
         "title": "Cha Cha · Footwork",
         "url": "https://drive.google.com/file/d/18XfgquBosShBgXQ4ZYvgGvId0Go4Xpgy/view",
         "type": "video",
@@ -427,7 +464,7 @@
     "dance": "Samba",
     "videos": [
       {
-        "id": 35,
+        "id": 38,
         "title": "Samba · Latin · Level 3",
         "url": "https://drive.google.com/file/d/1yUbOmdvkFWXRMZCG2MSR9-hlywKr3RTU/view",
         "type": "video",
@@ -439,7 +476,7 @@
         "thumbnail": "thumbnails/samba-level-3.jpg"
       },
       {
-        "id": 36,
+        "id": 39,
         "title": "Samba · Latin · Level 2",
         "url": "https://youtu.be/JctNCNaBnOY?t=10",
         "type": "video",
@@ -454,7 +491,7 @@
     "dance": "Rumba",
     "videos": [
       {
-        "id": 37,
+        "id": 40,
         "title": "Rumba · Latin · Level 3",
         "url": "https://youtu.be/PkPed-7HH6Q?t=10",
         "type": "video",
@@ -465,7 +502,7 @@
         "description": ""
       },
       {
-        "id": 38,
+        "id": 41,
         "title": "Rumba · Latin · Level 2",
         "url": "https://youtu.be/OdvINyoNVds?t=10",
         "type": "video",
@@ -475,7 +512,7 @@
         "description": ""
       },
       {
-        "id": 39,
+        "id": 42,
         "title": "Rumba · Rhythm · Level 2",
         "url": "https://youtu.be/SeUPqZIQh2c?t=10",
         "type": "video",
@@ -485,7 +522,7 @@
         "description": ""
       },
       {
-        "id": 40,
+        "id": 43,
         "title": "Rumba · Rhythm",
         "url": "https://drive.google.com/file/d/1SnAkQ3Xm_JBY5apDh9fyBVQb9m7s84dn/view",
         "type": "video",
@@ -496,7 +533,7 @@
         "thumbnail": "thumbnails/rumba-rythm.jpg"
       },
       {
-        "id": 41,
+        "id": 44,
         "title": "Rumba · Warm-up",
         "url": "https://drive.google.com/file/d/1TS7QyAcUkJo9LsTmI_jw44v5G0Yi89B3/view",
         "type": "video",
@@ -507,6 +544,19 @@
         ],
         "description": "",
         "thumbnail": "thumbnails/rumba-warm-up.jpg"
+      },
+      {
+        "id": 45,
+        "title": "Rumba · Alemana",
+        "url": "https://drive.google.com/file/d/1IByusjeN0_qjvj7rB1RN5XxPoEgUyYHk/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "latin",
+          "skill"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/rumba-alemana-lv3.jpg"
       }
     ]
   },
@@ -514,7 +564,7 @@
     "dance": "Paso Doble",
     "videos": [
       {
-        "id": 42,
+        "id": 46,
         "title": "Paso Doble · Latin · Level 2",
         "url": "https://drive.google.com/file/d/1udeNDYaaREE5eNnq1R34_SQv32q0i4D5/view",
         "type": "video",
@@ -525,7 +575,7 @@
         "thumbnail": "thumbnails/paso-doble-level-2.jpg"
       },
       {
-        "id": 43,
+        "id": 47,
         "title": "Paso Doble · Fallaway Promenade Attack",
         "url": "https://youtu.be/nDFihjVBSYs",
         "type": "video",
@@ -533,6 +583,18 @@
           "latin"
         ],
         "description": ""
+      },
+      {
+        "id": 48,
+        "title": "Paso Doble · Latin · Level 3 · A",
+        "url": "https://drive.google.com/file/d/1Kcx20_r1S0AfFUNZhdLwq-4MkNMOTmT9/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "latin"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/paso-doble-level-3-first-part.jpg"
       }
     ]
   },
@@ -540,7 +602,7 @@
     "dance": "Jive",
     "videos": [
       {
-        "id": 44,
+        "id": 49,
         "title": "Jive · Latin · Level 3",
         "url": "https://youtu.be/HBeG9S32AuQ?t=10",
         "type": "video",
@@ -551,7 +613,7 @@
         "description": ""
       },
       {
-        "id": 45,
+        "id": 50,
         "title": "Jive · Latin · Level 2",
         "url": "https://youtu.be/WzudJdiB5yE?t=10",
         "type": "video",
@@ -561,7 +623,7 @@
         "description": ""
       },
       {
-        "id": 46,
+        "id": 51,
         "title": "Jive · Warm-up",
         "url": "https://drive.google.com/file/d/1YNZEFkKvTbEGm--7gzVGBbDZrquoUYn-/view",
         "type": "video",
@@ -573,7 +635,7 @@
         "thumbnail": "thumbnails/jive-warm-up.jpg"
       },
       {
-        "id": 47,
+        "id": 52,
         "title": "Jive · QaQ Turn",
         "url": "https://drive.google.com/file/d/1bWyKD-JFUX52vCtxGq1qqmHtUdmjpPUp/view",
         "type": "video",
@@ -589,7 +651,7 @@
     "dance": "Swing",
     "videos": [
       {
-        "id": 48,
+        "id": 53,
         "title": "Swing · Rhythm · Level 2",
         "url": "https://youtu.be/UNOT72XGBc0?t=10",
         "type": "video",
@@ -599,7 +661,7 @@
         "description": ""
       },
       {
-        "id": 49,
+        "id": 54,
         "title": "Swing · Routine",
         "url": "https://drive.google.com/file/d/1wN2HJdL-TKGgiPtRU4uC8wJwjri4SucS/view",
         "type": "video",
@@ -610,7 +672,7 @@
         "thumbnail": "thumbnails/swing-routine.jpg"
       },
       {
-        "id": 50,
+        "id": 55,
         "title": "Swing · Rhythm · A",
         "url": "https://drive.google.com/file/d/1Fv4NIGiDpHV_kWS-1RKD8KfPuhBe718G/view",
         "type": "video",
@@ -621,7 +683,7 @@
         "thumbnail": "thumbnails/swing.jpg"
       },
       {
-        "id": 51,
+        "id": 56,
         "title": "Swing · Rhythm · B",
         "url": "https://drive.google.com/file/d/1iVVfX7PPJLCXfH4ojyJcDBglT9VEqYQ4/view",
         "type": "video",
@@ -632,7 +694,7 @@
         "thumbnail": "thumbnails/swing-v2.jpg"
       },
       {
-        "id": 52,
+        "id": 57,
         "title": "Swing · Rhythm · Warm-up · A",
         "url": "https://drive.google.com/file/d/1qN-GN2T7mHgPBFOvuj_YAd16zkIheU0i/view",
         "type": "video",
@@ -644,7 +706,7 @@
         "thumbnail": "thumbnails/rhythm-warm-up.jpg"
       },
       {
-        "id": 53,
+        "id": 58,
         "title": "Swing · Rhythm · Warm-up · B",
         "url": "https://drive.google.com/file/d/1pfCHAQddJl5ewoXiRJ5E_LRHCpKN9zPl/view",
         "type": "video",
@@ -656,7 +718,7 @@
         "thumbnail": "thumbnails/swing-rythm-warm-up.jpg"
       },
       {
-        "id": 54,
+        "id": 59,
         "title": "Swing · Showcase · Guys Group",
         "url": "https://drive.google.com/file/d/1NZQUyDxQ06n9do--yyokuFvM2GHnH25n/view",
         "type": "video",
@@ -675,7 +737,7 @@
     "dance": "Hustle",
     "videos": [
       {
-        "id": 55,
+        "id": 60,
         "title": "Hustle · Workshop Routine",
         "url": "https://drive.google.com/file/d/1A2EQeA1J-Kkn9hzTxSZdVnOamHAztOG0/view",
         "type": "video",
@@ -687,7 +749,7 @@
         "thumbnail": "thumbnails/hustle-workshop-routine.jpg"
       },
       {
-        "id": 56,
+        "id": 61,
         "title": "Hustle · Cross-Body Lead",
         "url": "https://drive.google.com/file/d/1LnFmGBn8dODPBAVEwWtxfEa2OfLv6SMA/view",
         "type": "video",
@@ -699,7 +761,7 @@
         "thumbnail": "thumbnails/hustle-cross-body-lead.jpg"
       },
       {
-        "id": 57,
+        "id": 62,
         "title": "Hustle · Birgitta · Choreography",
         "url": "https://drive.google.com/file/d/1ddIpV3dYvxC63EKv9AIEkGvbzt7YmtF7/view",
         "type": "video",
@@ -711,7 +773,7 @@
         "thumbnail": "thumbnails/birgitta-hustle.jpg"
       },
       {
-        "id": 58,
+        "id": 63,
         "title": "Hustle · Birgitta · Michael Jackson",
         "url": "https://drive.google.com/file/d/16FfQyV_IvOIq0cFGUaYLvCI1EwSdC4Hm/view",
         "type": "video",
@@ -723,7 +785,7 @@
         "thumbnail": "thumbnails/birgitta-hustle-mj.jpg"
       },
       {
-        "id": 59,
+        "id": 64,
         "title": "Hustle · Showcase",
         "url": "https://drive.google.com/file/d/1heibwYQ7DR4LYOVWzZrM6wFS7saynfKy/view",
         "type": "video",
@@ -741,7 +803,7 @@
     "dance": "Skills",
     "videos": [
       {
-        "id": 60,
+        "id": 65,
         "title": "Skills · Latin Arms",
         "url": "https://drive.google.com/file/d/1FKCPC3hrt2dBwyGXrA8Bzi9GAbUhe18k/view",
         "type": "video",
@@ -754,7 +816,7 @@
         "thumbnail": "thumbnails/latin-arms.jpg"
       },
       {
-        "id": 61,
+        "id": 66,
         "title": "Skills · Positions",
         "url": "https://drive.google.com/file/d/1s01jaI4pvzTR4P6_GfRiqkha1JiaJMcp/view",
         "type": "video",
@@ -767,7 +829,7 @@
         "thumbnail": "thumbnails/latin-exercise.jpg"
       },
       {
-        "id": 62,
+        "id": 67,
         "title": "Skills · International · Warm-up",
         "url": "https://drive.google.com/file/d/1EHwm3cyfT1JjLCaBD17VreYR3XF4hGZe/view",
         "type": "video",
@@ -779,8 +841,8 @@
         "thumbnail": "thumbnails/international-warm-up.jpg"
       },
       {
-        "id": 63,
-        "title": "Cane Dance · Guys Group · Dec 2026 · First Rehearsal",
+        "id": 68,
+        "title": "Cane Dance · Guys Group · First half",
         "url": "https://photos.app.goo.gl/RxC1CdUu41BtMXTS9",
         "type": "video",
         "tags": [
@@ -791,8 +853,8 @@
         "description": ""
       },
       {
-        "id": 64,
-        "title": "Cane Dance · Guys Group · Dec 2026 · Latest Version",
+        "id": 69,
+        "title": "Cane Dance · Guys Group · Latest Version",
         "url": "https://photos.app.goo.gl/S7xj6YrVTbbfaTWo9",
         "type": "video",
         "tags": [
@@ -808,7 +870,7 @@
     "dance": "Mambo",
     "videos": [
       {
-        "id": 65,
+        "id": 70,
         "title": "Mambo · Follower",
         "url": "https://drive.google.com/file/d/1QVdu3QH6MaYjFt_lyNRLLYM7C3edOR8d/view",
         "type": "video",
