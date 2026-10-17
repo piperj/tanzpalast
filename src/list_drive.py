@@ -7,6 +7,7 @@ Usage:
 import json
 import os
 import sys
+import time
 from pathlib import Path
 
 from google.oauth2.credentials import Credentials
@@ -16,6 +17,16 @@ ROOT = Path(__file__).parent.parent
 TOKEN_PATH = ROOT / "token.json"
 INDEX_PATH = ROOT / "data" / "drive-index.json"
 SCOPES = ["https://www.googleapis.com/auth/drive.readonly"]
+
+DEFAULT_SYNC_TIMEOUT = 300  # seconds to wait for Drive to converge after a write
+SYNC_POLL_INTERVAL = 10
+
+
+def get_root_id() -> str | None:
+    root_id = os.environ.get("TANZPALAST_DRIVE_ROOT")
+    if not root_id:
+        print("ERROR: set TANZPALAST_DRIVE_ROOT to your Drive folder ID", file=sys.stderr)
+    return root_id
 
 
 def get_drive_service(token_path=TOKEN_PATH):
@@ -71,10 +82,40 @@ def write_index(items, path=INDEX_PATH):
     return index
 
 
-def main():
-    root_id = os.environ.get("TANZPALAST_DRIVE_ROOT")
+def wait_for_sync(names: set[str], timeout: int = DEFAULT_SYNC_TIMEOUT,
+                   poll_interval: int = SYNC_POLL_INTERVAL) -> bool:
+    """Poll Drive until every filename in `names` appears in a fresh listing,
+    writing data/drive-index.json on each pass. Useful right after a write
+    that changes a file's Drive ID (e.g. replacing a file's content in place
+    gets treated as delete+recreate, not an in-place edit, so the new ID
+    isn't visible until the upload finishes). Returns False on timeout — the
+    caller still ends up with whatever's freshest; a subsequent build will
+    just name exactly what's still missing.
+    """
+    root_id = get_root_id()
     if not root_id:
-        print("ERROR: set TANZPALAST_DRIVE_ROOT to your Drive folder ID", file=sys.stderr)
+        return False
+
+    service = get_drive_service()
+    deadline = time.monotonic() + timeout
+    waited = 0
+    while True:
+        index = write_index(list_videos(service, root_id))
+        missing = names - index.keys()
+        if not missing:
+            return True
+        if time.monotonic() >= deadline:
+            print(f"  ! Drive still hasn't synced {len(missing)} file(s) after {timeout}s: "
+                  f"{', '.join(sorted(missing))}", file=sys.stderr)
+            return False
+        print(f"  waiting for Drive to finish syncing {len(missing)} file(s)... ({waited}s)")
+        time.sleep(poll_interval)
+        waited += poll_interval
+
+
+def main():
+    root_id = get_root_id()
+    if not root_id:
         sys.exit(1)
     service = get_drive_service()
     print("Scanning Drive...")

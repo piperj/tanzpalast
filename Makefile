@@ -24,9 +24,10 @@ stubs: scan
 
 build: $(JSON)
 
-# $(INDEX) as a prerequisite (not just $(YAML)) matters because compact's
-# post-encode rescan changes Drive file IDs without touching the YAML —
-# without this, `make build` would silently keep baking in stale IDs.
+# $(INDEX) as a prerequisite (not just $(YAML)) matters whenever Drive IDs
+# change without the YAML changing — e.g. stubs resolving a newly-dragged
+# file, or compact's re-encode getting a fresh ID for the same filename.
+# Without it, `make build` could silently keep baking in stale IDs.
 $(JSON): $(YAML) $(INDEX)
 	uv run python src/build.py
 

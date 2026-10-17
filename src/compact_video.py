@@ -22,11 +22,10 @@ which the next run's scan ignores and ffmpeg's `-y` overwrites on retry.
 Drive sync: swapping a file's bytes in place (same filename) still gets it a
 new Drive file ID, because the cloud-storage provider treats it as a
 delete+recreate rather than an in-place edit — and that upload isn't
-instant. After compacting, this script polls the Drive API (same mechanism
-as list_drive.py) until every file it touched actually shows up with its new
-ID, writing data/drive-index.json each pass, instead of leaving a single
-`make scan` to race the upload and fail. Bounded by --sync-timeout; skip
-entirely with --no-sync-wait.
+instant. After compacting, this calls list_drive.wait_for_sync() to poll
+until every touched file shows up with its new ID, instead of leaving a
+single `make scan` to race the upload and fail. Bounded by --sync-timeout;
+skip entirely with --no-sync-wait.
 
 Usage:
     uv run python src/compact_video.py              # compact all candidates
@@ -37,12 +36,12 @@ Usage:
 
 import argparse
 import json
-import os
 import shutil
 import subprocess
 import sys
-import time
 from pathlib import Path
+
+import list_drive
 
 ROOT = Path(__file__).parent.parent
 DATA_DIR = ROOT / "data"
@@ -53,15 +52,13 @@ DEFAULT_CRF = 21
 DEFAULT_PRESET = "medium"
 DEFAULT_TIMEOUT = 1800  # seconds; a hung/stalled ffmpeg gets killed rather than hanging forever
 DURATION_TOLERANCE = 0.1  # fraction; reject an output whose duration drifts more than this from the source
-DEFAULT_SYNC_TIMEOUT = 300  # seconds to wait for Drive to finish uploading compacted files
-SYNC_POLL_INTERVAL = 10
+DEFAULT_SYNC_TIMEOUT = list_drive.DEFAULT_SYNC_TIMEOUT
 
 
 def _probe(src: Path) -> dict | None:
     result = subprocess.run(
         ["ffprobe", "-v", "error", "-select_streams", "v:0",
-         "-show_entries", "stream=width,height",
-         "-show_entries", "format=bit_rate,size,duration",
+         "-show_entries", "stream=width,height:format=bit_rate,size,duration",
          "-of", "json", str(src)],
         capture_output=True, text=True,
     )
@@ -101,14 +98,19 @@ def _target_dims(info: dict, max_edge: int) -> tuple[int, int]:
 def _compact(src: Path, info: dict, max_edge: int, crf: int, preset: str,
              timeout: int = DEFAULT_TIMEOUT) -> bool:
     """Encode to a sibling temp file and only swap it over `src` once it
-    verifiably succeeded. `src` is never opened for writing, so a hung,
-    killed, or garbage-producing ffmpeg run can't corrupt the original —
-    worst case it leaves a `.compact` leftover next to it, which the next
-    `collect_sources()` scan ignores.
+    verifiably succeeded (see module docstring: atomicity). `src` is never
+    opened for writing, so a hung, killed, or garbage-producing ffmpeg run
+    can't corrupt it — worst case is a `.compact` leftover next to it, which
+    the next `collect_sources()` scan ignores.
     """
     width, height = _target_dims(info, max_edge)
     tmp = src.parent / f"{src.stem}.compact{src.suffix}"
     tmp.unlink(missing_ok=True)  # clear any stale leftover from a prior crash
+
+    def fail(msg: str) -> bool:
+        print(f"  ✗ {msg}: {src.name}", file=sys.stderr)
+        tmp.unlink(missing_ok=True)
+        return False
 
     try:
         result = subprocess.run(
@@ -120,66 +122,25 @@ def _compact(src: Path, info: dict, max_edge: int, crf: int, preset: str,
             capture_output=True, timeout=timeout,
         )
     except subprocess.TimeoutExpired:
-        print(f"  ✗ ffmpeg timed out after {timeout}s: {src.name}", file=sys.stderr)
-        tmp.unlink(missing_ok=True)
-        return False
+        return fail(f"ffmpeg timed out after {timeout}s")
 
     if result.returncode != 0 or not tmp.exists():
         print(result.stderr.decode()[-500:], file=sys.stderr)
-        tmp.unlink(missing_ok=True)
-        return False
+        return fail("ffmpeg failed")
 
     # Guard against a "successful" ffmpeg exit that wrote a truncated/garbage
     # file — verify the output is a playable video of roughly the right length
     # before it's allowed anywhere near the original.
     out_info = _probe(tmp)
     if out_info is None or out_info["size"] == 0:
-        print(f"  ✗ output failed validation (unreadable): {src.name}", file=sys.stderr)
-        tmp.unlink(missing_ok=True)
-        return False
+        return fail("output failed validation (unreadable)")
     drift = abs(out_info["duration"] - info["duration"]) / max(info["duration"], 0.001)
     if drift > DURATION_TOLERANCE:
-        print(f"  ✗ output failed validation (duration {out_info['duration']:.1f}s vs "
-              f"source {info['duration']:.1f}s): {src.name}", file=sys.stderr)
-        tmp.unlink(missing_ok=True)
-        return False
+        return fail(f"output failed validation (duration {out_info['duration']:.1f}s vs "
+                    f"source {info['duration']:.1f}s)")
 
     tmp.replace(src)  # atomic rename on the same filesystem — no partial-write window
     return True
-
-
-def wait_for_drive_sync(names: set[str], timeout: int = DEFAULT_SYNC_TIMEOUT,
-                        poll_interval: int = SYNC_POLL_INTERVAL) -> bool:
-    """Poll the Drive API until every filename in `names` appears in a fresh
-    listing (i.e. has finished uploading under its new file ID), writing
-    data/drive-index.json on each pass. Returns False on timeout — the caller
-    still ends up with whatever's freshest, `make build` will just name
-    exactly what's still missing.
-    """
-    import list_drive
-
-    root_id = os.environ.get("TANZPALAST_DRIVE_ROOT")
-    if not root_id:
-        print("  ! TANZPALAST_DRIVE_ROOT not set — skipping post-compact Drive sync wait",
-              file=sys.stderr)
-        return False
-
-    service = list_drive.get_drive_service()
-    deadline = time.monotonic() + timeout
-    waited = 0
-    while True:
-        items = list_drive.list_videos(service, root_id)
-        index = list_drive.write_index(items)
-        missing = names - index.keys()
-        if not missing:
-            return True
-        if time.monotonic() >= deadline:
-            print(f"  ! Drive still hasn't synced {len(missing)} file(s) after {timeout}s: "
-                  f"{', '.join(sorted(missing))}", file=sys.stderr)
-            return False
-        print(f"  waiting for Drive to finish syncing {len(missing)} file(s)... ({waited}s)")
-        time.sleep(poll_interval)
-        waited += poll_interval
 
 
 def collect_sources():
@@ -276,7 +237,7 @@ def main():
 
     if compacted_names and not args.no_sync_wait:
         print(f"\nwaiting for Drive to sync {len(compacted_names)} compacted file(s)...")
-        if wait_for_drive_sync(compacted_names, args.sync_timeout):
+        if list_drive.wait_for_sync(compacted_names, args.sync_timeout):
             print("✓ all compacted files confirmed on Drive with fresh IDs")
         else:
             sys.exit(1)

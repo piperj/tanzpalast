@@ -9,7 +9,6 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 import compact_video
-import list_drive
 
 
 def _probe_json(width, height, bit_rate, size, duration=10.0):
@@ -185,49 +184,6 @@ class TestCompact:
 
         assert ok is True
         assert src.read_bytes() == b"compacted bytes"
-
-
-class TestWaitForDriveSync:
-    def test_returns_true_when_all_names_present_immediately(self, monkeypatch):
-        monkeypatch.setenv("TANZPALAST_DRIVE_ROOT", "root-id")
-        with patch("list_drive.get_drive_service"), \
-             patch("list_drive.list_videos", return_value=[
-                 {"name": "a.mov", "id": "1", "drive_path": "a.mov"},
-                 {"name": "b.mov", "id": "2", "drive_path": "b.mov"},
-             ]), \
-             patch("list_drive.write_index", side_effect=lambda items: {i["name"]: i for i in items}):
-            ok = compact_video.wait_for_drive_sync({"a.mov", "b.mov"}, timeout=60)
-        assert ok is True
-
-    def test_polls_until_name_appears(self, monkeypatch):
-        monkeypatch.setenv("TANZPALAST_DRIVE_ROOT", "root-id")
-        responses = [
-            [{"name": "a.mov", "id": "1", "drive_path": "a.mov"}],
-            [{"name": "a.mov", "id": "1", "drive_path": "a.mov"},
-             {"name": "b.mov", "id": "2", "drive_path": "b.mov"}],
-        ]
-        with patch("list_drive.get_drive_service"), \
-             patch("list_drive.list_videos", side_effect=responses), \
-             patch("list_drive.write_index", side_effect=lambda items: {i["name"]: i for i in items}), \
-             patch("compact_video.time.sleep") as mock_sleep:
-            ok = compact_video.wait_for_drive_sync({"a.mov", "b.mov"}, timeout=60, poll_interval=5)
-        assert ok is True
-        mock_sleep.assert_called_once_with(5)
-
-    def test_returns_false_on_timeout(self, monkeypatch):
-        monkeypatch.setenv("TANZPALAST_DRIVE_ROOT", "root-id")
-        with patch("list_drive.get_drive_service"), \
-             patch("list_drive.list_videos", return_value=[]), \
-             patch("list_drive.write_index", return_value={}), \
-             patch("compact_video.time.sleep"), \
-             patch("compact_video.time.monotonic", side_effect=[0, 100, 200]):
-            ok = compact_video.wait_for_drive_sync({"a.mov"}, timeout=60, poll_interval=5)
-        assert ok is False
-
-    def test_returns_false_without_drive_root_set(self, monkeypatch):
-        monkeypatch.delenv("TANZPALAST_DRIVE_ROOT", raising=False)
-        ok = compact_video.wait_for_drive_sync({"a.mov"}, timeout=60)
-        assert ok is False
 
 
 class TestCollectSources:

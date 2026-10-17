@@ -3,7 +3,7 @@
 import json
 import sys
 from pathlib import Path
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 import pytest
 
@@ -81,3 +81,56 @@ class TestWriteIndex:
         out = tmp_path / "idx.json"
         list_drive.write_index(items, path=out)
         assert out.read_text().endswith("\n")
+
+
+class TestGetRootId:
+    def test_returns_env_var(self, monkeypatch):
+        monkeypatch.setenv("TANZPALAST_DRIVE_ROOT", "root-id")
+        assert list_drive.get_root_id() == "root-id"
+
+    def test_returns_none_when_unset(self, monkeypatch):
+        monkeypatch.delenv("TANZPALAST_DRIVE_ROOT", raising=False)
+        assert list_drive.get_root_id() is None
+
+
+class TestWaitForSync:
+    def test_returns_true_when_all_names_present_immediately(self, monkeypatch):
+        monkeypatch.setenv("TANZPALAST_DRIVE_ROOT", "root-id")
+        with patch("list_drive.get_drive_service"), \
+             patch("list_drive.list_videos", return_value=[
+                 {"name": "a.mov", "id": "1", "drive_path": "a.mov"},
+                 {"name": "b.mov", "id": "2", "drive_path": "b.mov"},
+             ]), \
+             patch("list_drive.write_index", side_effect=lambda items: {i["name"]: i for i in items}):
+            ok = list_drive.wait_for_sync({"a.mov", "b.mov"}, timeout=60)
+        assert ok is True
+
+    def test_polls_until_name_appears(self, monkeypatch):
+        monkeypatch.setenv("TANZPALAST_DRIVE_ROOT", "root-id")
+        responses = [
+            [{"name": "a.mov", "id": "1", "drive_path": "a.mov"}],
+            [{"name": "a.mov", "id": "1", "drive_path": "a.mov"},
+             {"name": "b.mov", "id": "2", "drive_path": "b.mov"}],
+        ]
+        with patch("list_drive.get_drive_service"), \
+             patch("list_drive.list_videos", side_effect=responses), \
+             patch("list_drive.write_index", side_effect=lambda items: {i["name"]: i for i in items}), \
+             patch("list_drive.time.sleep") as mock_sleep:
+            ok = list_drive.wait_for_sync({"a.mov", "b.mov"}, timeout=60, poll_interval=5)
+        assert ok is True
+        mock_sleep.assert_called_once_with(5)
+
+    def test_returns_false_on_timeout(self, monkeypatch):
+        monkeypatch.setenv("TANZPALAST_DRIVE_ROOT", "root-id")
+        with patch("list_drive.get_drive_service"), \
+             patch("list_drive.list_videos", return_value=[]), \
+             patch("list_drive.write_index", return_value={}), \
+             patch("list_drive.time.sleep"), \
+             patch("list_drive.time.monotonic", side_effect=[0, 100, 200]):
+            ok = list_drive.wait_for_sync({"a.mov"}, timeout=60, poll_interval=5)
+        assert ok is False
+
+    def test_returns_false_without_drive_root_set(self, monkeypatch):
+        monkeypatch.delenv("TANZPALAST_DRIVE_ROOT", raising=False)
+        ok = list_drive.wait_for_sync({"a.mov"}, timeout=60)
+        assert ok is False
