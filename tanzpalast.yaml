@@ -187,15 +187,15 @@
 
 - dance: Paso Doble
   videos:
+  - title: Paso Doble · Latin · Level 3 · A
+    tags: [new, latin]
+    filename: Paso doble level 3 first part.MOV
   - title: Paso Doble · Latin · Level 2
     tags: [latin]
     filename: Paso Doble level 2.mov
   - title: Paso Doble · Fallaway Promenade Attack
     url: https://youtu.be/nDFihjVBSYs
     tags: [latin]
-  - title: Paso Doble · Latin · Level 3 · A
-    tags: [new, latin]
-    filename: Paso doble level 3 first part.MOV
 
 - dance: Jive
   videos:

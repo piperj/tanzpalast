@@ -553,6 +553,18 @@
     "videos": [
       {
         "id": 46,
+        "title": "Paso Doble · Latin · Level 3 · A",
+        "url": "https://drive.google.com/file/d/1gzrOSOsHbg5AXv3vHUU9rhGa_UPSWKBO/view",
+        "type": "video",
+        "tags": [
+          "new",
+          "latin"
+        ],
+        "description": "",
+        "thumbnail": "thumbnails/paso-doble-level-3-first-part.jpg"
+      },
+      {
+        "id": 47,
         "title": "Paso Doble · Latin · Level 2",
         "url": "https://drive.google.com/file/d/1udeNDYaaREE5eNnq1R34_SQv32q0i4D5/view",
         "type": "video",
@@ -563,7 +575,7 @@
         "thumbnail": "thumbnails/paso-doble-level-2.jpg"
       },
       {
-        "id": 47,
+        "id": 48,
         "title": "Paso Doble · Fallaway Promenade Attack",
         "url": "https://youtu.be/nDFihjVBSYs",
         "type": "video",
@@ -571,18 +583,6 @@
           "latin"
         ],
         "description": ""
-      },
-      {
-        "id": 48,
-        "title": "Paso Doble · Latin · Level 3 · A",
-        "url": "https://drive.google.com/file/d/1gzrOSOsHbg5AXv3vHUU9rhGa_UPSWKBO/view",
-        "type": "video",
-        "tags": [
-          "new",
-          "latin"
-        ],
-        "description": "",
-        "thumbnail": "thumbnails/paso-doble-level-3-first-part.jpg"
       }
     ]
   },
